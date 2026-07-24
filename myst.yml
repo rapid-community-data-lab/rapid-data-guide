@@ -1,0 +1,40 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 23bfcf7d-042a-48b9-bc19-dea1b22cead1
+  title: "Public Interest Data Guide"
+  # description: RAPID-CDL
+  keywords:
+    - Hansard
+    - Inquiries
+  # authors: []
+  # github:
+  static_files:
+    - images
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+  toc:
+  - file: index.ipynb
+  - title: Hansard
+    children:
+      - file: hansard/hansard-intro.ipynb
+      - file: hansard/hansard-contents.ipynb
+      - file: hansard/hansard-structure.ipynb
+      - title: Tutorials
+        children:
+          - title: Compiling data
+            children:
+              - file: hansard/tutorials/compiling/compiling.ipynb
+          - title: Analysing text
+            children:
+              - file: hansard/tutorials/analysing/analysing.ipynb
+  - title: "Reviews and inquiries"
+    children:
+      - file: inquiries/inquiries-intro.ipynb
+site:
+  template: book-theme
+  options:
+  #   favicon: favicon.ico
+    logo: images/logo-C0U4XbdU.jpg
+
+
+
