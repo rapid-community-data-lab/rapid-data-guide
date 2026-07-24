@@ -146,6 +146,8 @@ matplotlib-inline==0.2.2
     #   ipython
 mistune==3.3.4
     # via nbconvert
+mystmd==1.3.6
+    # via -r requirements.in
 nbclient==0.11.0
     # via nbconvert
 nbconvert==7.17.1
