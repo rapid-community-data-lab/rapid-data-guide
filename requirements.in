@@ -1,4 +1,7 @@
 jupyter-book>=2.0.0
-jupyterlab
+jupyterlab==4.5
 jupyterlab_myst
 mystmd
+requests
+altair
+pandas

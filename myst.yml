@@ -4,6 +4,13 @@ project:
   id: 23bfcf7d-042a-48b9-bc19-dea1b22cead1
   title: "Public Interest Data Guide"
   # description: RAPID-CDL
+  authors:
+    - name: Tim Sherratt
+      id: tim
+      orcid: http://orcid.org/0000-0001-7956-4498
+      url: https://timsherratt.au
+      mastodon: "@wragge@hcommons.social"
+      github: "@wragge"
   keywords:
     - Hansard
     - Inquiries
@@ -11,6 +18,8 @@ project:
   # github:
   static_files:
     - images
+  references:
+    guide: https://mystmd.org/guide
   # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
   toc:
   - file: index.ipynb
@@ -33,7 +42,10 @@ project:
       - file: inquiries/inquiries-intro.ipynb
   - title: Contributing
     children:
-      - file: contributing.ipynb
+      - file: contributing/contributing.ipynb
+      - file: contributing/author-guide.ipynb
+      - file: contributing/example.ipynb
+        title: Examples
 site:
   template: book-theme
   options:
