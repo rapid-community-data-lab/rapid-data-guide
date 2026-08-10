@@ -1,0 +1,46 @@
+project:
+  type: website
+
+website:
+  title: "Public Interest Data Guide"
+  page-navigation: true
+  repo-url: https://github.com/rapid-community-data-lab/rapid-data-guide
+  repo-actions: [edit, source, issue]
+  navbar:
+    logo: /images/rapid-logo.jpg
+
+  sidebar:
+    style: floating
+    contents:
+      - href: index.ipynb
+        text: Home
+      - href: about.ipynb
+        text: About
+      - section: Hansard
+        contents:
+          - hansard/hansard-intro.ipynb
+          - hansard/hansard-structure.ipynb
+          - hansard/hansard-contents.ipynb
+          - hansard/parliamentary-processes.ipynb
+      - section: Inquiries
+        contents:
+          - inquiries/inquiries-intro.ipynb
+      - section: Contributing
+        contents:
+          - contributing/contributing.ipynb
+          - contributing/author-guide.ipynb
+          - contributing/example.ipynb
+  page-footer:
+    center: "Part of the [RAPID-CDL](https://rapid-cdl.edu.au) (Reusable and Accessible Public Interest Documents) project"
+
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+
+
+
