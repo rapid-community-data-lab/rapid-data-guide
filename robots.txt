@@ -1,0 +1,1 @@
+Sitemap: https://rapid-community-data-lab.github.io/rapid-data-guide/sitemap.xml
