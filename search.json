@@ -1,0 +1,163 @@
+[
+  {
+    "objectID": "contributing/contributing.html",
+    "href": "contributing/contributing.html",
+    "title": "Contributing content",
+    "section": "",
+    "text": "This site is built using Quarto. Quarto takes a collection of Markdown files and Jupyter notebooks and renders them as a static HTML site. The Jupyter notebooks can include code cells that are executed at build time to generate tables, visualisations and other outputs.",
+    "crumbs": [
+      "Contributing",
+      "Contributing content"
+    ]
+  },
+  {
+    "objectID": "contributing/contributing.html#quarto",
+    "href": "contributing/contributing.html#quarto",
+    "title": "Contributing content",
+    "section": "",
+    "text": "This site is built using Quarto. Quarto takes a collection of Markdown files and Jupyter notebooks and renders them as a static HTML site. The Jupyter notebooks can include code cells that are executed at build time to generate tables, visualisations and other outputs.",
+    "crumbs": [
+      "Contributing",
+      "Contributing content"
+    ]
+  },
+  {
+    "objectID": "contributing/contributing.html#local-installation",
+    "href": "contributing/contributing.html#local-installation",
+    "title": "Contributing content",
+    "section": "Local installation",
+    "text": "Local installation\nTo set up a local development environment:\n\ninstall Quarto\ngit clone the repository\ncreate a Python virtual environment\ninstall the requirements\ncreate/edit notebooks in Jupyter Lab\npreview using Quarto\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate\n\n\n\n\nSource: An example notebook",
+    "crumbs": [
+      "Contributing",
+      "Contributing content"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html",
+    "href": "contributing/author-guide.html",
+    "title": "Guide for authors",
+    "section": "",
+    "text": "Include extra metadata in the front matter section of a notebook. Possible values include:\n\nauthors\nabstract\nkeywords\n\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\n---\nFront matter rules: - has to be in the first cell of the notebook - cell has to be set to ‘Markdown’ - data has to be valid YAML - YAML data has to be enclosed top and bottom by --- lines",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#front-matter",
+    "href": "contributing/author-guide.html#front-matter",
+    "title": "Guide for authors",
+    "section": "",
+    "text": "Include extra metadata in the front matter section of a notebook. Possible values include:\n\nauthors\nabstract\nkeywords\n\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\n---\nFront matter rules: - has to be in the first cell of the notebook - cell has to be set to ‘Markdown’ - data has to be valid YAML - YAML data has to be enclosed top and bottom by --- lines",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#labelling-cells-and-content",
+    "href": "contributing/author-guide.html#labelling-cells-and-content",
+    "title": "Guide for authors",
+    "section": "Labelling cells and content",
+    "text": "Labelling cells and content\nBy labelling code and Markdown cells they can used in cross-references or embedded elsewhere in the book.\nNote that labels are accessible across the whole site, not just a notebook, so should be unique. Quarto defines a set of prefixes that should be used in labels, eg: ‘fig’, ‘tbl’, and ‘sec’ for figures, tables and sections.\nTo label a section, add {#sec-my-section-name} after a heading. For example:\n## Cool things about Hansard {#sec-my-cool-hansard-things}\nTo label an image add {#fig-my-image} after the standard Markdown image embed link:\n![](parliament-house.jpeg) {#fig-parliament-house}\nTo label an image with a caption:\n::: {#fig-parliament-house}\n\n![](parliament-house.jpeg)\n\nParliament House in Canberra\n:::\nTo label a code cell that produces a chart add #| label: fig-my-chart and #| fig-caption: My interesting chart to the very top of the cell:\n#| label: fig-sitting-days\n#| fig-cap: Number of sitting days per year for the House of Representatives and the Senate\n\n# Code goes here",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#links-and-cross-references",
+    "href": "contributing/author-guide.html#links-and-cross-references",
+    "title": "Guide for authors",
+    "section": "Links and cross-references",
+    "text": "Links and cross-references\nTo create an internal link to another notebook, use standard Markdown syntax with the full or relative path to the notebook in the file structure, including the file extension.\nFor example, [introduction to Hansard](/hansard/hansard-intro) produces:\n\nHere’s an introduction to Hansard\n\nTo create an internal link to a heading in another notebook, use standard Markdown syntax with the full path to the notebook and the heading’s HTML id. For example to link to the ‘Quarto’ heading in the ‘contributing’ notebook, use [](/contributing/contributing#quarto):\n\nThis site uses quarto.\n\nYou can also use the @fig-sitting-days shorthand:\nFigure 1 shows the number of sitting days for each house of parliament.",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#embedding-and-reusing-content",
+    "href": "contributing/author-guide.html#embedding-and-reusing-content",
+    "title": "Guide for authors",
+    "section": "Embedding and reusing content",
+    "text": "Embedding and reusing content\nTo embed the chart labelled fig-sitting-days from the example.ipynb notebook:\n{{&lt; embed example.ipynb#fig-sitting-days &gt;}}\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate\n\n\n\n\nSource: An example notebook",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#style",
+    "href": "contributing/author-guide.html#style",
+    "title": "Guide for authors",
+    "section": "Style",
+    "text": "Style\nFollow the Australian Government Style Manual in naming government entities:\n\nGovernment terms\nParliaments and Councils",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the Public Interest Data Guide",
+    "section": "",
+    "text": "Warning\n\n\n\nThis is a development version of the site and is not intended for public use.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#get-started",
+    "href": "index.html#get-started",
+    "title": "Welcome to the Public Interest Data Guide",
+    "section": "Get started",
+    "text": "Get started\n\n\n\nHansard\n\n🗣️ Explore the record of what was spoken in the Australian parliament.\nWhat is Hansard? →\n\n\n\n\n\nReviews and inquiries\n\n📚 Explore public submissions to government reviews and inquiries.\nIntroduction →",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#more-information",
+    "href": "index.html#more-information",
+    "title": "Welcome to the Public Interest Data Guide",
+    "section": "More information",
+    "text": "More information\n\n\n\nAbout this site\n\nAbout →\n\n\n\n\n\nContributing\n\nContributing →",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About this site",
+    "section": "",
+    "text": "This site was created by the Reusable and Accessible Public Interest Documents (RAPID-CDL) project, part of ARDC’s Community Data Lab. The RAPID-CDL project aims to make public interest documents such as parliamentary proceedings, inquiry submissions, hearing transcripts, and ministerial records more accessible and usable for researchers across Australia.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "contributing/example.html",
+    "href": "contributing/example.html",
+    "title": "An example notebook",
+    "section": "",
+    "text": "The cell below generates a chart. Note that the cell has been labelled using #| label: sitting-days-chart this means the cell can be referenced elsewhere using sitting-days-chart.\nIf you look in the cell metadata you’ll see it includes the remove-cell tag. This means the cell and its output won’t be included in the final book. Instead we’ll embed the chart in a figure below so we can add a caption and it will be automatically numbered.\n\nimport pandas as pd\nimport altair as alt\n\ndf = pd.read_json(\"https://handbookapi.aph.gov.au/api/StatisticalInformation/SittingDaysPerYear\")\n\ndfs = []\nfor house in [\"Reps\", \"Senate\"]:\n    df_h = df[[\"Year\", f\"{house}Days\"]]\n    df_h[\"house\"] = house\n    df_h.columns = [\"year\", \"days\", \"house\"]\n    dfs.append(df_h)\ndf_split = pd.concat(dfs)\n\nticks = [t for t in range(1900, 2030, 5)]\nalt.Chart(df_split).mark_bar().encode(\n    x=alt.X(\"year:O\").axis(values=ticks).title(None),\n    y=alt.Y(\"days:Q\").title(None),\n    row=alt.Row(\"house\").title(\"number of days\"),\n    color=alt.Color(\"house\").legend(None),\n    tooltip=[\"year:O\", \"house:N\", \"days:Q\"]\n).properties(height=200, width=600, padding=20)\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate\n\n\n\n\n\ndf_split\n\n\n\n\n\n\n\n\nyear\ndays\nhouse\n\n\n\n\n0\n2026\n41\nReps\n\n\n1\n2025\n41\nReps\n\n\n2\n2024\n63\nReps\n\n\n3\n2023\n67\nReps\n\n\n4\n2022\n41\nReps\n\n\n...\n...\n...\n...\n\n\n121\n1905\n66\nSenate\n\n\n122\n1904\n64\nSenate\n\n\n123\n1903\n62\nSenate\n\n\n124\n1902\n93\nSenate\n\n\n125\n1901\n85\nSenate\n\n\n\n\n252 rows × 3 columns",
+    "crumbs": [
+      "Contributing",
+      "An example notebook"
+    ]
+  },
+  {
+    "objectID": "contributing/example.html#displaying-a-chart",
+    "href": "contributing/example.html#displaying-a-chart",
+    "title": "An example notebook",
+    "section": "",
+    "text": "The cell below generates a chart. Note that the cell has been labelled using #| label: sitting-days-chart this means the cell can be referenced elsewhere using sitting-days-chart.\nIf you look in the cell metadata you’ll see it includes the remove-cell tag. This means the cell and its output won’t be included in the final book. Instead we’ll embed the chart in a figure below so we can add a caption and it will be automatically numbered.\n\nimport pandas as pd\nimport altair as alt\n\ndf = pd.read_json(\"https://handbookapi.aph.gov.au/api/StatisticalInformation/SittingDaysPerYear\")\n\ndfs = []\nfor house in [\"Reps\", \"Senate\"]:\n    df_h = df[[\"Year\", f\"{house}Days\"]]\n    df_h[\"house\"] = house\n    df_h.columns = [\"year\", \"days\", \"house\"]\n    dfs.append(df_h)\ndf_split = pd.concat(dfs)\n\nticks = [t for t in range(1900, 2030, 5)]\nalt.Chart(df_split).mark_bar().encode(\n    x=alt.X(\"year:O\").axis(values=ticks).title(None),\n    y=alt.Y(\"days:Q\").title(None),\n    row=alt.Row(\"house\").title(\"number of days\"),\n    color=alt.Color(\"house\").legend(None),\n    tooltip=[\"year:O\", \"house:N\", \"days:Q\"]\n).properties(height=200, width=600, padding=20)\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate\n\n\n\n\n\ndf_split\n\n\n\n\n\n\n\n\nyear\ndays\nhouse\n\n\n\n\n0\n2026\n41\nReps\n\n\n1\n2025\n41\nReps\n\n\n2\n2024\n63\nReps\n\n\n3\n2023\n67\nReps\n\n\n4\n2022\n41\nReps\n\n\n...\n...\n...\n...\n\n\n121\n1905\n66\nSenate\n\n\n122\n1904\n64\nSenate\n\n\n123\n1903\n62\nSenate\n\n\n124\n1902\n93\nSenate\n\n\n125\n1901\n85\nSenate\n\n\n\n\n252 rows × 3 columns",
+    "crumbs": [
+      "Contributing",
+      "An example notebook"
+    ]
+  }
+]

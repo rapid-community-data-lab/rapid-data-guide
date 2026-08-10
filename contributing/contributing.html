@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="keywords" content="Jupyter Book, documentation">
+
+<title>Contributing content – Public Interest Data Guide</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../contributing/author-guide.html" rel="next">
+<link href="../inquiries/inquiries-intro.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d980a28043461ba33cd24f5edf807e89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c52ac86ad2fa42d4af59bb4ad9ad8621.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d980a28043461ba33cd24f5edf807e89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/rapid-logo.jpg" alt="" class="navbar-logo light-content">
+    <img src="../images/rapid-logo.jpg" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Public Interest Data Guide</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contributing/contributing.html">Contributing</a></li><li class="breadcrumb-item"><a href="../contributing/contributing.html">Contributing content</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Hansard</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hansard/hansard-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is Hansard?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hansard/hansard-structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The structure of Hansard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hansard/hansard-contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The contents of Hansard</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../hansard/parliamentary-processes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Understanding Parliamentary processes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inquiries</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inquiries/inquiries-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to reviews and inquiries</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Contributing</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/contributing.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Contributing content</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/author-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Guide for authors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../contributing/example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">An example notebook</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#local-installation" id="toc-local-installation" class="nav-link" data-scroll-target="#local-installation">Local installation</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/rapid-community-data-lab/rapid-data-guide/blob/main/contributing/contributing.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/blob/main/contributing/contributing.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="example-preview.html"><i class="bi bi-journal-code"></i>An example notebook</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../contributing/contributing.html">Contributing</a></li><li class="breadcrumb-item"><a href="../contributing/contributing.html">Contributing content</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Contributing content</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p><a href="https://timsherratt.au">Tim Sherratt</a> <a href="https://orcid.org/http://orcid.org/0000-0001-7956-4498" class="quarto-title-author-orcid" aria-label="ORCID profile for Tim Sherratt"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    This section provides information for people wanting to add content to this guide.
+  </div>
+</div>
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Jupyter Book, documentation</p>
+  </div>
+</div>
+
+</header>
+
+
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
+<p>This site is built using <a href="https://quarto.org">Quarto</a>. Quarto takes a collection of Markdown files and Jupyter notebooks and renders them as a static HTML site. The Jupyter notebooks can include code cells that are executed at build time to generate tables, visualisations and other outputs.</p>
+</section>
+<section id="local-installation" class="level2">
+<h2 class="anchored" data-anchor-id="local-installation">Local installation</h2>
+<p>To set up a local development environment:</p>
+<ol type="1">
+<li>install Quarto</li>
+<li>git clone the repository</li>
+<li>create a Python virtual environment</li>
+<li>install the requirements</li>
+<li>create/edit notebooks in Jupyter Lab</li>
+<li>preview using Quarto</li>
+</ol>
+<div class="quarto-embed-nb-cell">
+<div id="cell-fig-sitting-days" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]" data-execution_count="3">
+<div id="fig-sitting-days" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sitting-days-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+
+<style>
+  #altair-viz-b7b985d20f7749ed8e512bf849862fdd.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-b7b985d20f7749ed8e512bf849862fdd.vega-embed details,
+  #altair-viz-b7b985d20f7749ed8e512bf849862fdd.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-b7b985d20f7749ed8e512bf849862fdd"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-b7b985d20f7749ed8e512bf849862fdd") {
+      outputDiv = document.getElementById("altair-viz-b7b985d20f7749ed8e512bf849862fdd");
+    }
+
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@6?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@6.4.1?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@7?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      let deps = ["vega-embed"];
+      require(deps, displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "6")
+        .then(() => maybeLoadScript("vega-lite", "6.4.1"))
+        .then(() => maybeLoadScript("vega-embed", "7"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-3f2b87e22a324c70cf057ab7c5ff6068"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "house", "legend": null, "type": "nominal"}, "row": {"field": "house", "title": "number of days", "type": "nominal"}, "tooltip": [{"field": "year", "type": "ordinal"}, {"field": "house", "type": "nominal"}, {"field": "days", "type": "quantitative"}], "x": {"axis": {"values": [1900, 1905, 1910, 1915, 1920, 1925, 1930, 1935, 1940, 1945, 1950, 1955, 1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025]}, "field": "year", "title": null, "type": "ordinal"}, "y": {"field": "days", "title": null, "type": "quantitative"}}, "height": 200, "padding": 20, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-3f2b87e22a324c70cf057ab7c5ff6068": [{"year": 2026, "days": 41, "house": "Reps"}, {"year": 2025, "days": 41, "house": "Reps"}, {"year": 2024, "days": 63, "house": "Reps"}, {"year": 2023, "days": 67, "house": "Reps"}, {"year": 2022, "days": 41, "house": "Reps"}, {"year": 2021, "days": 67, "house": "Reps"}, {"year": 2020, "days": 58, "house": "Reps"}, {"year": 2019, "days": 45, "house": "Reps"}, {"year": 2018, "days": 65, "house": "Reps"}, {"year": 2017, "days": 64, "house": "Reps"}, {"year": 2016, "days": 51, "house": "Reps"}, {"year": 2015, "days": 75, "house": "Reps"}, {"year": 2014, "days": 76, "house": "Reps"}, {"year": 2013, "days": 48, "house": "Reps"}, {"year": 2012, "days": 63, "house": "Reps"}, {"year": 2011, "days": 64, "house": "Reps"}, {"year": 2010, "days": 55, "house": "Reps"}, {"year": 2009, "days": 68, "house": "Reps"}, {"year": 2008, "days": 70, "house": "Reps"}, {"year": 2007, "days": 50, "house": "Reps"}, {"year": 2006, "days": 68, "house": "Reps"}, {"year": 2005, "days": 67, "house": "Reps"}, {"year": 2004, "days": 59, "house": "Reps"}, {"year": 2003, "days": 74, "house": "Reps"}, {"year": 2002, "days": 69, "house": "Reps"}, {"year": 2001, "days": 56, "house": "Reps"}, {"year": 2000, "days": 73, "house": "Reps"}, {"year": 1999, "days": 73, "house": "Reps"}, {"year": 1998, "days": 56, "house": "Reps"}, {"year": 1997, "days": 79, "house": "Reps"}, {"year": 1996, "days": 63, "house": "Reps"}, {"year": 1995, "days": 71, "house": "Reps"}, {"year": 1994, "days": 69, "house": "Reps"}, {"year": 1993, "days": 47, "house": "Reps"}, {"year": 1992, "days": 60, "house": "Reps"}, {"year": 1991, "days": 67, "house": "Reps"}, {"year": 1990, "days": 38, "house": "Reps"}, {"year": 1989, "days": 59, "house": "Reps"}, {"year": 1988, "days": 65, "house": "Reps"}, {"year": 1987, "days": 74, "house": "Reps"}, {"year": 1986, "days": 79, "house": "Reps"}, {"year": 1985, "days": 66, "house": "Reps"}, {"year": 1984, "days": 52, "house": "Reps"}, {"year": 1983, "days": 49, "house": "Reps"}, {"year": 1982, "days": 53, "house": "Reps"}, {"year": 1981, "days": 62, "house": "Reps"}, {"year": 1980, "days": 51, "house": "Reps"}, {"year": 1979, "days": 68, "house": "Reps"}, {"year": 1978, "days": 75, "house": "Reps"}, {"year": 1977, "days": 68, "house": "Reps"}, {"year": 1976, "days": 79, "house": "Reps"}, {"year": 1975, "days": 69, "house": "Reps"}, {"year": 1974, "days": 64, "house": "Reps"}, {"year": 1973, "days": 80, "house": "Reps"}, {"year": 1972, "days": 60, "house": "Reps"}, {"year": 1971, "days": 74, "house": "Reps"}, {"year": 1970, "days": 73, "house": "Reps"}, {"year": 1969, "days": 51, "house": "Reps"}, {"year": 1968, "days": 67, "house": "Reps"}, {"year": 1967, "days": 62, "house": "Reps"}, {"year": 1966, "days": 55, "house": "Reps"}, {"year": 1965, "days": 76, "house": "Reps"}, {"year": 1964, "days": 65, "house": "Reps"}, {"year": 1963, "days": 53, "house": "Reps"}, {"year": 1962, "days": 66, "house": "Reps"}, {"year": 1961, "days": 55, "house": "Reps"}, {"year": 1960, "days": 74, "house": "Reps"}, {"year": 1959, "days": 71, "house": "Reps"}, {"year": 1958, "days": 48, "house": "Reps"}, {"year": 1957, "days": 63, "house": "Reps"}, {"year": 1956, "days": 79, "house": "Reps"}, {"year": 1955, "days": 53, "house": "Reps"}, {"year": 1954, "days": 48, "house": "Reps"}, {"year": 1953, "days": 61, "house": "Reps"}, {"year": 1952, "days": 74, "house": "Reps"}, {"year": 1951, "days": 56, "house": "Reps"}, {"year": 1950, "days": 83, "house": "Reps"}, {"year": 1949, "days": 80, "house": "Reps"}, {"year": 1948, "days": 90, "house": "Reps"}, {"year": 1947, "days": 92, "house": "Reps"}, {"year": 1946, "days": 65, "house": "Reps"}, {"year": 1945, "days": 90, "house": "Reps"}, {"year": 1944, "days": 57, "house": "Reps"}, {"year": 1943, "days": 48, "house": "Reps"}, {"year": 1942, "days": 44, "house": "Reps"}, {"year": 1941, "days": 50, "house": "Reps"}, {"year": 1940, "days": 43, "house": "Reps"}, {"year": 1939, "days": 51, "house": "Reps"}, {"year": 1938, "days": 66, "house": "Reps"}, {"year": 1937, "days": 29, "house": "Reps"}, {"year": 1936, "days": 71, "house": "Reps"}, {"year": 1935, "days": 54, "house": "Reps"}, {"year": 1934, "days": 36, "house": "Reps"}, {"year": 1933, "days": 67, "house": "Reps"}, {"year": 1932, "days": 73, "house": "Reps"}, {"year": 1931, "days": 94, "house": "Reps"}, {"year": 1930, "days": 98, "house": "Reps"}, {"year": 1929, "days": 54, "house": "Reps"}, {"year": 1928, "days": 62, "house": "Reps"}, {"year": 1927, "days": 60, "house": "Reps"}, {"year": 1926, "days": 84, "house": "Reps"}, {"year": 1925, "days": 36, "house": "Reps"}, {"year": 1924, "days": 83, "house": "Reps"}, {"year": 1923, "days": 52, "house": "Reps"}, {"year": 1922, "days": 53, "house": "Reps"}, {"year": 1921, "days": 93, "house": "Reps"}, {"year": 1920, "days": 114, "house": "Reps"}, {"year": 1919, "days": 51, "house": "Reps"}, {"year": 1918, "days": 91, "house": "Reps"}, {"year": 1917, "days": 52, "house": "Reps"}, {"year": 1916, "days": 32, "house": "Reps"}, {"year": 1915, "days": 72, "house": "Reps"}, {"year": 1914, "days": 61, "house": "Reps"}, {"year": 1913, "days": 74, "house": "Reps"}, {"year": 1912, "days": 105, "house": "Reps"}, {"year": 1911, "days": 61, "house": "Reps"}, {"year": 1910, "days": 83, "house": "Reps"}, {"year": 1909, "days": 98, "house": "Reps"}, {"year": 1908, "days": 91, "house": "Reps"}, {"year": 1907, "days": 97, "house": "Reps"}, {"year": 1906, "days": 70, "house": "Reps"}, {"year": 1905, "days": 90, "house": "Reps"}, {"year": 1904, "days": 122, "house": "Reps"}, {"year": 1903, "days": 78, "house": "Reps"}, {"year": 1902, "days": 107, "house": "Reps"}, {"year": 1901, "days": 113, "house": "Reps"}, {"year": 2026, "days": 30, "house": "Senate"}, {"year": 2025, "days": 36, "house": "Senate"}, {"year": 2024, "days": 52, "house": "Senate"}, {"year": 2023, "days": 65, "house": "Senate"}, {"year": 2022, "days": 34, "house": "Senate"}, {"year": 2021, "days": 52, "house": "Senate"}, {"year": 2020, "days": 46, "house": "Senate"}, {"year": 2019, "days": 40, "house": "Senate"}, {"year": 2018, "days": 58, "house": "Senate"}, {"year": 2017, "days": 56, "house": "Senate"}, {"year": 2016, "days": 42, "house": "Senate"}, {"year": 2015, "days": 60, "house": "Senate"}, {"year": 2014, "days": 63, "house": "Senate"}, {"year": 2013, "days": 37, "house": "Senate"}, {"year": 2012, "days": 57, "house": "Senate"}, {"year": 2011, "days": 56, "house": "Senate"}, {"year": 2010, "days": 40, "house": "Senate"}, {"year": 2009, "days": 53, "house": "Senate"}, {"year": 2008, "days": 52, "house": "Senate"}, {"year": 2007, "days": 41, "house": "Senate"}, {"year": 2006, "days": 58, "house": "Senate"}, {"year": 2005, "days": 57, "house": "Senate"}, {"year": 2004, "days": 49, "house": "Senate"}, {"year": 2003, "days": 64, "house": "Senate"}, {"year": 2002, "days": 60, "house": "Senate"}, {"year": 2001, "days": 52, "house": "Senate"}, {"year": 2000, "days": 71, "house": "Senate"}, {"year": 1999, "days": 79, "house": "Senate"}, {"year": 1998, "days": 59, "house": "Senate"}, {"year": 1997, "days": 83, "house": "Senate"}, {"year": 1996, "days": 71, "house": "Senate"}, {"year": 1995, "days": 79, "house": "Senate"}, {"year": 1994, "days": 81, "house": "Senate"}, {"year": 1993, "days": 58, "house": "Senate"}, {"year": 1992, "days": 76, "house": "Senate"}, {"year": 1991, "days": 83, "house": "Senate"}, {"year": 1990, "days": 59, "house": "Senate"}, {"year": 1989, "days": 92, "house": "Senate"}, {"year": 1988, "days": 89, "house": "Senate"}, {"year": 1987, "days": 84, "house": "Senate"}, {"year": 1986, "days": 86, "house": "Senate"}, {"year": 1985, "days": 74, "house": "Senate"}, {"year": 1984, "days": 63, "house": "Senate"}, {"year": 1983, "days": 63, "house": "Senate"}, {"year": 1982, "days": 73, "house": "Senate"}, {"year": 1981, "days": 72, "house": "Senate"}, {"year": 1980, "days": 57, "house": "Senate"}, {"year": 1979, "days": 71, "house": "Senate"}, {"year": 1978, "days": 76, "house": "Senate"}, {"year": 1977, "days": 72, "house": "Senate"}, {"year": 1976, "days": 79, "house": "Senate"}, {"year": 1975, "days": 72, "house": "Senate"}, {"year": 1974, "days": 66, "house": "Senate"}, {"year": 1973, "days": 80, "house": "Senate"}, {"year": 1972, "days": 63, "house": "Senate"}, {"year": 1971, "days": 73, "house": "Senate"}, {"year": 1970, "days": 73, "house": "Senate"}, {"year": 1969, "days": 53, "house": "Senate"}, {"year": 1968, "days": 68, "house": "Senate"}, {"year": 1967, "days": 65, "house": "Senate"}, {"year": 1966, "days": 46, "house": "Senate"}, {"year": 1965, "days": 63, "house": "Senate"}, {"year": 1964, "days": 62, "house": "Senate"}, {"year": 1963, "days": 42, "house": "Senate"}, {"year": 1962, "days": 65, "house": "Senate"}, {"year": 1961, "days": 52, "house": "Senate"}, {"year": 1960, "days": 71, "house": "Senate"}, {"year": 1959, "days": 71, "house": "Senate"}, {"year": 1958, "days": 37, "house": "Senate"}, {"year": 1957, "days": 54, "house": "Senate"}, {"year": 1956, "days": 58, "house": "Senate"}, {"year": 1955, "days": 36, "house": "Senate"}, {"year": 1954, "days": 35, "house": "Senate"}, {"year": 1953, "days": 37, "house": "Senate"}, {"year": 1952, "days": 38, "house": "Senate"}, {"year": 1951, "days": 40, "house": "Senate"}, {"year": 1950, "days": 66, "house": "Senate"}, {"year": 1949, "days": 32, "house": "Senate"}, {"year": 1948, "days": 39, "house": "Senate"}, {"year": 1947, "days": 38, "house": "Senate"}, {"year": 1946, "days": 42, "house": "Senate"}, {"year": 1945, "days": 51, "house": "Senate"}, {"year": 1944, "days": 44, "house": "Senate"}, {"year": 1943, "days": 36, "house": "Senate"}, {"year": 1942, "days": 35, "house": "Senate"}, {"year": 1941, "days": 38, "house": "Senate"}, {"year": 1940, "days": 34, "house": "Senate"}, {"year": 1939, "days": 33, "house": "Senate"}, {"year": 1938, "days": 46, "house": "Senate"}, {"year": 1937, "days": 27, "house": "Senate"}, {"year": 1936, "days": 49, "house": "Senate"}, {"year": 1935, "days": 37, "house": "Senate"}, {"year": 1934, "days": 22, "house": "Senate"}, {"year": 1933, "days": 49, "house": "Senate"}, {"year": 1932, "days": 53, "house": "Senate"}, {"year": 1931, "days": 76, "house": "Senate"}, {"year": 1930, "days": 64, "house": "Senate"}, {"year": 1929, "days": 43, "house": "Senate"}, {"year": 1928, "days": 44, "house": "Senate"}, {"year": 1927, "days": 44, "house": "Senate"}, {"year": 1926, "days": 61, "house": "Senate"}, {"year": 1925, "days": 32, "house": "Senate"}, {"year": 1924, "days": 64, "house": "Senate"}, {"year": 1923, "days": 35, "house": "Senate"}, {"year": 1922, "days": 44, "house": "Senate"}, {"year": 1921, "days": 79, "house": "Senate"}, {"year": 1920, "days": 76, "house": "Senate"}, {"year": 1919, "days": 39, "house": "Senate"}, {"year": 1918, "days": 71, "house": "Senate"}, {"year": 1917, "days": 48, "house": "Senate"}, {"year": 1916, "days": 33, "house": "Senate"}, {"year": 1915, "days": 57, "house": "Senate"}, {"year": 1914, "days": 53, "house": "Senate"}, {"year": 1913, "days": 34, "house": "Senate"}, {"year": 1912, "days": 60, "house": "Senate"}, {"year": 1911, "days": 46, "house": "Senate"}, {"year": 1910, "days": 65, "house": "Senate"}, {"year": 1909, "days": 71, "house": "Senate"}, {"year": 1908, "days": 84, "house": "Senate"}, {"year": 1907, "days": 65, "house": "Senate"}, {"year": 1906, "days": 57, "house": "Senate"}, {"year": 1905, "days": 66, "house": "Senate"}, {"year": 1904, "days": 64, "house": "Senate"}, {"year": 1903, "days": 62, "house": "Senate"}, {"year": 1902, "days": 93, "house": "Senate"}, {"year": 1901, "days": 85, "house": "Senate"}]}}, {"mode": "vega-lite"});
+</script>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sitting-days-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Number of sitting days per year for the House of Representatives and the Senate
+</figcaption>
+</figure>
+</div>
+</div>
+<a class="quarto-notebook-link" id="nblink-1" href="example-preview.html#cell-fig-sitting-days">Source: An example notebook</a></div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../inquiries/inquiries-intro.html" class="pagination-link" aria-label="Introduction to reviews and inquiries">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to reviews and inquiries</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../contributing/author-guide.html" class="pagination-link" aria-label="Guide for authors">
+        <span class="nav-page-text">Guide for authors</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Part of the <a href="https://rapid-cdl.edu.au">RAPID-CDL</a> (Reusable and Accessible Public Interest Documents) project</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/rapid-community-data-lab/rapid-data-guide/blob/main/contributing/contributing.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/blob/main/contributing/contributing.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
