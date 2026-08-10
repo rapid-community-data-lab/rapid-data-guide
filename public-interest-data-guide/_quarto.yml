@@ -5,6 +5,7 @@ website:
   title: "Public Interest Data Guide"
   page-navigation: true
   repo-url: https://github.com/rapid-community-data-lab/rapid-data-guide
+  repo-subdir: public-interest-data-guide
   repo-actions: [edit, source, issue]
   navbar:
     logo: /images/rapid-logo.jpg
