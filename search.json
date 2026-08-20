@@ -129,6 +129,63 @@
     ]
   },
   {
+    "objectID": "hansard/parliamentary-handbook-api.html",
+    "href": "hansard/parliamentary-handbook-api.html",
+    "title": "Parliamentary Handbook API",
+    "section": "",
+    "text": "The Parliamentary Handbook includes a simple API that you can use to get the data about parliament and parliamentarians in machine-readable form.\nAggregated data about individuals can be accessed via: https://handbookapi.aph.gov.au/api/individuals/. However, this data only includes a summary of the available information for each person. There are a variety of other endpoints that can be used to access the full data. For example:",
+    "crumbs": [
+      "Hansard",
+      "Related data",
+      "Parliamentary Handbook API"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentary-handbook-api.html#records-of-service",
+    "href": "hansard/parliamentary-handbook-api.html#records-of-service",
+    "title": "Parliamentary Handbook API",
+    "section": "Records of service",
+    "text": "Records of service\nRecords of Service types (in the ROSTypeID field):\n\n9 parliamentary terms\n5 ministry appointments\n22 shadow ministry appointments\n7 Parliamentary Party Positions\n2 Committee Service\n10 Party Positions\n18 occupations\n21 qualifications\n6 Parliamentary Appointments\n\nhttps://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=N26",
+    "crumbs": [
+      "Hansard",
+      "Related data",
+      "Parliamentary Handbook API"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentarians.html",
+    "href": "hansard/parliamentarians.html",
+    "title": "Parliamentarians",
+    "section": "",
+    "text": "What do we know about the people whose words are recorded in Hansard? The Parliamentary Handbook provides a wealth of information on the make up of the Australian Parliament, including biographical details of all parliamentarians from 1901. The Parliamentary Handbook includes a simple API that you can use to get the data about parliamentarians in machine-readable form.\nHere we’ll use this data to provide some snapshots of members of the Australian Parliament.\nNow we have the data we can slice it in different ways to gain some understanding of the make up of parliament.",
+    "crumbs": [
+      "Hansard",
+      "Parliamentarians"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentarians.html#gender",
+    "href": "hansard/parliamentarians.html#gender",
+    "title": "Parliamentarians",
+    "section": "Gender",
+    "text": "Gender\nThe data from the Parliamentary Handbook includes a field for Gender. We can aggregate data from this field to generate some overviews.\n\n\nCode\ngender_total = df[\"Gender\"].value_counts().to_frame().reset_index()\ngender_house = df.loc[df[\"ElectedMemberNo\"] &gt; -1][\"Gender\"].value_counts().to_frame().reset_index()\ngender_senate = df.loc[df[\"ElectedSenatorNo\"] &gt; -1][\"Gender\"].value_counts().to_frame().reset_index()\ngender_total\n\n\n\n\n\n\n\n\n\nGender\ncount\n\n\n\n\n0\nMale\n1584\n\n\n1\nFemale\n295\n\n\n\n\n\n\n\n\n\nCode\n# Create the base chart\ngender_base = alt.Chart().encode(\n    theta=alt.Theta(\"count\").stack(True),\n    color=alt.Color(\"Gender\").legend(None),\n    tooltip=[alt.Tooltip(\"count\", title=\"number of parliamentarians\"), alt.Tooltip(\"Gender\", title=\"gender\")]\n).properties(width=\"container\")\n\n# Both houses\ntotal_base = gender_base.properties(data=gender_total)\n# Create the pie segments\ntotal_pie = total_base.mark_arc()\n# Create the text labels\ntotal_text = total_base.mark_text(radius=170, size=12).encode(text=\"Gender:N\")\n# Combine pie and labels\nchart_total = alt.layer(total_pie, total_text, padding=20)\n\n# House of Reps\nhouse_base = gender_base.properties(data=gender_house)\nhouse_pie = house_base.mark_arc(outerRadius=120)\nhouse_text = house_base.mark_text(radius=140, size=12).encode(text=\"Gender:N\")\nchart_house = alt.layer(house_pie, house_text, padding=20)\n\n# Senate\nsenate_base = gender_base.properties(data=gender_senate)\nsenate_pie = senate_base.mark_arc(outerRadius=120)\nsenate_text = senate_base.mark_text(radius=140, size=12).encode(text=\"Gender:N\")\nchart_senate = alt.layer(senate_pie, senate_text, padding=20)\n\n# Need to display all charts together like this for Quarto to lay them out\ndisplay(chart_total, chart_house, chart_senate)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Both houses\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) House of Representatives\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Senate\n\n\n\n\n\n\n\nFigure 1: Number of parliamentarians by gender (1901 – present)\n\n\n\n\nEvery federal election results in a new ‘parliament’, and each parliament is given a consecutive number. So the very first parliamant was number 1. The parliamentarians data includes a list of the parliaments that each member was a part of. We can use this to explore how the gender composition of the parliament has changed over time.\n\n\nCode\n# Explode to create a row for each parliament\ndf_parls = df.explode(\"RepresentedParliaments\", ignore_index=True)\n\nparl_gender_base = alt.Chart().mark_bar().encode(\n    x=alt.X(\"parls:O\").title(\"parliament number\"),\n    y=alt.Y(\"count:Q\").title(\"number of members\").stack(True),\n    color=\"Gender\",\n    tooltip=[alt.Tooltip(\"parls\", title=\"parliament\"), alt.Tooltip(\"Gender\", title=\"gender\"), alt.Tooltip(\"count\", title=\"number of members\")]\n).properties(width=\"container\")\n\nparl_gender = df_parls.value_counts([\"Gender\", \"RepresentedParliaments\"]).to_frame().reset_index()\nparl_gender.columns = [\"Gender\", \"parls\", \"count\"]\nparl_gender_chart = parl_gender_base.properties(data=parl_gender)\n\ndisplay(parl_gender_chart)\n\n\n\n\n\n\n\n\n\n\nFigure 2: Gender breakdown by parliament (both houses combined)\n\n\n\n\nThe aggregated data from the Parliamentary Handbook doesn’t specify which house a member was in during a particular parliament. To find that, we can compare their service details with the dates of each parliament. Once we’ve split the parliaments data into houses, we can chart the gender breakdown by house.\n\n\nCode\ndf_parl_dates = pd.read_json(\"https://handbookapi.aph.gov.au/api/StatisticalInformation/Parliaments\", convert_dates=[\"DateElection\", \"DateDissolution\"])\n\ndef is_in_range(dates, parl_num):\n    date_start, date_end = list(df_parl_dates.iloc[df_parl_dates[\"Number\"] == parl_num][[\"DateElection\", \"DateDissolution\"]].values[0])\n    test_dates = [datetime.fromisoformat(d) for d in dates]\n    if pd.notnull(date_end):\n        return date_start &lt;= test_dates[1] and date_end &gt;= test_dates[0]\n    else:\n        return date_start &lt;= test_dates[1] and datetime.now() &gt;= test_dates[0]\n\ndef check_dates(dates, parls):\n    checked_parls = []\n    for parl_num in parls:\n        for date in dates:\n            if is_in_range(date, parl_num):\n                checked_parls.append(parl_num)\n    return list(set(checked_parls))\n\ndef find_house_parliaments(row):\n    if len(row[\"MPorSenator\"]) == 1:\n        if row[\"MPorSenator\"][0] == \"Member\":\n            house_parls = row[\"RepresentedParliaments\"]\n            senate_parls = []\n        else:\n            senate_parls = row[\"RepresentedParliaments\"]\n            house_parls = []\n    else:\n        senate_dates = []\n        house_dates = []\n        services = row[\"PartyParliamentaryService\"]\n        electorates = row[\"ElectorateService\"]\n        elec_dates = [e[\"ServiceStart\"] for e in electorates]\n        for service in services:\n            if service[\"DateStart\"] in elec_dates:\n                house_dates.append([service[\"DateStart\"], service[\"DateEnd\"]])\n            else:\n                senate_dates.append([service[\"DateStart\"], service[\"DateEnd\"]])\n        house_parls = check_dates(house_dates, row[\"RepresentedParliaments\"])\n        senate_parls = check_dates(senate_dates, row[\"RepresentedParliaments\"])\n        \n    return pd.Series([house_parls, senate_parls])\n\ndf[[\"house_parls\", \"senate_parls\"]] = df.apply(find_house_parliaments, axis=1)\n\ndf_house_parls = df.explode(\"house_parls\", ignore_index=True)\ndf_senate_parls = df.explode(\"senate_parls\", ignore_index=True)\n\nparl_gender_house = df_house_parls.value_counts([\"Gender\", \"house_parls\"]).to_frame().reset_index()\nparl_gender_house.columns = [\"Gender\", \"parls\", \"count\"]\nparl_gender_house_chart = parl_gender_base.properties(data=parl_gender_house, height=200)\n\nparl_gender_senate = df_senate_parls.value_counts([\"Gender\", \"senate_parls\"]).to_frame().reset_index()\nparl_gender_senate.columns = [\"Gender\", \"parls\", \"count\"]\nparl_gender_senate_chart = parl_gender_base.properties(data=parl_gender_senate, height=200)\nparl_gender_senate_chart.encoding.y = parl_gender_senate_chart.encoding.y.scale(domain=(0, 160))\n\ndisplay(parl_gender_house_chart, parl_gender_senate_chart)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) House of Representatives\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) Senate\n\n\n\n\n\n\n\nFigure 3: Gender breakdown by parliament and house",
+    "crumbs": [
+      "Hansard",
+      "Parliamentarians"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentarians.html#age",
+    "href": "hansard/parliamentarians.html#age",
+    "title": "Parliamentarians",
+    "section": "Age",
+    "text": "Age\nWhat is the average age of each parliament?\n\n\nCode\ndef get_opening_date(sessions):\n    starting_dates = []\n    for session in sessions:\n        starting_dates.append(session[\"DateOpening\"])\n    return pd.to_datetime(sorted(starting_dates)[0])\n    \ndf_parl_dates[\"opening\"] = df_parl_dates[\"Sessions\"].apply(get_opening_date)\ndf_parl_openings = df_parl_dates[[\"Number\", \"opening\"]]\n\ndef calculate_age(row):\n    opening = row[\"opening\"]\n    born = row[\"DateOfBirth\"]\n    return opening.year - born.year - ((opening.month, opening.day) &lt; (born.month, born.day))\n\ndf_parls_ages = pd.merge(df_parls, df_parl_openings, how=\"left\", left_on=\"RepresentedParliaments\", right_on=\"Number\")\ndf_parls_ages[\"DateOfBirth\"] = pd.to_datetime(df_parls_ages[\"DateOfBirth\"], format='ISO8601')\ndf_parls_ages[\"age\"] = df_parls_ages.apply(calculate_age, axis=1)\n\nparl_ages = df_parls_ages.groupby([\"Number\", \"opening\"])[\"age\"].agg([\"mean\", \"min\", \"max\"]).reset_index()\n\nage_base = alt.Chart(parl_ages).encode(\n    x=alt.X(\"Number:O\").title(\"parliament number\"),\n).properties(width=\"container\")\n\nmean_ages = age_base.mark_line(point=True).encode(\n    y=alt.Y(\"mean:Q\").scale(domain=(40, 60)).title(\"mean age of members\"),\n    tooltip=[alt.Tooltip(\"Number\", title=\"parliament\"), alt.Tooltip(\"opening\", title=\"opening date\"), alt.Tooltip(\"mean\", title=\"mean of ages\"), \"max\", \"min\"]\n).properties(width=\"container\")\n\nage_intervals = age_base.mark_area(opacity=0.2).encode(\n    alt.Y(\"max:Q\").scale(domain=(20, 90)),\n    alt.Y2(\"min:Q\"),\n    tooltip=[alt.Tooltip(\"Number\", title=\"parliament\"), alt.Tooltip(\"opening\", title=\"opening date\"), alt.Tooltip(\"mean\", title=\"mean of ages\"), \"max\", \"min\"]\n).properties(width=\"container\")\n\ndisplay(mean_ages, age_intervals + mean_ages)\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Mean age of members at the start of each parliament\n\n\n\n\n\n\n\n\n\n\n\n\n(b)\n\n\n\n\n\nFigure 4\n\n\n\n\n\n\nCode\nfrom wordcloud import WordCloud\n\noccupations = []\nfor field in [\"Occupations\", \"SecondaryOccupations\"]:\n    occupations += [o for occs in df[\"Occupations\"].to_list() for o in occs]\n\nwc = WordCloud(width=800, height=600).generate(\" \".join(occupations))\nwc.to_image()",
+    "crumbs": [
+      "Hansard",
+      "Parliamentarians"
+    ]
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About this site",

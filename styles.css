@@ -1,1 +1,4 @@
 /* css styles */
+.quarto-layout-cell-subref figcaption, figure .quarto-layout-row figure figcaption {
+    text-align: left;
+}
