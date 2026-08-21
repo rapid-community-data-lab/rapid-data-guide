@@ -1,70 +1,158 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.10.18">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Parliamentarians – Public Interest Data Guide</title>
-<style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+    <title>Parliamentarians – Public Interest Data Guide</title>
+    <style>
+      /* Default styles provided by pandoc.
+      ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+      */
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: 1.5em;}
+      div.column{flex: auto;}
+      @media screen {
+      div.columns{gap: min(4vw, 1.5em);}
+      div.column{overflow-x: auto;}
+      }
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      html { -webkit-text-size-adjust: 100%; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = '/';
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -87,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-d980a28043461ba33cd24f5edf807e89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-c52ac86ad2fa42d4af59bb4ad9ad8621.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-d980a28043461ba33cd24f5edf807e89.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+     <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -113,16 +201,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+}</script>  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>  
+        <link rel="stylesheet" href="../styles.css">
+      </head>
 
-
-<link rel="stylesheet" href="../styles.css">
-</head>
-
-<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+  <body class="nav-sidebar floating nav-fixed quarto-notebook quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -285,8 +370,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       toggleColorMode(false);
     }
   </script>
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link"><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Parliamentarians</h6>
 
-<div id="quarto-search-results"></div>
+            <a href="../hansard/parliamentarians.ipynb" class="btn btn-primary quarto-download-embed" download="parliamentarians.ipynb">Download Notebook</a>
+          </div>
+
+     <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
@@ -434,11 +526,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
     </ul>
     </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+    <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -449,12 +537,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#political-parties" id="toc-political-parties" class="nav-link" data-scroll-target="#political-parties">Political parties</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/hansard/parliamentarians.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/hansard/parliamentarians.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hansard/hansard-intro.html">Hansard</a></li><li class="breadcrumb-item"><a href="../hansard/parliamentarians.html">Parliamentarians</a></li></ol></nav>
+<main class="content" id="quarto-document-content">        <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hansard/hansard-intro.html">Hansard</a></li><li class="breadcrumb-item"><a href="../hansard/parliamentarians.html">Parliamentarians</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Parliamentarians</h1>
 </div>
@@ -476,15 +565,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header>
-
-
+</header>     <div id="f2c74ac9-2a2a-4b50-840e-4889fa388e60" class="cell markdown">
 <p>What do we know about the people whose words are recorded in Hansard? The <a href="https://handbook.aph.gov.au"><em>Parliamentary Handbook</em></a> provides a wealth of information on the make up of the Australian Parliament, including biographical details of all parliamentarians from 1901. The <em>Parliamentary Handbook</em> includes a <a href="../hansard/parliamentary-handbook-api.html">simple API</a> that you can use to get the data about parliamentarians in machine-readable form.</p>
+</div>
+<div id="66e99ffb-be7b-425e-9d8f-0a5a8fd55f8b" class="cell markdown">
 <p>Once we have the data we can slice it in different ways to gain some understanding of the make up of parliament.</p>
-<section id="gender" class="level2 page-columns page-full">
+</div>
+<div id="9185bce5-d7dc-45b7-bbf0-5bade5e7d90c" class="cell markdown">
+<section id="gender" class="level2">
 <h2 class="anchored" data-anchor-id="gender">Gender</h2>
 <p>The data from the <em>Parliamentary Handbook</em> includes a field for <code>Gender</code>. We can aggregate data from this field to generate some overviews.</p>
-<div id="31171b9c-7dda-4404-94ec-5f32255f91d8" class="cell" data-execution_count="3">
+</section>
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="31171b9c-7dda-4404-94ec-5f32255f91d8" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>gender_total <span class="op">=</span> df[<span class="st">"Gender"</span>].value_counts().to_frame().reset_index()</span>
@@ -492,7 +585,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>gender_senate <span class="op">=</span> df.loc[df[<span class="st">"ElectedSenatorNo"</span>] <span class="op">&gt;</span> <span class="op">-</span><span class="dv">1</span>][<span class="st">"Gender"</span>].value_counts().to_frame().reset_index()</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>gender_total</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -520,8 +613,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div>
 </div>
-</div>
-<div class="cell" data-layout="[[1],[1,1]]" data-execution_count="4">
+</div></div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [4]:</pre></div><div class="cell" data-layout="[[1],[1,1]]" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the base chart</span></span>
@@ -565,23 +658,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div aria-describedby="fig-total-gender-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-9004a1951cba4ae8945a947dcf035d95.vega-embed {
+  #altair-viz-ca040601d63045b9a540a3f325c44b1d.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-9004a1951cba4ae8945a947dcf035d95.vega-embed details,
-  #altair-viz-9004a1951cba4ae8945a947dcf035d95.vega-embed details summary {
+  #altair-viz-ca040601d63045b9a540a3f325c44b1d.vega-embed details,
+  #altair-viz-ca040601d63045b9a540a3f325c44b1d.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-9004a1951cba4ae8945a947dcf035d95"></div>
+<div id="altair-viz-ca040601d63045b9a540a3f325c44b1d"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-9004a1951cba4ae8945a947dcf035d95") {
-      outputDiv = document.getElementById("altair-viz-9004a1951cba4ae8945a947dcf035d95");
+    if (outputDiv.id !== "altair-viz-ca040601d63045b9a540a3f325c44b1d") {
+      outputDiv = document.getElementById("altair-viz-ca040601d63045b9a540a3f325c44b1d");
     }
 
     const paths = {
@@ -646,23 +739,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div aria-describedby="fig-total-gender-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-ed28363b211446328ef09b6ab7422f48.vega-embed {
+  #altair-viz-9463b73c24d747769db55c830a191835.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-ed28363b211446328ef09b6ab7422f48.vega-embed details,
-  #altair-viz-ed28363b211446328ef09b6ab7422f48.vega-embed details summary {
+  #altair-viz-9463b73c24d747769db55c830a191835.vega-embed details,
+  #altair-viz-9463b73c24d747769db55c830a191835.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-ed28363b211446328ef09b6ab7422f48"></div>
+<div id="altair-viz-9463b73c24d747769db55c830a191835"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-ed28363b211446328ef09b6ab7422f48") {
-      outputDiv = document.getElementById("altair-viz-ed28363b211446328ef09b6ab7422f48");
+    if (outputDiv.id !== "altair-viz-9463b73c24d747769db55c830a191835") {
+      outputDiv = document.getElementById("altair-viz-9463b73c24d747769db55c830a191835");
     }
 
     const paths = {
@@ -725,23 +818,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div aria-describedby="fig-total-gender-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-30ae2829c48d4df69807210c9de5409f.vega-embed {
+  #altair-viz-0aa89ccc76d44768a3cef4e5f82c297b.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-30ae2829c48d4df69807210c9de5409f.vega-embed details,
-  #altair-viz-30ae2829c48d4df69807210c9de5409f.vega-embed details summary {
+  #altair-viz-0aa89ccc76d44768a3cef4e5f82c297b.vega-embed details,
+  #altair-viz-0aa89ccc76d44768a3cef4e5f82c297b.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-30ae2829c48d4df69807210c9de5409f"></div>
+<div id="altair-viz-0aa89ccc76d44768a3cef4e5f82c297b"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-30ae2829c48d4df69807210c9de5409f") {
-      outputDiv = document.getElementById("altair-viz-30ae2829c48d4df69807210c9de5409f");
+    if (outputDiv.id !== "altair-viz-0aa89ccc76d44768a3cef4e5f82c297b") {
+      outputDiv = document.getElementById("altair-viz-0aa89ccc76d44768a3cef4e5f82c297b");
     }
 
     const paths = {
@@ -805,9 +898,11 @@ Figure&nbsp;1: Number of parliamentarians by gender (1901 – present)
 </figcaption>
 </figure>
 </div>
-</div>
+</div></div>
+<div id="55164909-276f-4adf-a64a-b635bc90c1b2" class="cell markdown">
 <p>Every federal election results in a new ‘parliament’, and each parliament is given a consecutive number. So the very first parliamant was number <code>1</code>. The parliamentarians data includes a list of the parliaments that each member was a part of. We can use this to explore how the gender composition of the parliament has changed over time.</p>
-<div id="cell-fig-gender-parliaments" class="cell column-page-inset" data-execution_count="5">
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="cell-fig-gender-parliaments" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explode to create a row for each parliament</span></span>
@@ -831,23 +926,23 @@ Figure&nbsp;1: Number of parliamentarians by gender (1901 – present)
 <div aria-describedby="fig-gender-parliaments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-6a07f6a997f24f3cadf455fc150e5fbe.vega-embed {
+  #altair-viz-e7a27f1dc9b84380984bb39ac73509c7.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-6a07f6a997f24f3cadf455fc150e5fbe.vega-embed details,
-  #altair-viz-6a07f6a997f24f3cadf455fc150e5fbe.vega-embed details summary {
+  #altair-viz-e7a27f1dc9b84380984bb39ac73509c7.vega-embed details,
+  #altair-viz-e7a27f1dc9b84380984bb39ac73509c7.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-6a07f6a997f24f3cadf455fc150e5fbe"></div>
+<div id="altair-viz-e7a27f1dc9b84380984bb39ac73509c7"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-6a07f6a997f24f3cadf455fc150e5fbe") {
-      outputDiv = document.getElementById("altair-viz-6a07f6a997f24f3cadf455fc150e5fbe");
+    if (outputDiv.id !== "altair-viz-e7a27f1dc9b84380984bb39ac73509c7") {
+      outputDiv = document.getElementById("altair-viz-e7a27f1dc9b84380984bb39ac73509c7");
     }
 
     const paths = {
@@ -903,9 +998,11 @@ Figure&nbsp;2: Gender breakdown by parliament (both houses combined)
 </figcaption>
 </figure>
 </div>
-</div>
+</div></div>
+<div id="c446427a-0afb-490f-abd3-a96fd0ac412c" class="cell markdown">
 <p>The aggregated data from the Parliamentary Handbook doesn’t specify which house a member was in during a particular parliament. To find that, we can compare their service details with the dates of each parliament. Once we’ve split the parliaments data into houses, we can chart the gender breakdown by house.</p>
-<div class="cell" data-layout="[[1],[1]]" data-execution_count="6">
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [6]:</pre></div><div class="cell" data-layout="[[1],[1]]" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data about parliaments</span></span>
@@ -997,23 +1094,23 @@ Figure&nbsp;2: Gender breakdown by parliament (both houses combined)
 <div aria-describedby="fig-gender-parliaments-split-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-e6fb2d44a9914abd89989ca5371e9da1.vega-embed {
+  #altair-viz-db681a760c204b159e44f1fcbc9772d1.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-e6fb2d44a9914abd89989ca5371e9da1.vega-embed details,
-  #altair-viz-e6fb2d44a9914abd89989ca5371e9da1.vega-embed details summary {
+  #altair-viz-db681a760c204b159e44f1fcbc9772d1.vega-embed details,
+  #altair-viz-db681a760c204b159e44f1fcbc9772d1.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-e6fb2d44a9914abd89989ca5371e9da1"></div>
+<div id="altair-viz-db681a760c204b159e44f1fcbc9772d1"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-e6fb2d44a9914abd89989ca5371e9da1") {
-      outputDiv = document.getElementById("altair-viz-e6fb2d44a9914abd89989ca5371e9da1");
+    if (outputDiv.id !== "altair-viz-db681a760c204b159e44f1fcbc9772d1") {
+      outputDiv = document.getElementById("altair-viz-db681a760c204b159e44f1fcbc9772d1");
     }
 
     const paths = {
@@ -1078,23 +1175,23 @@ Figure&nbsp;2: Gender breakdown by parliament (both houses combined)
 <div aria-describedby="fig-gender-parliaments-split-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-a81b4baa50a444c980f76dce56ad4d7e.vega-embed {
+  #altair-viz-a4a7e17411304f53b50431af8f95aa0a.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-a81b4baa50a444c980f76dce56ad4d7e.vega-embed details,
-  #altair-viz-a81b4baa50a444c980f76dce56ad4d7e.vega-embed details summary {
+  #altair-viz-a4a7e17411304f53b50431af8f95aa0a.vega-embed details,
+  #altair-viz-a4a7e17411304f53b50431af8f95aa0a.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-a81b4baa50a444c980f76dce56ad4d7e"></div>
+<div id="altair-viz-a4a7e17411304f53b50431af8f95aa0a"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-a81b4baa50a444c980f76dce56ad4d7e") {
-      outputDiv = document.getElementById("altair-viz-a81b4baa50a444c980f76dce56ad4d7e");
+    if (outputDiv.id !== "altair-viz-a4a7e17411304f53b50431af8f95aa0a") {
+      outputDiv = document.getElementById("altair-viz-a4a7e17411304f53b50431af8f95aa0a");
     }
 
     const paths = {
@@ -1158,12 +1255,16 @@ Figure&nbsp;3: Gender breakdown by parliament and house
 </figcaption>
 </figure>
 </div>
-</div>
-</section>
-<section id="age" class="level2 page-columns page-full">
+</div></div>
+<div id="407b8a31-07c9-4177-9a8b-75cb9c36baeb" class="cell markdown">
+<section id="age" class="level2">
 <h2 class="anchored" data-anchor-id="age">Age</h2>
+</section>
+</div>
+<div id="8a166455-502d-463c-92ce-dda75da1ca53" class="cell markdown">
 <p>How old are the members of parliament?</p>
-<div class="cell page-columns page-full" data-layout-nrows="2" data-execution_count="7">
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [7]:</pre></div><div class="cell" data-layout-nrows="2" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_opening_date(sessions):</span>
@@ -1217,31 +1318,31 @@ Figure&nbsp;3: Gender breakdown by parliament and house
 <span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>display(mean_ages, age_intervals <span class="op">+</span> mean_ages)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="fig-age-parliaments" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-execution_count="7" data-layout-nrows="2">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<div aria-describedby="fig-age-parliaments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<div id="fig-age-parliaments-1" class="cell-output cell-output-display column-page-inset quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="fig-age-parliaments" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-nrows="2" data-execution_count="7">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-age-parliaments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-age-parliaments-1" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-age-parliaments-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-8f6c9f1eedc04a21b89a42804336bb5e.vega-embed {
+  #altair-viz-59bc7ae8a0be492a96782bf31ab41db0.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-8f6c9f1eedc04a21b89a42804336bb5e.vega-embed details,
-  #altair-viz-8f6c9f1eedc04a21b89a42804336bb5e.vega-embed details summary {
+  #altair-viz-59bc7ae8a0be492a96782bf31ab41db0.vega-embed details,
+  #altair-viz-59bc7ae8a0be492a96782bf31ab41db0.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-8f6c9f1eedc04a21b89a42804336bb5e"></div>
+<div id="altair-viz-59bc7ae8a0be492a96782bf31ab41db0"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8f6c9f1eedc04a21b89a42804336bb5e") {
-      outputDiv = document.getElementById("altair-viz-8f6c9f1eedc04a21b89a42804336bb5e");
+    if (outputDiv.id !== "altair-viz-59bc7ae8a0be492a96782bf31ab41db0") {
+      outputDiv = document.getElementById("altair-viz-59bc7ae8a0be492a96782bf31ab41db0");
     }
 
     const paths = {
@@ -1297,28 +1398,28 @@ Figure&nbsp;3: Gender breakdown by parliament and house
 </figcaption>
 </figure>
 </div>
-<div id="fig-age-parliaments-2" class="cell-output cell-output-display column-page-inset quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-age-parliaments-2" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-age-parliaments-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-ef6e96b4c6114750bb5b2eb6c8e2bf1a.vega-embed {
+  #altair-viz-1f4d17e9bb1a4b2886c94ec5c6d07f92.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-ef6e96b4c6114750bb5b2eb6c8e2bf1a.vega-embed details,
-  #altair-viz-ef6e96b4c6114750bb5b2eb6c8e2bf1a.vega-embed details summary {
+  #altair-viz-1f4d17e9bb1a4b2886c94ec5c6d07f92.vega-embed details,
+  #altair-viz-1f4d17e9bb1a4b2886c94ec5c6d07f92.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-ef6e96b4c6114750bb5b2eb6c8e2bf1a"></div>
+<div id="altair-viz-1f4d17e9bb1a4b2886c94ec5c6d07f92"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-ef6e96b4c6114750bb5b2eb6c8e2bf1a") {
-      outputDiv = document.getElementById("altair-viz-ef6e96b4c6114750bb5b2eb6c8e2bf1a");
+    if (outputDiv.id !== "altair-viz-1f4d17e9bb1a4b2886c94ec5c6d07f92") {
+      outputDiv = document.getElementById("altair-viz-1f4d17e9bb1a4b2886c94ec5c6d07f92");
     }
 
     const paths = {
@@ -1379,247 +1480,253 @@ Figure&nbsp;3: Gender breakdown by parliament and house
 Figure&nbsp;4: Age of members at the start of each parliament
 </figcaption>
 </figure>
-</div>
-</div>
-</section>
+</div></div>
+</div></div>
+<div id="0e8b4d53-fe29-49ce-b226-5c2e2e2789e2" class="cell markdown">
 <section id="country-of-birth" class="level2">
 <h2 class="anchored" data-anchor-id="country-of-birth">Country of birth</h2>
-<div class="cell" data-execution_count="8">
+</section>
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [8]:</pre></div><div class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>country_counts <span class="op">=</span> df[<span class="st">"CountryOfBirth"</span>].value_counts().to_frame().reset_index()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>country_counts.columns <span class="op">=</span> [<span class="st">"country of birth"</span>, <span class="st">"number of members"</span>]</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>country_counts.style.<span class="bu">format</span>(thousands<span class="op">=</span><span class="st">","</span>).hide()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="tbl-members-birth-country" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8">
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="tbl-members-birth-country" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-members-birth-country-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Country of birth of members
 </figcaption>
 <div aria-describedby="tbl-members-birth-country-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <style type="text/css">
 </style>
 
-<table id="T_69f98" class="cell caption-top table table-sm table-striped small">
+<table id="T_32e4a" class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_69f98_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">country of birth</th>
-<th id="T_69f98_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">number of members</th>
+<th id="T_32e4a_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">country of birth</th>
+<th id="T_32e4a_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">number of members</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_69f98_row0_col0" class="data row0 col0">Australia</td>
-<td id="T_69f98_row0_col1" class="data row0 col1">1,548</td>
+<td id="T_32e4a_row0_col0" class="data row0 col0">Australia</td>
+<td id="T_32e4a_row0_col1" class="data row0 col1">1,548</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row1_col0" class="data row1 col0">England</td>
-<td id="T_69f98_row1_col1" class="data row1 col1">133</td>
+<td id="T_32e4a_row1_col0" class="data row1 col0">England</td>
+<td id="T_32e4a_row1_col1" class="data row1 col1">133</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row2_col0" class="data row2 col0">Scotland</td>
-<td id="T_69f98_row2_col1" class="data row2 col1">47</td>
+<td id="T_32e4a_row2_col0" class="data row2 col0">Scotland</td>
+<td id="T_32e4a_row2_col1" class="data row2 col1">47</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row3_col0" class="data row3 col0"></td>
-<td id="T_69f98_row3_col1" class="data row3 col1">22</td>
+<td id="T_32e4a_row3_col0" class="data row3 col0"></td>
+<td id="T_32e4a_row3_col1" class="data row3 col1">22</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row4_col0" class="data row4 col0">New Zealand</td>
-<td id="T_69f98_row4_col1" class="data row4 col1">20</td>
+<td id="T_32e4a_row4_col0" class="data row4 col0">New Zealand</td>
+<td id="T_32e4a_row4_col1" class="data row4 col1">20</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row5_col0" class="data row5 col0">Ireland</td>
-<td id="T_69f98_row5_col1" class="data row5 col1">20</td>
+<td id="T_32e4a_row5_col0" class="data row5 col0">Ireland</td>
+<td id="T_32e4a_row5_col1" class="data row5 col1">20</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row6_col0" class="data row6 col0">Northern Ireland</td>
-<td id="T_69f98_row6_col1" class="data row6 col1">8</td>
+<td id="T_32e4a_row6_col0" class="data row6 col0">Northern Ireland</td>
+<td id="T_32e4a_row6_col1" class="data row6 col1">8</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row7_col0" class="data row7 col0">Italy</td>
-<td id="T_69f98_row7_col1" class="data row7 col1">6</td>
+<td id="T_32e4a_row7_col0" class="data row7 col0">Italy</td>
+<td id="T_32e4a_row7_col1" class="data row7 col1">6</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row8_col0" class="data row8 col0">Wales</td>
-<td id="T_69f98_row8_col1" class="data row8 col1">6</td>
+<td id="T_32e4a_row8_col0" class="data row8 col0">Wales</td>
+<td id="T_32e4a_row8_col1" class="data row8 col1">6</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row9_col0" class="data row9 col0">United States of America</td>
-<td id="T_69f98_row9_col1" class="data row9 col1">6</td>
+<td id="T_32e4a_row9_col0" class="data row9 col0">United States of America</td>
+<td id="T_32e4a_row9_col1" class="data row9 col1">6</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row10_col0" class="data row10 col0">Germany</td>
-<td id="T_69f98_row10_col1" class="data row10 col1">5</td>
+<td id="T_32e4a_row10_col0" class="data row10 col0">Germany</td>
+<td id="T_32e4a_row10_col1" class="data row10 col1">5</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row11_col0" class="data row11 col0">Canada</td>
-<td id="T_69f98_row11_col1" class="data row11 col1">5</td>
+<td id="T_32e4a_row11_col0" class="data row11 col0">Canada</td>
+<td id="T_32e4a_row11_col1" class="data row11 col1">5</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row12_col0" class="data row12 col0">South Africa</td>
-<td id="T_69f98_row12_col1" class="data row12 col1">4</td>
+<td id="T_32e4a_row12_col0" class="data row12 col0">South Africa</td>
+<td id="T_32e4a_row12_col1" class="data row12 col1">4</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row13_col0" class="data row13 col0">India</td>
-<td id="T_69f98_row13_col1" class="data row13 col1">4</td>
+<td id="T_32e4a_row13_col0" class="data row13 col0">India</td>
+<td id="T_32e4a_row13_col1" class="data row13 col1">4</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row14_col0" class="data row14 col0">China</td>
-<td id="T_69f98_row14_col1" class="data row14 col1">4</td>
+<td id="T_32e4a_row14_col0" class="data row14 col0">China</td>
+<td id="T_32e4a_row14_col1" class="data row14 col1">4</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row15_col0" class="data row15 col0">Malaysia</td>
-<td id="T_69f98_row15_col1" class="data row15 col1">3</td>
+<td id="T_32e4a_row15_col0" class="data row15 col0">Malaysia</td>
+<td id="T_32e4a_row15_col1" class="data row15 col1">3</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row16_col0" class="data row16 col0">Egypt</td>
-<td id="T_69f98_row16_col1" class="data row16 col1">2</td>
+<td id="T_32e4a_row16_col0" class="data row16 col0">Egypt</td>
+<td id="T_32e4a_row16_col1" class="data row16 col1">2</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row17_col0" class="data row17 col0">Greece</td>
-<td id="T_69f98_row17_col1" class="data row17 col1">2</td>
+<td id="T_32e4a_row17_col0" class="data row17 col0">Greece</td>
+<td id="T_32e4a_row17_col1" class="data row17 col1">2</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row18_col0" class="data row18 col0">Singapore</td>
-<td id="T_69f98_row18_col1" class="data row18 col1">2</td>
+<td id="T_32e4a_row18_col0" class="data row18 col0">Singapore</td>
+<td id="T_32e4a_row18_col1" class="data row18 col1">2</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row19_col0" class="data row19 col0">Hong Kong</td>
-<td id="T_69f98_row19_col1" class="data row19 col1">2</td>
+<td id="T_32e4a_row19_col0" class="data row19 col0">Hong Kong</td>
+<td id="T_32e4a_row19_col1" class="data row19 col1">2</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row20_col0" class="data row20 col0">Yugoslavia</td>
-<td id="T_69f98_row20_col1" class="data row20 col1">2</td>
+<td id="T_32e4a_row20_col0" class="data row20 col0">Yugoslavia</td>
+<td id="T_32e4a_row20_col1" class="data row20 col1">2</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row21_col0" class="data row21 col0">France</td>
-<td id="T_69f98_row21_col1" class="data row21 col1">2</td>
+<td id="T_32e4a_row21_col0" class="data row21 col0">France</td>
+<td id="T_32e4a_row21_col1" class="data row21 col1">2</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row22_col0" class="data row22 col0">Mauritius</td>
-<td id="T_69f98_row22_col1" class="data row22 col1">1</td>
+<td id="T_32e4a_row22_col0" class="data row22 col0">Mauritius</td>
+<td id="T_32e4a_row22_col1" class="data row22 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row23_col0" class="data row23 col0">Guernsey</td>
-<td id="T_69f98_row23_col1" class="data row23 col1">1</td>
+<td id="T_32e4a_row23_col0" class="data row23 col0">Guernsey</td>
+<td id="T_32e4a_row23_col1" class="data row23 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row24_col0" class="data row24 col0">Belgium</td>
-<td id="T_69f98_row24_col1" class="data row24 col1">1</td>
+<td id="T_32e4a_row24_col0" class="data row24 col0">Belgium</td>
+<td id="T_32e4a_row24_col1" class="data row24 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row25_col0" class="data row25 col0">Iran</td>
-<td id="T_69f98_row25_col1" class="data row25 col1">1</td>
+<td id="T_32e4a_row25_col0" class="data row25 col0">Iran</td>
+<td id="T_32e4a_row25_col1" class="data row25 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row26_col0" class="data row26 col0">Vanuatu</td>
-<td id="T_69f98_row26_col1" class="data row26 col1">1</td>
+<td id="T_32e4a_row26_col0" class="data row26 col0">Vanuatu</td>
+<td id="T_32e4a_row26_col1" class="data row26 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row27_col0" class="data row27 col0">Zimbabwe</td>
-<td id="T_69f98_row27_col1" class="data row27 col1">1</td>
+<td id="T_32e4a_row27_col0" class="data row27 col0">Zimbabwe</td>
+<td id="T_32e4a_row27_col1" class="data row27 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row28_col0" class="data row28 col0">Pakistan</td>
-<td id="T_69f98_row28_col1" class="data row28 col1">1</td>
+<td id="T_32e4a_row28_col0" class="data row28 col0">Pakistan</td>
+<td id="T_32e4a_row28_col1" class="data row28 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row29_col0" class="data row29 col0">Sri Lanka</td>
-<td id="T_69f98_row29_col1" class="data row29 col1">1</td>
+<td id="T_32e4a_row29_col0" class="data row29 col0">Sri Lanka</td>
+<td id="T_32e4a_row29_col1" class="data row29 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row30_col0" class="data row30 col0">Netherlands</td>
-<td id="T_69f98_row30_col1" class="data row30 col1">1</td>
+<td id="T_32e4a_row30_col0" class="data row30 col0">Netherlands</td>
+<td id="T_32e4a_row30_col1" class="data row30 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row31_col0" class="data row31 col0">Kenya</td>
-<td id="T_69f98_row31_col1" class="data row31 col1">1</td>
+<td id="T_32e4a_row31_col0" class="data row31 col0">Kenya</td>
+<td id="T_32e4a_row31_col1" class="data row31 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row32_col0" class="data row32 col0">Austria</td>
-<td id="T_69f98_row32_col1" class="data row32 col1">1</td>
+<td id="T_32e4a_row32_col0" class="data row32 col0">Austria</td>
+<td id="T_32e4a_row32_col1" class="data row32 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row33_col0" class="data row33 col0">The Kingdom of Serbs, Croats and Slovenes</td>
-<td id="T_69f98_row33_col1" class="data row33 col1">1</td>
+<td id="T_32e4a_row33_col0" class="data row33 col0">The Kingdom of Serbs, Croats and Slovenes</td>
+<td id="T_32e4a_row33_col1" class="data row33 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row34_col0" class="data row34 col0">Vietnam</td>
-<td id="T_69f98_row34_col1" class="data row34 col1">1</td>
+<td id="T_32e4a_row34_col0" class="data row34 col0">Vietnam</td>
+<td id="T_32e4a_row34_col1" class="data row34 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row35_col0" class="data row35 col0">Nigeria</td>
-<td id="T_69f98_row35_col1" class="data row35 col1">1</td>
+<td id="T_32e4a_row35_col0" class="data row35 col0">Nigeria</td>
+<td id="T_32e4a_row35_col1" class="data row35 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row36_col0" class="data row36 col0">Fiji</td>
-<td id="T_69f98_row36_col1" class="data row36 col1">1</td>
+<td id="T_32e4a_row36_col0" class="data row36 col0">Fiji</td>
+<td id="T_32e4a_row36_col1" class="data row36 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row37_col0" class="data row37 col0">United Kingdom</td>
-<td id="T_69f98_row37_col1" class="data row37 col1">1</td>
+<td id="T_32e4a_row37_col0" class="data row37 col0">United Kingdom</td>
+<td id="T_32e4a_row37_col1" class="data row37 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row38_col0" class="data row38 col0">Papua New Guinea</td>
-<td id="T_69f98_row38_col1" class="data row38 col1">1</td>
+<td id="T_32e4a_row38_col0" class="data row38 col0">Papua New Guinea</td>
+<td id="T_32e4a_row38_col1" class="data row38 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row39_col0" class="data row39 col0">Afghanistan</td>
-<td id="T_69f98_row39_col1" class="data row39 col1">1</td>
+<td id="T_32e4a_row39_col0" class="data row39 col0">Afghanistan</td>
+<td id="T_32e4a_row39_col1" class="data row39 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row40_col0" class="data row40 col0">Ceylon</td>
-<td id="T_69f98_row40_col1" class="data row40 col1">1</td>
+<td id="T_32e4a_row40_col0" class="data row40 col0">Ceylon</td>
+<td id="T_32e4a_row40_col1" class="data row40 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row41_col0" class="data row41 col0">Hungary</td>
-<td id="T_69f98_row41_col1" class="data row41 col1">1</td>
+<td id="T_32e4a_row41_col0" class="data row41 col0">Hungary</td>
+<td id="T_32e4a_row41_col1" class="data row41 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row42_col0" class="data row42 col0">Poland</td>
-<td id="T_69f98_row42_col1" class="data row42 col1">1</td>
+<td id="T_32e4a_row42_col0" class="data row42 col0">Poland</td>
+<td id="T_32e4a_row42_col1" class="data row42 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row43_col0" class="data row43 col0">Cyprus</td>
-<td id="T_69f98_row43_col1" class="data row43 col1">1</td>
+<td id="T_32e4a_row43_col0" class="data row43 col0">Cyprus</td>
+<td id="T_32e4a_row43_col1" class="data row43 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row44_col0" class="data row44 col0">Turkey</td>
-<td id="T_69f98_row44_col1" class="data row44 col1">1</td>
+<td id="T_32e4a_row44_col0" class="data row44 col0">Turkey</td>
+<td id="T_32e4a_row44_col1" class="data row44 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row45_col0" class="data row45 col0">Chile</td>
-<td id="T_69f98_row45_col1" class="data row45 col1">1</td>
+<td id="T_32e4a_row45_col0" class="data row45 col0">Chile</td>
+<td id="T_32e4a_row45_col1" class="data row45 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_69f98_row46_col0" class="data row46 col0">Japan</td>
-<td id="T_69f98_row46_col1" class="data row46 col1">1</td>
+<td id="T_32e4a_row46_col0" class="data row46 col0">Japan</td>
+<td id="T_32e4a_row46_col1" class="data row46 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_69f98_row47_col0" class="data row47 col0">Malta</td>
-<td id="T_69f98_row47_col1" class="data row47 col1">1</td>
+<td id="T_32e4a_row47_col0" class="data row47 col0">Malta</td>
+<td id="T_32e4a_row47_col1" class="data row47 col1">1</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </figure>
-</div>
-</div>
-</section>
+</div></div>
+</div></div>
+<div id="6eafeb00-ffbe-4ca2-aa3d-abfbb6265b05" class="cell markdown">
 <section id="occupations" class="level2">
 <h2 class="anchored" data-anchor-id="occupations">Occupations</h2>
-<div id="44add474-62c1-408c-9475-9f0369f25e5e" class="cell" data-execution_count="9">
+</section>
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="44add474-62c1-408c-9475-9f0369f25e5e" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>number_with_occupations <span class="op">=</span> df.loc[(df[<span class="st">"Occupations"</span>].<span class="bu">str</span>.<span class="bu">len</span>() <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">|</span> (df[<span class="st">"SecondaryOccupations"</span>].<span class="bu">str</span>.<span class="bu">len</span>() <span class="op">&gt;</span> <span class="dv">0</span>)].shape[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-</div>
+</div></div>
+<div id="fb0851b5-1211-4a24-8cc1-bd8b1d9e6e78" class="cell markdown">
 <p>The Parliamentary Handbook records information about the occupations of members in the <code>Occupations</code> and <code>SecondaryOccupations</code> fields. However, not all members have occupations recorded. Currently 87% of member records include information about occupations.</p>
 <p>Here’s a word cloud generated from the contents of both fields.</p>
-<div id="ee1241e9-5b3f-4e9b-8061-60e4ab31adcc" class="cell" data-execution_count="10">
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="ee1241e9-5b3f-4e9b-8061-60e4ab31adcc" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud</span>
@@ -1632,288 +1739,292 @@ Table&nbsp;1: Country of birth of members
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>wc <span class="op">=</span> WordCloud(width<span class="op">=</span><span class="dv">800</span>, height<span class="op">=</span><span class="dv">600</span>).generate(<span class="st">" "</span>.join(occupations))</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>wc.to_image()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="">
 <figure class="figure">
-<p><img src="parliamentarians_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+<p class=""><img src="parliamentarians_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
-</div>
-</section>
-<section id="political-parties" class="level2 page-columns page-full">
+</div></div>
+<div id="d959c0dc-f63b-43e7-bbfa-0f38666f85af" class="cell markdown">
+<section id="political-parties" class="level2">
 <h2 class="anchored" data-anchor-id="political-parties">Political parties</h2>
 <p>The aggregated data lists the political parties that each parliamentarian has been a member of. We can use this to find the total number of members associated with each party. Note that parties changed names, and politicians changed parties, so a single individual might be counted multiple times.</p>
-<div class="cell" data-execution_count="11">
+</section>
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [11]:</pre></div><div class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>party_counts <span class="op">=</span> df.explode(<span class="st">"RepresentedParties"</span>)[<span class="st">"RepresentedParties"</span>].value_counts().to_frame().reset_index()</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>party_counts.columns <span class="op">=</span> [<span class="st">"party"</span>, <span class="st">"number of members"</span>]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>party_counts.style.<span class="bu">format</span>(thousands<span class="op">=</span><span class="st">","</span>).hide()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="tbl-members-party" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="11">
+<div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div id="tbl-members-party" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="11">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-members-party-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Number of members per party
 </figcaption>
 <div aria-describedby="tbl-members-party-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <style type="text/css">
 </style>
 
-<table id="T_44101" class="cell caption-top table table-sm table-striped small">
+<table id="T_0be4d" class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_44101_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">party</th>
-<th id="T_44101_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">number of members</th>
+<th id="T_0be4d_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">party</th>
+<th id="T_0be4d_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">number of members</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_44101_row0_col0" class="data row0 col0">Australian Labor Party</td>
-<td id="T_44101_row0_col1" class="data row0 col1">806</td>
+<td id="T_0be4d_row0_col0" class="data row0 col0">Australian Labor Party</td>
+<td id="T_0be4d_row0_col1" class="data row0 col1">806</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row1_col0" class="data row1 col0">Liberal Party of Australia</td>
-<td id="T_44101_row1_col1" class="data row1 col1">545</td>
+<td id="T_0be4d_row1_col0" class="data row1 col0">Liberal Party of Australia</td>
+<td id="T_0be4d_row1_col1" class="data row1 col1">545</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row2_col0" class="data row2 col0">Nationalist Party</td>
-<td id="T_44101_row2_col1" class="data row2 col1">145</td>
+<td id="T_0be4d_row2_col0" class="data row2 col0">Nationalist Party</td>
+<td id="T_0be4d_row2_col1" class="data row2 col1">145</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row3_col0" class="data row3 col0">Independent</td>
-<td id="T_44101_row3_col1" class="data row3 col1">116</td>
+<td id="T_0be4d_row3_col0" class="data row3 col0">Independent</td>
+<td id="T_0be4d_row3_col1" class="data row3 col1">116</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row4_col0" class="data row4 col0">Australian Country Party</td>
-<td id="T_44101_row4_col1" class="data row4 col1">109</td>
+<td id="T_0be4d_row4_col0" class="data row4 col0">Australian Country Party</td>
+<td id="T_0be4d_row4_col1" class="data row4 col1">109</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row5_col0" class="data row5 col0">United Australia Party</td>
-<td id="T_44101_row5_col1" class="data row5 col1">99</td>
+<td id="T_0be4d_row5_col0" class="data row5 col0">United Australia Party</td>
+<td id="T_0be4d_row5_col1" class="data row5 col1">99</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row6_col0" class="data row6 col0">Liberal Party (Commonwealth)</td>
-<td id="T_44101_row6_col1" class="data row6 col1">87</td>
+<td id="T_0be4d_row6_col0" class="data row6 col0">Liberal Party (Commonwealth)</td>
+<td id="T_0be4d_row6_col1" class="data row6 col1">87</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row7_col0" class="data row7 col0">Free Trade</td>
-<td id="T_44101_row7_col1" class="data row7 col1">59</td>
+<td id="T_0be4d_row7_col0" class="data row7 col0">Free Trade</td>
+<td id="T_0be4d_row7_col1" class="data row7 col1">59</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row8_col0" class="data row8 col0">National Party of Australia</td>
-<td id="T_44101_row8_col1" class="data row8 col1">55</td>
+<td id="T_0be4d_row8_col0" class="data row8 col0">National Party of Australia</td>
+<td id="T_0be4d_row8_col1" class="data row8 col1">55</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row9_col0" class="data row9 col0">The Nationals</td>
-<td id="T_44101_row9_col1" class="data row9 col1">52</td>
+<td id="T_0be4d_row9_col0" class="data row9 col0">The Nationals</td>
+<td id="T_0be4d_row9_col1" class="data row9 col1">52</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row10_col0" class="data row10 col0">Protectionist Party</td>
-<td id="T_44101_row10_col1" class="data row10 col1">51</td>
+<td id="T_0be4d_row10_col0" class="data row10 col0">Protectionist Party</td>
+<td id="T_0be4d_row10_col1" class="data row10 col1">51</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row11_col0" class="data row11 col0">Anti-Socialist Party</td>
-<td id="T_44101_row11_col1" class="data row11 col1">41</td>
+<td id="T_0be4d_row11_col0" class="data row11 col0">Anti-Socialist Party</td>
+<td id="T_0be4d_row11_col1" class="data row11 col1">41</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row12_col0" class="data row12 col0">National Country Party</td>
-<td id="T_44101_row12_col1" class="data row12 col1">40</td>
+<td id="T_0be4d_row12_col0" class="data row12 col0">National Country Party</td>
+<td id="T_0be4d_row12_col1" class="data row12 col1">40</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row13_col0" class="data row13 col0">Australian Greens</td>
-<td id="T_44101_row13_col1" class="data row13 col1">31</td>
+<td id="T_0be4d_row13_col0" class="data row13 col0">Australian Greens</td>
+<td id="T_0be4d_row13_col1" class="data row13 col1">31</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row14_col0" class="data row14 col0">Australian Democrats</td>
-<td id="T_44101_row14_col1" class="data row14 col1">26</td>
+<td id="T_0be4d_row14_col0" class="data row14 col0">Australian Democrats</td>
+<td id="T_0be4d_row14_col1" class="data row14 col1">26</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row15_col0" class="data row15 col0">National Labour</td>
-<td id="T_44101_row15_col1" class="data row15 col1">25</td>
+<td id="T_0be4d_row15_col0" class="data row15 col0">National Labour</td>
+<td id="T_0be4d_row15_col1" class="data row15 col1">25</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row16_col0" class="data row16 col0">Lang Labor Party</td>
-<td id="T_44101_row16_col1" class="data row16 col1">13</td>
+<td id="T_0be4d_row16_col0" class="data row16 col0">Lang Labor Party</td>
+<td id="T_0be4d_row16_col1" class="data row16 col1">13</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row17_col0" class="data row17 col0">Pauline Hanson's One Nation</td>
-<td id="T_44101_row17_col1" class="data row17 col1">11</td>
+<td id="T_0be4d_row17_col0" class="data row17 col0">Pauline Hanson's One Nation</td>
+<td id="T_0be4d_row17_col1" class="data row17 col1">11</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row18_col0" class="data row18 col0">Australian Labor Party (Anti-Communist)</td>
-<td id="T_44101_row18_col1" class="data row18 col1">9</td>
+<td id="T_0be4d_row18_col0" class="data row18 col0">Australian Labor Party (Anti-Communist)</td>
+<td id="T_0be4d_row18_col1" class="data row18 col1">9</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row19_col0" class="data row19 col0">Australian Labor Party (Non-Communist)</td>
-<td id="T_44101_row19_col1" class="data row19 col1">7</td>
+<td id="T_0be4d_row19_col0" class="data row19 col0">Australian Labor Party (Non-Communist)</td>
+<td id="T_0be4d_row19_col1" class="data row19 col1">7</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row20_col0" class="data row20 col0">Democratic Labor Party</td>
-<td id="T_44101_row20_col1" class="data row20 col1">7</td>
+<td id="T_0be4d_row20_col0" class="data row20 col0">Democratic Labor Party</td>
+<td id="T_0be4d_row20_col1" class="data row20 col1">7</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row21_col0" class="data row21 col0">One Nation</td>
-<td id="T_44101_row21_col1" class="data row21 col1">6</td>
+<td id="T_0be4d_row21_col0" class="data row21 col0">One Nation</td>
+<td id="T_0be4d_row21_col1" class="data row21 col1">6</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row22_col0" class="data row22 col0">Nick Xenophon Team</td>
-<td id="T_44101_row22_col1" class="data row22 col1">6</td>
+<td id="T_0be4d_row22_col0" class="data row22 col0">Nick Xenophon Team</td>
+<td id="T_0be4d_row22_col1" class="data row22 col1">6</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row23_col0" class="data row23 col0">Victorian Farmers Union</td>
-<td id="T_44101_row23_col1" class="data row23 col1">5</td>
+<td id="T_0be4d_row23_col0" class="data row23 col0">Victorian Farmers Union</td>
+<td id="T_0be4d_row23_col1" class="data row23 col1">5</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row24_col0" class="data row24 col0">Independent Labor</td>
-<td id="T_44101_row24_col1" class="data row24 col1">4</td>
+<td id="T_0be4d_row24_col0" class="data row24 col0">Independent Labor</td>
+<td id="T_0be4d_row24_col1" class="data row24 col1">4</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row25_col0" class="data row25 col0">Liberal Party (Union)</td>
-<td id="T_44101_row25_col1" class="data row25 col1">4</td>
+<td id="T_0be4d_row25_col0" class="data row25 col0">Liberal Party (Union)</td>
+<td id="T_0be4d_row25_col1" class="data row25 col1">4</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row26_col0" class="data row26 col0">Palmer United Party</td>
-<td id="T_44101_row26_col1" class="data row26 col1">4</td>
+<td id="T_0be4d_row26_col0" class="data row26 col0">Palmer United Party</td>
+<td id="T_0be4d_row26_col1" class="data row26 col1">4</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row27_col0" class="data row27 col0">United Australia Party [2018]</td>
-<td id="T_44101_row27_col1" class="data row27 col1">3</td>
+<td id="T_0be4d_row27_col0" class="data row27 col0">United Australia Party [2018]</td>
+<td id="T_0be4d_row27_col1" class="data row27 col1">3</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row28_col0" class="data row28 col0">Family First</td>
-<td id="T_44101_row28_col1" class="data row28 col1">3</td>
+<td id="T_0be4d_row28_col0" class="data row28 col0">Family First</td>
+<td id="T_0be4d_row28_col1" class="data row28 col1">3</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row29_col0" class="data row29 col0">Australian Party</td>
-<td id="T_44101_row29_col1" class="data row29 col1">3</td>
+<td id="T_0be4d_row29_col0" class="data row29 col0">Australian Party</td>
+<td id="T_0be4d_row29_col1" class="data row29 col1">3</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row30_col0" class="data row30 col0">Nuclear Disarmament Party</td>
-<td id="T_44101_row30_col1" class="data row30 col1">3</td>
+<td id="T_0be4d_row30_col0" class="data row30 col0">Nuclear Disarmament Party</td>
+<td id="T_0be4d_row30_col1" class="data row30 col1">3</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row31_col0" class="data row31 col0">Centre Alliance</td>
-<td id="T_44101_row31_col1" class="data row31 col1">3</td>
+<td id="T_0be4d_row31_col0" class="data row31 col0">Centre Alliance</td>
+<td id="T_0be4d_row31_col1" class="data row31 col1">3</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row32_col0" class="data row32 col0">Liberal Democratic Party</td>
-<td id="T_44101_row32_col1" class="data row32 col1">3</td>
+<td id="T_0be4d_row32_col0" class="data row32 col0">Liberal Democratic Party</td>
+<td id="T_0be4d_row32_col1" class="data row32 col1">3</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row33_col0" class="data row33 col0">Katter's Australian Party</td>
-<td id="T_44101_row33_col1" class="data row33 col1">2</td>
+<td id="T_0be4d_row33_col0" class="data row33 col0">Katter's Australian Party</td>
+<td id="T_0be4d_row33_col1" class="data row33 col1">2</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row34_col0" class="data row34 col0">Independent Liberal</td>
-<td id="T_44101_row34_col1" class="data row34 col1">2</td>
+<td id="T_0be4d_row34_col0" class="data row34 col0">Independent Liberal</td>
+<td id="T_0be4d_row34_col1" class="data row34 col1">2</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row35_col0" class="data row35 col0">Western Australia Party</td>
-<td id="T_44101_row35_col1" class="data row35 col1">2</td>
+<td id="T_0be4d_row35_col0" class="data row35 col0">Western Australia Party</td>
+<td id="T_0be4d_row35_col1" class="data row35 col1">2</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row36_col0" class="data row36 col0">Jacqui Lambie Network</td>
-<td id="T_44101_row36_col1" class="data row36 col1">2</td>
+<td id="T_0be4d_row36_col0" class="data row36 col0">Jacqui Lambie Network</td>
+<td id="T_0be4d_row36_col1" class="data row36 col1">2</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row37_col0" class="data row37 col0">Liberal and Country Party</td>
-<td id="T_44101_row37_col1" class="data row37 col1">2</td>
+<td id="T_0be4d_row37_col0" class="data row37 col0">Liberal and Country Party</td>
+<td id="T_0be4d_row37_col1" class="data row37 col1">2</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row38_col0" class="data row38 col0">Farmers and Settlers Union</td>
-<td id="T_44101_row38_col1" class="data row38 col1">2</td>
+<td id="T_0be4d_row38_col0" class="data row38 col0">Farmers and Settlers Union</td>
+<td id="T_0be4d_row38_col1" class="data row38 col1">2</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row39_col0" class="data row39 col0">Unite Australia Party (John Siddons Group)</td>
-<td id="T_44101_row39_col1" class="data row39 col1">2</td>
+<td id="T_0be4d_row39_col0" class="data row39 col0">Unite Australia Party (John Siddons Group)</td>
+<td id="T_0be4d_row39_col1" class="data row39 col1">2</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row40_col0" class="data row40 col0">Community Strong Australia</td>
-<td id="T_44101_row40_col1" class="data row40 col1">2</td>
+<td id="T_0be4d_row40_col0" class="data row40 col0">Community Strong Australia</td>
+<td id="T_0be4d_row40_col1" class="data row40 col1">2</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row41_col0" class="data row41 col0">Australian Conservatives</td>
-<td id="T_44101_row41_col1" class="data row41 col1">1</td>
+<td id="T_0be4d_row41_col0" class="data row41 col0">Australian Conservatives</td>
+<td id="T_0be4d_row41_col1" class="data row41 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row42_col0" class="data row42 col0">Christian Democratic Party</td>
-<td id="T_44101_row42_col1" class="data row42 col1">1</td>
+<td id="T_0be4d_row42_col0" class="data row42 col0">Christian Democratic Party</td>
+<td id="T_0be4d_row42_col1" class="data row42 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row43_col0" class="data row43 col0">Queensland Labor Party</td>
-<td id="T_44101_row43_col1" class="data row43 col1">1</td>
+<td id="T_0be4d_row43_col0" class="data row43 col0">Queensland Labor Party</td>
+<td id="T_0be4d_row43_col1" class="data row43 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row44_col0" class="data row44 col0">Majority Labor</td>
-<td id="T_44101_row44_col1" class="data row44 col1">1</td>
+<td id="T_0be4d_row44_col0" class="data row44 col0">Majority Labor</td>
+<td id="T_0be4d_row44_col1" class="data row44 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row45_col0" class="data row45 col0">Liberal Movement</td>
-<td id="T_44101_row45_col1" class="data row45 col1">1</td>
+<td id="T_0be4d_row45_col0" class="data row45 col0">Liberal Movement</td>
+<td id="T_0be4d_row45_col1" class="data row45 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row46_col0" class="data row46 col0">National Liberal Party</td>
-<td id="T_44101_row46_col1" class="data row46 col1">1</td>
+<td id="T_0be4d_row46_col0" class="data row46 col0">National Liberal Party</td>
+<td id="T_0be4d_row46_col1" class="data row46 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row47_col0" class="data row47 col0">Tasmanian Independent Senator Brian Harradine Group</td>
-<td id="T_44101_row47_col1" class="data row47 col1">1</td>
+<td id="T_0be4d_row47_col0" class="data row47 col0">Tasmanian Independent Senator Brian Harradine Group</td>
+<td id="T_0be4d_row47_col1" class="data row47 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row48_col0" class="data row48 col0">Derryn Hinch's Justice Party</td>
-<td id="T_44101_row48_col1" class="data row48 col1">1</td>
+<td id="T_0be4d_row48_col0" class="data row48 col0">Derryn Hinch's Justice Party</td>
+<td id="T_0be4d_row48_col1" class="data row48 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row49_col0" class="data row49 col0">Independent National(ist)</td>
-<td id="T_44101_row49_col1" class="data row49 col1">1</td>
+<td id="T_0be4d_row49_col0" class="data row49 col0">Independent National(ist)</td>
+<td id="T_0be4d_row49_col1" class="data row49 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row50_col0" class="data row50 col0">Glenn Lazarus Team</td>
-<td id="T_44101_row50_col1" class="data row50 col1">1</td>
+<td id="T_0be4d_row50_col0" class="data row50 col0">Glenn Lazarus Team</td>
+<td id="T_0be4d_row50_col1" class="data row50 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row51_col0" class="data row51 col0">Australian Progressive Alliance</td>
-<td id="T_44101_row51_col1" class="data row51 col1">1</td>
+<td id="T_0be4d_row51_col0" class="data row51 col0">Australian Progressive Alliance</td>
+<td id="T_0be4d_row51_col1" class="data row51 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row52_col0" class="data row52 col0">Australian Motoring Enthusiast Party</td>
-<td id="T_44101_row52_col1" class="data row52 col1">1</td>
+<td id="T_0be4d_row52_col0" class="data row52 col0">Australian Motoring Enthusiast Party</td>
+<td id="T_0be4d_row52_col1" class="data row52 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row53_col0" class="data row53 col0">Australia's Voice</td>
-<td id="T_44101_row53_col1" class="data row53 col1">1</td>
+<td id="T_0be4d_row53_col0" class="data row53 col0">Australia's Voice</td>
+<td id="T_0be4d_row53_col1" class="data row53 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row54_col0" class="data row54 col0">Gerard Rennick People First</td>
-<td id="T_44101_row54_col1" class="data row54 col1">1</td>
+<td id="T_0be4d_row54_col0" class="data row54 col0">Gerard Rennick People First</td>
+<td id="T_0be4d_row54_col1" class="data row54 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row55_col0" class="data row55 col0">Progress Party</td>
-<td id="T_44101_row55_col1" class="data row55 col1">1</td>
+<td id="T_0be4d_row55_col0" class="data row55 col0">Progress Party</td>
+<td id="T_0be4d_row55_col1" class="data row55 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row56_col0" class="data row56 col0">Country Progress Party</td>
-<td id="T_44101_row56_col1" class="data row56 col1">1</td>
+<td id="T_0be4d_row56_col0" class="data row56 col0">Country Progress Party</td>
+<td id="T_0be4d_row56_col1" class="data row56 col1">1</td>
 </tr>
 <tr class="even">
-<td id="T_44101_row57_col0" class="data row57 col0">Australia Party</td>
-<td id="T_44101_row57_col1" class="data row57 col1">1</td>
+<td id="T_0be4d_row57_col0" class="data row57 col0">Australia Party</td>
+<td id="T_0be4d_row57_col1" class="data row57 col1">1</td>
 </tr>
 <tr class="odd">
-<td id="T_44101_row58_col0" class="data row58 col0">United Country Party</td>
-<td id="T_44101_row58_col1" class="data row58 col1">1</td>
+<td id="T_0be4d_row58_col0" class="data row58 col0">United Country Party</td>
+<td id="T_0be4d_row58_col1" class="data row58 col1">1</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </figure>
-</div>
-</div>
+</div></div>
+</div></div>
+<div id="6decb716-505a-45bd-8155-d5931ae330e6" class="cell markdown">
 <p>The data also lists the parties associated with each period of a member’s parliamentary service. We can use this to aggregate the party counts by parliament and observe changes in the political make up of the parliament over time – for example the rise of the two party system. Once again, if a member changed parties, or belonged to a party that changed its name within a the period of a parliament, they could be counted multiple times.</p>
-<div id="cell-fig-parties-parliaments" class="cell column-page" data-execution_count="12">
+</div>
+<div class="cell-container code-fold"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="cell-fig-parties-parliaments" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_parties_parliaments(row):</span>
@@ -1935,28 +2046,28 @@ Table&nbsp;2: Number of members per party
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    tooltip<span class="op">=</span>[alt.Tooltip(<span class="st">"RepresentedParliaments:O"</span>, title<span class="op">=</span><span class="st">"parliament"</span>), alt.Tooltip(<span class="st">"count:Q"</span>, title<span class="op">=</span><span class="st">"number of members"</span>), alt.Tooltip(<span class="st">"parties"</span>, title<span class="op">=</span><span class="st">"party"</span>)]</span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>).properties(width<span class="op">=</span><span class="st">"container"</span>, height<span class="op">=</span><span class="dv">500</span>, padding<span class="op">=</span><span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="fig-parties-parliaments" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="12">
+<div id="fig-parties-parliaments" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="24">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-parties-parliaments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
 <style>
-  #altair-viz-7e9e81e5f9434da987f08e6bf4eb65aa.vega-embed {
+  #altair-viz-83fe11123df648379ef745eac670f6b6.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-7e9e81e5f9434da987f08e6bf4eb65aa.vega-embed details,
-  #altair-viz-7e9e81e5f9434da987f08e6bf4eb65aa.vega-embed details summary {
+  #altair-viz-83fe11123df648379ef745eac670f6b6.vega-embed details,
+  #altair-viz-83fe11123df648379ef745eac670f6b6.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-7e9e81e5f9434da987f08e6bf4eb65aa"></div>
+<div id="altair-viz-83fe11123df648379ef745eac670f6b6"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-7e9e81e5f9434da987f08e6bf4eb65aa") {
-      outputDiv = document.getElementById("altair-viz-7e9e81e5f9434da987f08e6bf4eb65aa");
+    if (outputDiv.id !== "altair-viz-83fe11123df648379ef745eac670f6b6") {
+      outputDiv = document.getElementById("altair-viz-83fe11123df648379ef745eac670f6b6");
     }
 
     const paths = {
@@ -2012,13 +2123,10 @@ Figure&nbsp;5: Number of members per party in each parliament
 </figcaption>
 </figure>
 </div>
-</div>
+</div></div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+     </main> <!-- /main -->  <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2437,8 +2545,7 @@ Figure&nbsp;5: Number of members per party in each parliament
       }
     }
   });
-  </script>
-<nav class="page-navigation">
+  </script>  <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../hansard/parliamentary-processes.html" class="pagination-link" aria-label="Understanding Parliamentary processes">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Understanding Parliamentary processes</span>
@@ -2463,9 +2570,6 @@ Figure&nbsp;5: Number of members per party in each parliament
       &nbsp;
     </div>
   </div>
-</footer>
-
-
-
-
+</footer> 
+  
 </body></html>

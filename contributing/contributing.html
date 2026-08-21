@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -80,9 +80,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -396,12 +393,6 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Guide for authors</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../contributing/example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">An example notebook</span></a>
-  </div>
-</li>
       </ul>
   </li>
     </ul>
@@ -417,7 +408,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto">Quarto</a></li>
   <li><a href="#local-installation" id="toc-local-installation" class="nav-link" data-scroll-target="#local-installation">Local installation</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.dev/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/contributing/contributing.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/contributing/contributing.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="example-preview.html"><i class="bi bi-journal-code"></i>An example notebook</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/contributing/contributing.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/contributing/contributing.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -475,87 +466,6 @@ ul.task-list li input[type="checkbox"] {
 <li>create/edit notebooks in Jupyter Lab</li>
 <li>preview using Quarto</li>
 </ol>
-<div class="quarto-embed-nb-cell">
-<div id="cell-fig-sitting-days" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]" data-execution_count="3">
-<div id="fig-sitting-days" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-sitting-days-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-
-<style>
-  #altair-viz-b7b985d20f7749ed8e512bf849862fdd.vega-embed {
-    width: 100%;
-    display: flex;
-  }
-
-  #altair-viz-b7b985d20f7749ed8e512bf849862fdd.vega-embed details,
-  #altair-viz-b7b985d20f7749ed8e512bf849862fdd.vega-embed details summary {
-    position: relative;
-  }
-</style>
-<div id="altair-viz-b7b985d20f7749ed8e512bf849862fdd"></div>
-<script type="text/javascript">
-  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
-  (function(spec, embedOpt){
-    let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-b7b985d20f7749ed8e512bf849862fdd") {
-      outputDiv = document.getElementById("altair-viz-b7b985d20f7749ed8e512bf849862fdd");
-    }
-
-    const paths = {
-      "vega": "https://cdn.jsdelivr.net/npm/vega@6?noext",
-      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
-      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@6.4.1?noext",
-      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@7?noext",
-    };
-
-    function maybeLoadScript(lib, version) {
-      var key = `${lib.replace("-", "")}_version`;
-      return (VEGA_DEBUG[key] == version) ?
-        Promise.resolve(paths[lib]) :
-        new Promise(function(resolve, reject) {
-          var s = document.createElement('script');
-          document.getElementsByTagName("head")[0].appendChild(s);
-          s.async = true;
-          s.onload = () => {
-            VEGA_DEBUG[key] = version;
-            return resolve(paths[lib]);
-          };
-          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
-          s.src = paths[lib];
-        });
-    }
-
-    function showError(err) {
-      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
-      throw err;
-    }
-
-    function displayChart(vegaEmbed) {
-      vegaEmbed(outputDiv, spec, embedOpt)
-        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
-    }
-
-    if(typeof define === "function" && define.amd) {
-      requirejs.config({paths});
-      let deps = ["vega-embed"];
-      require(deps, displayChart, err => showError(`Error loading script: ${err.message}`));
-    } else {
-      maybeLoadScript("vega", "6")
-        .then(() => maybeLoadScript("vega-lite", "6.4.1"))
-        .then(() => maybeLoadScript("vega-embed", "7"))
-        .catch(showError)
-        .then(() => displayChart(vegaEmbed));
-    }
-  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-3f2b87e22a324c70cf057ab7c5ff6068"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "house", "legend": null, "type": "nominal"}, "row": {"field": "house", "title": "number of days", "type": "nominal"}, "tooltip": [{"field": "year", "type": "ordinal"}, {"field": "house", "type": "nominal"}, {"field": "days", "type": "quantitative"}], "x": {"axis": {"values": [1900, 1905, 1910, 1915, 1920, 1925, 1930, 1935, 1940, 1945, 1950, 1955, 1960, 1965, 1970, 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025]}, "field": "year", "title": null, "type": "ordinal"}, "y": {"field": "days", "title": null, "type": "quantitative"}}, "height": 200, "padding": 20, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-3f2b87e22a324c70cf057ab7c5ff6068": [{"year": 2026, "days": 41, "house": "Reps"}, {"year": 2025, "days": 41, "house": "Reps"}, {"year": 2024, "days": 63, "house": "Reps"}, {"year": 2023, "days": 67, "house": "Reps"}, {"year": 2022, "days": 41, "house": "Reps"}, {"year": 2021, "days": 67, "house": "Reps"}, {"year": 2020, "days": 58, "house": "Reps"}, {"year": 2019, "days": 45, "house": "Reps"}, {"year": 2018, "days": 65, "house": "Reps"}, {"year": 2017, "days": 64, "house": "Reps"}, {"year": 2016, "days": 51, "house": "Reps"}, {"year": 2015, "days": 75, "house": "Reps"}, {"year": 2014, "days": 76, "house": "Reps"}, {"year": 2013, "days": 48, "house": "Reps"}, {"year": 2012, "days": 63, "house": "Reps"}, {"year": 2011, "days": 64, "house": "Reps"}, {"year": 2010, "days": 55, "house": "Reps"}, {"year": 2009, "days": 68, "house": "Reps"}, {"year": 2008, "days": 70, "house": "Reps"}, {"year": 2007, "days": 50, "house": "Reps"}, {"year": 2006, "days": 68, "house": "Reps"}, {"year": 2005, "days": 67, "house": "Reps"}, {"year": 2004, "days": 59, "house": "Reps"}, {"year": 2003, "days": 74, "house": "Reps"}, {"year": 2002, "days": 69, "house": "Reps"}, {"year": 2001, "days": 56, "house": "Reps"}, {"year": 2000, "days": 73, "house": "Reps"}, {"year": 1999, "days": 73, "house": "Reps"}, {"year": 1998, "days": 56, "house": "Reps"}, {"year": 1997, "days": 79, "house": "Reps"}, {"year": 1996, "days": 63, "house": "Reps"}, {"year": 1995, "days": 71, "house": "Reps"}, {"year": 1994, "days": 69, "house": "Reps"}, {"year": 1993, "days": 47, "house": "Reps"}, {"year": 1992, "days": 60, "house": "Reps"}, {"year": 1991, "days": 67, "house": "Reps"}, {"year": 1990, "days": 38, "house": "Reps"}, {"year": 1989, "days": 59, "house": "Reps"}, {"year": 1988, "days": 65, "house": "Reps"}, {"year": 1987, "days": 74, "house": "Reps"}, {"year": 1986, "days": 79, "house": "Reps"}, {"year": 1985, "days": 66, "house": "Reps"}, {"year": 1984, "days": 52, "house": "Reps"}, {"year": 1983, "days": 49, "house": "Reps"}, {"year": 1982, "days": 53, "house": "Reps"}, {"year": 1981, "days": 62, "house": "Reps"}, {"year": 1980, "days": 51, "house": "Reps"}, {"year": 1979, "days": 68, "house": "Reps"}, {"year": 1978, "days": 75, "house": "Reps"}, {"year": 1977, "days": 68, "house": "Reps"}, {"year": 1976, "days": 79, "house": "Reps"}, {"year": 1975, "days": 69, "house": "Reps"}, {"year": 1974, "days": 64, "house": "Reps"}, {"year": 1973, "days": 80, "house": "Reps"}, {"year": 1972, "days": 60, "house": "Reps"}, {"year": 1971, "days": 74, "house": "Reps"}, {"year": 1970, "days": 73, "house": "Reps"}, {"year": 1969, "days": 51, "house": "Reps"}, {"year": 1968, "days": 67, "house": "Reps"}, {"year": 1967, "days": 62, "house": "Reps"}, {"year": 1966, "days": 55, "house": "Reps"}, {"year": 1965, "days": 76, "house": "Reps"}, {"year": 1964, "days": 65, "house": "Reps"}, {"year": 1963, "days": 53, "house": "Reps"}, {"year": 1962, "days": 66, "house": "Reps"}, {"year": 1961, "days": 55, "house": "Reps"}, {"year": 1960, "days": 74, "house": "Reps"}, {"year": 1959, "days": 71, "house": "Reps"}, {"year": 1958, "days": 48, "house": "Reps"}, {"year": 1957, "days": 63, "house": "Reps"}, {"year": 1956, "days": 79, "house": "Reps"}, {"year": 1955, "days": 53, "house": "Reps"}, {"year": 1954, "days": 48, "house": "Reps"}, {"year": 1953, "days": 61, "house": "Reps"}, {"year": 1952, "days": 74, "house": "Reps"}, {"year": 1951, "days": 56, "house": "Reps"}, {"year": 1950, "days": 83, "house": "Reps"}, {"year": 1949, "days": 80, "house": "Reps"}, {"year": 1948, "days": 90, "house": "Reps"}, {"year": 1947, "days": 92, "house": "Reps"}, {"year": 1946, "days": 65, "house": "Reps"}, {"year": 1945, "days": 90, "house": "Reps"}, {"year": 1944, "days": 57, "house": "Reps"}, {"year": 1943, "days": 48, "house": "Reps"}, {"year": 1942, "days": 44, "house": "Reps"}, {"year": 1941, "days": 50, "house": "Reps"}, {"year": 1940, "days": 43, "house": "Reps"}, {"year": 1939, "days": 51, "house": "Reps"}, {"year": 1938, "days": 66, "house": "Reps"}, {"year": 1937, "days": 29, "house": "Reps"}, {"year": 1936, "days": 71, "house": "Reps"}, {"year": 1935, "days": 54, "house": "Reps"}, {"year": 1934, "days": 36, "house": "Reps"}, {"year": 1933, "days": 67, "house": "Reps"}, {"year": 1932, "days": 73, "house": "Reps"}, {"year": 1931, "days": 94, "house": "Reps"}, {"year": 1930, "days": 98, "house": "Reps"}, {"year": 1929, "days": 54, "house": "Reps"}, {"year": 1928, "days": 62, "house": "Reps"}, {"year": 1927, "days": 60, "house": "Reps"}, {"year": 1926, "days": 84, "house": "Reps"}, {"year": 1925, "days": 36, "house": "Reps"}, {"year": 1924, "days": 83, "house": "Reps"}, {"year": 1923, "days": 52, "house": "Reps"}, {"year": 1922, "days": 53, "house": "Reps"}, {"year": 1921, "days": 93, "house": "Reps"}, {"year": 1920, "days": 114, "house": "Reps"}, {"year": 1919, "days": 51, "house": "Reps"}, {"year": 1918, "days": 91, "house": "Reps"}, {"year": 1917, "days": 52, "house": "Reps"}, {"year": 1916, "days": 32, "house": "Reps"}, {"year": 1915, "days": 72, "house": "Reps"}, {"year": 1914, "days": 61, "house": "Reps"}, {"year": 1913, "days": 74, "house": "Reps"}, {"year": 1912, "days": 105, "house": "Reps"}, {"year": 1911, "days": 61, "house": "Reps"}, {"year": 1910, "days": 83, "house": "Reps"}, {"year": 1909, "days": 98, "house": "Reps"}, {"year": 1908, "days": 91, "house": "Reps"}, {"year": 1907, "days": 97, "house": "Reps"}, {"year": 1906, "days": 70, "house": "Reps"}, {"year": 1905, "days": 90, "house": "Reps"}, {"year": 1904, "days": 122, "house": "Reps"}, {"year": 1903, "days": 78, "house": "Reps"}, {"year": 1902, "days": 107, "house": "Reps"}, {"year": 1901, "days": 113, "house": "Reps"}, {"year": 2026, "days": 30, "house": "Senate"}, {"year": 2025, "days": 36, "house": "Senate"}, {"year": 2024, "days": 52, "house": "Senate"}, {"year": 2023, "days": 65, "house": "Senate"}, {"year": 2022, "days": 34, "house": "Senate"}, {"year": 2021, "days": 52, "house": "Senate"}, {"year": 2020, "days": 46, "house": "Senate"}, {"year": 2019, "days": 40, "house": "Senate"}, {"year": 2018, "days": 58, "house": "Senate"}, {"year": 2017, "days": 56, "house": "Senate"}, {"year": 2016, "days": 42, "house": "Senate"}, {"year": 2015, "days": 60, "house": "Senate"}, {"year": 2014, "days": 63, "house": "Senate"}, {"year": 2013, "days": 37, "house": "Senate"}, {"year": 2012, "days": 57, "house": "Senate"}, {"year": 2011, "days": 56, "house": "Senate"}, {"year": 2010, "days": 40, "house": "Senate"}, {"year": 2009, "days": 53, "house": "Senate"}, {"year": 2008, "days": 52, "house": "Senate"}, {"year": 2007, "days": 41, "house": "Senate"}, {"year": 2006, "days": 58, "house": "Senate"}, {"year": 2005, "days": 57, "house": "Senate"}, {"year": 2004, "days": 49, "house": "Senate"}, {"year": 2003, "days": 64, "house": "Senate"}, {"year": 2002, "days": 60, "house": "Senate"}, {"year": 2001, "days": 52, "house": "Senate"}, {"year": 2000, "days": 71, "house": "Senate"}, {"year": 1999, "days": 79, "house": "Senate"}, {"year": 1998, "days": 59, "house": "Senate"}, {"year": 1997, "days": 83, "house": "Senate"}, {"year": 1996, "days": 71, "house": "Senate"}, {"year": 1995, "days": 79, "house": "Senate"}, {"year": 1994, "days": 81, "house": "Senate"}, {"year": 1993, "days": 58, "house": "Senate"}, {"year": 1992, "days": 76, "house": "Senate"}, {"year": 1991, "days": 83, "house": "Senate"}, {"year": 1990, "days": 59, "house": "Senate"}, {"year": 1989, "days": 92, "house": "Senate"}, {"year": 1988, "days": 89, "house": "Senate"}, {"year": 1987, "days": 84, "house": "Senate"}, {"year": 1986, "days": 86, "house": "Senate"}, {"year": 1985, "days": 74, "house": "Senate"}, {"year": 1984, "days": 63, "house": "Senate"}, {"year": 1983, "days": 63, "house": "Senate"}, {"year": 1982, "days": 73, "house": "Senate"}, {"year": 1981, "days": 72, "house": "Senate"}, {"year": 1980, "days": 57, "house": "Senate"}, {"year": 1979, "days": 71, "house": "Senate"}, {"year": 1978, "days": 76, "house": "Senate"}, {"year": 1977, "days": 72, "house": "Senate"}, {"year": 1976, "days": 79, "house": "Senate"}, {"year": 1975, "days": 72, "house": "Senate"}, {"year": 1974, "days": 66, "house": "Senate"}, {"year": 1973, "days": 80, "house": "Senate"}, {"year": 1972, "days": 63, "house": "Senate"}, {"year": 1971, "days": 73, "house": "Senate"}, {"year": 1970, "days": 73, "house": "Senate"}, {"year": 1969, "days": 53, "house": "Senate"}, {"year": 1968, "days": 68, "house": "Senate"}, {"year": 1967, "days": 65, "house": "Senate"}, {"year": 1966, "days": 46, "house": "Senate"}, {"year": 1965, "days": 63, "house": "Senate"}, {"year": 1964, "days": 62, "house": "Senate"}, {"year": 1963, "days": 42, "house": "Senate"}, {"year": 1962, "days": 65, "house": "Senate"}, {"year": 1961, "days": 52, "house": "Senate"}, {"year": 1960, "days": 71, "house": "Senate"}, {"year": 1959, "days": 71, "house": "Senate"}, {"year": 1958, "days": 37, "house": "Senate"}, {"year": 1957, "days": 54, "house": "Senate"}, {"year": 1956, "days": 58, "house": "Senate"}, {"year": 1955, "days": 36, "house": "Senate"}, {"year": 1954, "days": 35, "house": "Senate"}, {"year": 1953, "days": 37, "house": "Senate"}, {"year": 1952, "days": 38, "house": "Senate"}, {"year": 1951, "days": 40, "house": "Senate"}, {"year": 1950, "days": 66, "house": "Senate"}, {"year": 1949, "days": 32, "house": "Senate"}, {"year": 1948, "days": 39, "house": "Senate"}, {"year": 1947, "days": 38, "house": "Senate"}, {"year": 1946, "days": 42, "house": "Senate"}, {"year": 1945, "days": 51, "house": "Senate"}, {"year": 1944, "days": 44, "house": "Senate"}, {"year": 1943, "days": 36, "house": "Senate"}, {"year": 1942, "days": 35, "house": "Senate"}, {"year": 1941, "days": 38, "house": "Senate"}, {"year": 1940, "days": 34, "house": "Senate"}, {"year": 1939, "days": 33, "house": "Senate"}, {"year": 1938, "days": 46, "house": "Senate"}, {"year": 1937, "days": 27, "house": "Senate"}, {"year": 1936, "days": 49, "house": "Senate"}, {"year": 1935, "days": 37, "house": "Senate"}, {"year": 1934, "days": 22, "house": "Senate"}, {"year": 1933, "days": 49, "house": "Senate"}, {"year": 1932, "days": 53, "house": "Senate"}, {"year": 1931, "days": 76, "house": "Senate"}, {"year": 1930, "days": 64, "house": "Senate"}, {"year": 1929, "days": 43, "house": "Senate"}, {"year": 1928, "days": 44, "house": "Senate"}, {"year": 1927, "days": 44, "house": "Senate"}, {"year": 1926, "days": 61, "house": "Senate"}, {"year": 1925, "days": 32, "house": "Senate"}, {"year": 1924, "days": 64, "house": "Senate"}, {"year": 1923, "days": 35, "house": "Senate"}, {"year": 1922, "days": 44, "house": "Senate"}, {"year": 1921, "days": 79, "house": "Senate"}, {"year": 1920, "days": 76, "house": "Senate"}, {"year": 1919, "days": 39, "house": "Senate"}, {"year": 1918, "days": 71, "house": "Senate"}, {"year": 1917, "days": 48, "house": "Senate"}, {"year": 1916, "days": 33, "house": "Senate"}, {"year": 1915, "days": 57, "house": "Senate"}, {"year": 1914, "days": 53, "house": "Senate"}, {"year": 1913, "days": 34, "house": "Senate"}, {"year": 1912, "days": 60, "house": "Senate"}, {"year": 1911, "days": 46, "house": "Senate"}, {"year": 1910, "days": 65, "house": "Senate"}, {"year": 1909, "days": 71, "house": "Senate"}, {"year": 1908, "days": 84, "house": "Senate"}, {"year": 1907, "days": 65, "house": "Senate"}, {"year": 1906, "days": 57, "house": "Senate"}, {"year": 1905, "days": 66, "house": "Senate"}, {"year": 1904, "days": 64, "house": "Senate"}, {"year": 1903, "days": 62, "house": "Senate"}, {"year": 1902, "days": 93, "house": "Senate"}, {"year": 1901, "days": 85, "house": "Senate"}]}}, {"mode": "vega-lite"});
-</script>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sitting-days-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Number of sitting days per year for the House of Representatives and the Senate
-</figcaption>
-</figure>
-</div>
-</div>
-<a class="quarto-notebook-link" id="nblink-1" href="example-preview.html#cell-fig-sitting-days">Source: An example notebook</a></div>
 
 
 </section>
