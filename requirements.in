@@ -6,3 +6,4 @@ jupyterlab-quarto
 jupyterlab-code-formatter
 black
 isort
+wordcloud

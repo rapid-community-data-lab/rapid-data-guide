@@ -7,9 +7,9 @@ website:
   repo-url: https://github.com/rapid-community-data-lab/rapid-data-guide
   repo-subdir: public-interest-data-guide
   repo-actions: [edit, source, issue]
+  draft-mode: visible
   navbar:
     logo: /images/rapid-logo.jpg
-
   sidebar:
     style: floating
     contents:
@@ -45,8 +45,13 @@ format:
       dark: darkly
     css: styles.css
     toc: true
-    link-external-icon: true
-    link-external-newwindow: true
+    #link-external-icon: true
+    #link-external-newwindow: true
 
+profile:
+  group: 
+    - [dev, prod]
 
+execute:
+  freeze: auto
 
