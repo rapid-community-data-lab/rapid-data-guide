@@ -1,5 +1,157 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About this site",
+    "section": "",
+    "text": "This site was created by the Reusable and Accessible Public Interest Documents (RAPID-CDL) project, part of ARDC’s Community Data Lab. The RAPID-CDL project aims to make public interest documents such as parliamentary proceedings, inquiry submissions, hearing transcripts, and ministerial records more accessible and usable for researchers across Australia.",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentary-processes.html",
+    "href": "hansard/parliamentary-processes.html",
+    "title": "Understanding Parliamentary processes",
+    "section": "",
+    "text": "import pandas as pd\nimport altair as alt\n\ndf = pd.read_json(\"https://handbookapi.aph.gov.au/api/StatisticalInformation/SittingDaysPerYear\")\n\ndfs = []\nfor house in [\"Reps\", \"Senate\"]:\n    df_h = df[[\"Year\", f\"{house}Days\"]]\n    df_h[\"house\"] = house\n    df_h.columns = [\"year\", \"days\", \"house\"]\n    dfs.append(df_h)\ndf_split = pd.concat(dfs)\n\nticks = [t for t in range(1900, 2030, 5)]\nalt.Chart(df_split).mark_bar().encode(\n    x=alt.X(\"year:O\").axis(values=ticks).title(None),\n    y=alt.Y(\"days:Q\").title(None),\n    row=alt.Row(\"house\").title(\"number of days\"),\n    color=alt.Color(\"house\").legend(None),\n    tooltip=[\"year:O\", \"house:N\", \"days:Q\"]\n).properties(height=200, width=600, padding=20)\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate",
+    "crumbs": [
+      "Hansard",
+      "Understanding Parliamentary processes"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentary-processes.html#sitting-days",
+    "href": "hansard/parliamentary-processes.html#sitting-days",
+    "title": "Understanding Parliamentary processes",
+    "section": "",
+    "text": "import pandas as pd\nimport altair as alt\n\ndf = pd.read_json(\"https://handbookapi.aph.gov.au/api/StatisticalInformation/SittingDaysPerYear\")\n\ndfs = []\nfor house in [\"Reps\", \"Senate\"]:\n    df_h = df[[\"Year\", f\"{house}Days\"]]\n    df_h[\"house\"] = house\n    df_h.columns = [\"year\", \"days\", \"house\"]\n    dfs.append(df_h)\ndf_split = pd.concat(dfs)\n\nticks = [t for t in range(1900, 2030, 5)]\nalt.Chart(df_split).mark_bar().encode(\n    x=alt.X(\"year:O\").axis(values=ticks).title(None),\n    y=alt.Y(\"days:Q\").title(None),\n    row=alt.Row(\"house\").title(\"number of days\"),\n    color=alt.Color(\"house\").legend(None),\n    tooltip=[\"year:O\", \"house:N\", \"days:Q\"]\n).properties(height=200, width=600, padding=20)\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate",
+    "crumbs": [
+      "Hansard",
+      "Understanding Parliamentary processes"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentary-handbook-api.html",
+    "href": "hansard/parliamentary-handbook-api.html",
+    "title": "Parliamentary Handbook API",
+    "section": "",
+    "text": "The Parliamentary Handbook includes a simple API that you can use to get the data about parliament and parliamentarians in machine-readable form.\nAggregated data about individuals can be accessed via: https://handbookapi.aph.gov.au/api/individuals/. However, this data only includes a summary of the available information for each person. There are a variety of other endpoints that can be used to access the full data. For example:",
+    "crumbs": [
+      "Hansard",
+      "Related data",
+      "Parliamentary Handbook API"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentary-handbook-api.html#records-of-service",
+    "href": "hansard/parliamentary-handbook-api.html#records-of-service",
+    "title": "Parliamentary Handbook API",
+    "section": "Records of service",
+    "text": "Records of service\nRecords of Service types (in the ROSTypeID field):\n\n9 parliamentary terms\n5 ministry appointments\n22 shadow ministry appointments\n7 Parliamentary Party Positions\n2 Committee Service\n10 Party Positions\n18 occupations\n21 qualifications\n6 Parliamentary Appointments\n\nhttps://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=N26",
+    "crumbs": [
+      "Hansard",
+      "Related data",
+      "Parliamentary Handbook API"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to the Public Interest Data Guide",
+    "section": "",
+    "text": "Warning\n\n\n\nThis is a development version of the site and is not intended for public use.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#get-started",
+    "href": "index.html#get-started",
+    "title": "Welcome to the Public Interest Data Guide",
+    "section": "Get started",
+    "text": "Get started\n\n\n\nHansard\n\n🗣️ Explore the record of what was spoken in the Australian parliament.\nWhat is Hansard? →\n\n\n\n\n\nReviews and inquiries\n\n📚 Explore public submissions to government reviews and inquiries.\nIntroduction →",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#more-information",
+    "href": "index.html#more-information",
+    "title": "Welcome to the Public Interest Data Guide",
+    "section": "More information",
+    "text": "More information\n\n\n\nAbout this site\n\nAbout →\n\n\n\n\n\nContributing\n\nContributing →",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html",
+    "href": "contributing/author-guide.html",
+    "title": "Guide for authors",
+    "section": "",
+    "text": "Include extra metadata in the front matter section of a notebook. Possible values include:\n\nauthors\nabstract\nkeywords\n\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\n---\nFront matter rules: - has to be in the first cell of the notebook - cell has to be set to ‘Markdown’ - data has to be valid YAML - YAML data has to be enclosed top and bottom by --- lines",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#front-matter",
+    "href": "contributing/author-guide.html#front-matter",
+    "title": "Guide for authors",
+    "section": "",
+    "text": "Include extra metadata in the front matter section of a notebook. Possible values include:\n\nauthors\nabstract\nkeywords\n\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\n---\nFront matter rules: - has to be in the first cell of the notebook - cell has to be set to ‘Markdown’ - data has to be valid YAML - YAML data has to be enclosed top and bottom by --- lines",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#labelling-cells-and-content",
+    "href": "contributing/author-guide.html#labelling-cells-and-content",
+    "title": "Guide for authors",
+    "section": "Labelling cells and content",
+    "text": "Labelling cells and content\nBy labelling code and Markdown cells they can used in cross-references or embedded elsewhere in the book.\nNote that labels are accessible across the whole site, not just a notebook, so should be unique. Quarto defines a set of prefixes that should be used in labels, eg: ‘fig’, ‘tbl’, and ‘sec’ for figures, tables and sections.\nTo label a section, add {#sec-my-section-name} after a heading. For example:\n## Cool things about Hansard {#sec-my-cool-hansard-things}\nTo label an image add {#fig-my-image} after the standard Markdown image embed link:\n![](parliament-house.jpeg) {#fig-parliament-house}\nTo label an image with a caption:\n::: {#fig-parliament-house}\n\n![](parliament-house.jpeg)\n\nParliament House in Canberra\n:::\nTo label a code cell that produces a chart add #| label: fig-my-chart and #| fig-caption: My interesting chart to the very top of the cell:\n#| label: fig-sitting-days\n#| fig-cap: Number of sitting days per year for the House of Representatives and the Senate\n\n# Code goes here",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#links-and-cross-references",
+    "href": "contributing/author-guide.html#links-and-cross-references",
+    "title": "Guide for authors",
+    "section": "Links and cross-references",
+    "text": "Links and cross-references\nTo create an internal link to another notebook, use standard Markdown syntax with the full or relative path to the notebook in the file structure, including the file extension.\nFor example, [introduction to Hansard](/hansard/hansard-intro.ipynb) produces:\n\nHere’s an introduction to Hansard\n\nTo create an internal link to a heading in another notebook, use standard Markdown syntax with the full path to the notebook and the heading’s HTML id. For example to link to the ‘Quarto’ heading in the ‘contributing’ notebook, use [](/contributing/contributing#quarto):\n\nThis site uses quarto.\n\nTo create a link to a figure or table, use @ plus the label.\n@fig-gender-parliaments shows the gender breakdown of each parliament.\nFigure 1 shows the gender breakdown of each parliament.",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#embedding-and-reusing-content",
+    "href": "contributing/author-guide.html#embedding-and-reusing-content",
+    "title": "Guide for authors",
+    "section": "Embedding and reusing content",
+    "text": "Embedding and reusing content\nTo embed the chart labelled fig-gender-parliaments from the parliamentarians.ipynb notebook in the hansard directory:\n{{&lt; embed /hansard/parliamentarians.ipynb#fig-gender-parliaments &gt;}}\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Gender breakdown by parliament (both houses combined)\n\n\n\n\nSource: Parliamentarians",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#style",
+    "href": "contributing/author-guide.html#style",
+    "title": "Guide for authors",
+    "section": "Style",
+    "text": "Style\nFollow the Australian Government Style Manual in naming government entities:\n\nGovernment terms\nParliaments and Councils",
+    "crumbs": [
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
     "objectID": "contributing/contributing.html",
     "href": "contributing/contributing.html",
     "title": "Contributing content",
@@ -22,24 +174,25 @@
     ]
   },
   {
-    "objectID": "contributing/contributing.html#local-installation",
-    "href": "contributing/contributing.html#local-installation",
+    "objectID": "contributing/contributing.html#local-development",
+    "href": "contributing/contributing.html#local-development",
     "title": "Contributing content",
-    "section": "Local installation",
-    "text": "Local installation\nTo set up a local development environment:\n\ninstall Quarto\ngit clone the repository\ncreate a Python virtual environment\ninstall the requirements\ncreate/edit notebooks in Jupyter Lab\npreview using Quarto",
+    "section": "Local development",
+    "text": "Local development\nIf you want to contribute new notebooks to the data guide you should set up a local development environment:\n\ninstall Quarto\ngit clone this repository\ncreate a Python virtual environment\ninstall the Python requirements\ncreate/edit notebooks in Jupyter Lab\npreview using Quarto\npush changes back to the repository\n\n\nClone this repository\nFrom the command line run:\ngit clone https://github.com/rapid-community-data-lab/rapid-data-guide\n\n\nCreate a Python virtual environment\nThere are a number of different tools and methods used to create Python virtual environments. I mostly use pyenv to manage different Python versions and pyenv-virtualenv to create virtual environments. Assuming you’ve installed both of these, and used pyenv to install Python 3.12, you can create and activate a virtual environment like this:\ncd rapid-data-guide\npyenv virtualenv 3.12 rapid-data-guide\npyenv local rapid-data-guide\nOnce this is done, the virtual environment will be automatically activated anytime you enter the rapid-data-guide directory.\n\n\nInstall requirements\nYou can install the current set of pinned requirements using pip:\npip install -r requirements.txt\nIf you’re creating new notebooks, you might want to add additional Python packages. In this case you’ll need to update the requirements.in and requirements.txt files. I use pip-tools to manage dependencies and generate the requirements.txt file. First, edit requirements.in to add the new package name/s. Then generate the requirements.txt file by running:\npip-compile requirements.in\nYou can also use pip-tools to install packages:\npip-sync requirements.txt\nMake sure you include the updated files when you push your changes back to the GitHub repository.\n\n\nCreate/edit notebooks\nStart Jupyter Lab with:\njupyter lab\nSee the author guide for some hints and tips.\n\n\nPreview using Quarto\nTo preview the rendered site, run:\nquarto preview\nThis will automatically update as you make changes to the files. If your changes aren’t showing up, or you’re getting strange errors, try stopping the preview with Ctrl-CCtrl-C and then restarting.",
     "crumbs": [
       "Contributing",
       "Contributing content"
     ]
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About this site",
-    "section": "",
-    "text": "This site was created by the Reusable and Accessible Public Interest Documents (RAPID-CDL) project, part of ARDC’s Community Data Lab. The RAPID-CDL project aims to make public interest documents such as parliamentary proceedings, inquiry submissions, hearing transcripts, and ministerial records more accessible and usable for researchers across Australia.",
+    "objectID": "contributing/contributing.html#profiles",
+    "href": "contributing/contributing.html#profiles",
+    "title": "Contributing content",
+    "section": "Profiles",
+    "text": "Profiles\nTwo profiles are defined dev and prod. The dev profile is the default, it displays all draft pages and includes a warning on the home page that this is the development site. The prod profile removes any draft pages from the site.\nYou can specify which profile to use by adding the --profile parameter to the quarto preview, quarto render or quarto publish commands. For example to see what the prod site will look like, enter quarto preview --profile prod at the command line.\nYou can also use the profiles to selectively include/exclude markdown content. For example the homepage dev site warning is wrapped in a .content-visible when-profile=\"dev\" block:\n:::: {.content-visible when-profile=\"dev\"}\n::: {.callout-warning}\nThis is a development version of the site and is not intended for public use.\n:::\n::::",
     "crumbs": [
-      "About"
+      "Contributing",
+      "Contributing content"
     ]
   },
   {
@@ -106,148 +259,6 @@
     "crumbs": [
       "Hansard",
       "Parliamentarians"
-    ]
-  },
-  {
-    "objectID": "hansard/parliamentary-handbook-api.html",
-    "href": "hansard/parliamentary-handbook-api.html",
-    "title": "Parliamentary Handbook API",
-    "section": "",
-    "text": "The Parliamentary Handbook includes a simple API that you can use to get the data about parliament and parliamentarians in machine-readable form.\nAggregated data about individuals can be accessed via: https://handbookapi.aph.gov.au/api/individuals/. However, this data only includes a summary of the available information for each person. There are a variety of other endpoints that can be used to access the full data. For example:",
-    "crumbs": [
-      "Hansard",
-      "Related data",
-      "Parliamentary Handbook API"
-    ]
-  },
-  {
-    "objectID": "hansard/parliamentary-handbook-api.html#records-of-service",
-    "href": "hansard/parliamentary-handbook-api.html#records-of-service",
-    "title": "Parliamentary Handbook API",
-    "section": "Records of service",
-    "text": "Records of service\nRecords of Service types (in the ROSTypeID field):\n\n9 parliamentary terms\n5 ministry appointments\n22 shadow ministry appointments\n7 Parliamentary Party Positions\n2 Committee Service\n10 Party Positions\n18 occupations\n21 qualifications\n6 Parliamentary Appointments\n\nhttps://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=N26",
-    "crumbs": [
-      "Hansard",
-      "Related data",
-      "Parliamentary Handbook API"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to the Public Interest Data Guide",
-    "section": "",
-    "text": "Warning\n\n\n\nThis is a development version of the site and is not intended for public use.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#get-started",
-    "href": "index.html#get-started",
-    "title": "Welcome to the Public Interest Data Guide",
-    "section": "Get started",
-    "text": "Get started\n\n\n\nHansard\n\n🗣️ Explore the record of what was spoken in the Australian parliament.\nWhat is Hansard? →\n\n\n\n\n\nReviews and inquiries\n\n📚 Explore public submissions to government reviews and inquiries.\nIntroduction →",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#more-information",
-    "href": "index.html#more-information",
-    "title": "Welcome to the Public Interest Data Guide",
-    "section": "More information",
-    "text": "More information\n\n\n\nAbout this site\n\nAbout →\n\n\n\n\n\nContributing\n\nContributing →",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "hansard/parliamentary-processes.html",
-    "href": "hansard/parliamentary-processes.html",
-    "title": "Understanding Parliamentary processes",
-    "section": "",
-    "text": "import pandas as pd\nimport altair as alt\n\ndf = pd.read_json(\"https://handbookapi.aph.gov.au/api/StatisticalInformation/SittingDaysPerYear\")\n\ndfs = []\nfor house in [\"Reps\", \"Senate\"]:\n    df_h = df[[\"Year\", f\"{house}Days\"]]\n    df_h[\"house\"] = house\n    df_h.columns = [\"year\", \"days\", \"house\"]\n    dfs.append(df_h)\ndf_split = pd.concat(dfs)\n\nticks = [t for t in range(1900, 2030, 5)]\nalt.Chart(df_split).mark_bar().encode(\n    x=alt.X(\"year:O\").axis(values=ticks).title(None),\n    y=alt.Y(\"days:Q\").title(None),\n    row=alt.Row(\"house\").title(\"number of days\"),\n    color=alt.Color(\"house\").legend(None),\n    tooltip=[\"year:O\", \"house:N\", \"days:Q\"]\n).properties(height=200, width=600, padding=20)\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate",
-    "crumbs": [
-      "Hansard",
-      "Understanding Parliamentary processes"
-    ]
-  },
-  {
-    "objectID": "hansard/parliamentary-processes.html#sitting-days",
-    "href": "hansard/parliamentary-processes.html#sitting-days",
-    "title": "Understanding Parliamentary processes",
-    "section": "",
-    "text": "import pandas as pd\nimport altair as alt\n\ndf = pd.read_json(\"https://handbookapi.aph.gov.au/api/StatisticalInformation/SittingDaysPerYear\")\n\ndfs = []\nfor house in [\"Reps\", \"Senate\"]:\n    df_h = df[[\"Year\", f\"{house}Days\"]]\n    df_h[\"house\"] = house\n    df_h.columns = [\"year\", \"days\", \"house\"]\n    dfs.append(df_h)\ndf_split = pd.concat(dfs)\n\nticks = [t for t in range(1900, 2030, 5)]\nalt.Chart(df_split).mark_bar().encode(\n    x=alt.X(\"year:O\").axis(values=ticks).title(None),\n    y=alt.Y(\"days:Q\").title(None),\n    row=alt.Row(\"house\").title(\"number of days\"),\n    color=alt.Color(\"house\").legend(None),\n    tooltip=[\"year:O\", \"house:N\", \"days:Q\"]\n).properties(height=200, width=600, padding=20)\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate",
-    "crumbs": [
-      "Hansard",
-      "Understanding Parliamentary processes"
-    ]
-  },
-  {
-    "objectID": "contributing/author-guide.html",
-    "href": "contributing/author-guide.html",
-    "title": "Guide for authors",
-    "section": "",
-    "text": "Include extra metadata in the front matter section of a notebook. Possible values include:\n\nauthors\nabstract\nkeywords\n\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\n---\nFront matter rules: - has to be in the first cell of the notebook - cell has to be set to ‘Markdown’ - data has to be valid YAML - YAML data has to be enclosed top and bottom by --- lines",
-    "crumbs": [
-      "Contributing",
-      "Guide for authors"
-    ]
-  },
-  {
-    "objectID": "contributing/author-guide.html#front-matter",
-    "href": "contributing/author-guide.html#front-matter",
-    "title": "Guide for authors",
-    "section": "",
-    "text": "Include extra metadata in the front matter section of a notebook. Possible values include:\n\nauthors\nabstract\nkeywords\n\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\n---\nFront matter rules: - has to be in the first cell of the notebook - cell has to be set to ‘Markdown’ - data has to be valid YAML - YAML data has to be enclosed top and bottom by --- lines",
-    "crumbs": [
-      "Contributing",
-      "Guide for authors"
-    ]
-  },
-  {
-    "objectID": "contributing/author-guide.html#labelling-cells-and-content",
-    "href": "contributing/author-guide.html#labelling-cells-and-content",
-    "title": "Guide for authors",
-    "section": "Labelling cells and content",
-    "text": "Labelling cells and content\nBy labelling code and Markdown cells they can used in cross-references or embedded elsewhere in the book.\nNote that labels are accessible across the whole site, not just a notebook, so should be unique. Quarto defines a set of prefixes that should be used in labels, eg: ‘fig’, ‘tbl’, and ‘sec’ for figures, tables and sections.\nTo label a section, add {#sec-my-section-name} after a heading. For example:\n## Cool things about Hansard {#sec-my-cool-hansard-things}\nTo label an image add {#fig-my-image} after the standard Markdown image embed link:\n![](parliament-house.jpeg) {#fig-parliament-house}\nTo label an image with a caption:\n::: {#fig-parliament-house}\n\n![](parliament-house.jpeg)\n\nParliament House in Canberra\n:::\nTo label a code cell that produces a chart add #| label: fig-my-chart and #| fig-caption: My interesting chart to the very top of the cell:\n#| label: fig-sitting-days\n#| fig-cap: Number of sitting days per year for the House of Representatives and the Senate\n\n# Code goes here",
-    "crumbs": [
-      "Contributing",
-      "Guide for authors"
-    ]
-  },
-  {
-    "objectID": "contributing/author-guide.html#links-and-cross-references",
-    "href": "contributing/author-guide.html#links-and-cross-references",
-    "title": "Guide for authors",
-    "section": "Links and cross-references",
-    "text": "Links and cross-references\nTo create an internal link to another notebook, use standard Markdown syntax with the full or relative path to the notebook in the file structure, including the file extension.\nFor example, [introduction to Hansard](/hansard/hansard-intro) produces:\n\nHere’s an introduction to Hansard\n\nTo create an internal link to a heading in another notebook, use standard Markdown syntax with the full path to the notebook and the heading’s HTML id. For example to link to the ‘Quarto’ heading in the ‘contributing’ notebook, use [](/contributing/contributing#quarto):\n\nThis site uses quarto.\n\nTo create a link to a figure or table, use @ plus the label.\n@fig-gender-parliaments shows the gender breakdown of each parliament.\nFigure 1 shows the gender breakdown of each parliament.",
-    "crumbs": [
-      "Contributing",
-      "Guide for authors"
-    ]
-  },
-  {
-    "objectID": "contributing/author-guide.html#embedding-and-reusing-content",
-    "href": "contributing/author-guide.html#embedding-and-reusing-content",
-    "title": "Guide for authors",
-    "section": "Embedding and reusing content",
-    "text": "Embedding and reusing content\nTo embed the chart labelled fig-gender-parliaments from the parliamentarians.ipynb notebook in the hansard directory:\n{{&lt; embed /hansard/parliamentarians.ipynb#fig-gender-parliaments &gt;}}\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Gender breakdown by parliament (both houses combined)\n\n\n\n\nSource: Parliamentarians",
-    "crumbs": [
-      "Contributing",
-      "Guide for authors"
-    ]
-  },
-  {
-    "objectID": "contributing/author-guide.html#style",
-    "href": "contributing/author-guide.html#style",
-    "title": "Guide for authors",
-    "section": "Style",
-    "text": "Style\nFollow the Australian Government Style Manual in naming government entities:\n\nGovernment terms\nParliaments and Councils",
-    "crumbs": [
-      "Contributing",
-      "Guide for authors"
     ]
   }
 ]
