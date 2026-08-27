@@ -445,12 +445,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto">Quarto</a></li>
   <li><a href="#local-development" id="toc-local-development" class="nav-link" data-scroll-target="#local-development">Local development</a>
   <ul class="collapse">
-  <li><a href="#clone-this-repository" id="toc-clone-this-repository" class="nav-link" data-scroll-target="#clone-this-repository">Clone this repository</a></li>
+  <li><a href="#create-a-fork-of-the-data-guide-repository" id="toc-create-a-fork-of-the-data-guide-repository" class="nav-link" data-scroll-target="#create-a-fork-of-the-data-guide-repository">Create a fork of the Data Guide repository</a></li>
+  <li><a href="#clone-your-forked-repository" id="toc-clone-your-forked-repository" class="nav-link" data-scroll-target="#clone-your-forked-repository">Clone your forked repository</a></li>
   <li><a href="#create-a-python-virtual-environment" id="toc-create-a-python-virtual-environment" class="nav-link" data-scroll-target="#create-a-python-virtual-environment">Create a Python virtual environment</a></li>
   <li><a href="#install-requirements" id="toc-install-requirements" class="nav-link" data-scroll-target="#install-requirements">Install requirements</a></li>
   <li><a href="#createedit-notebooks" id="toc-createedit-notebooks" class="nav-link" data-scroll-target="#createedit-notebooks">Create/edit notebooks</a></li>
   <li><a href="#preview-using-quarto" id="toc-preview-using-quarto" class="nav-link" data-scroll-target="#preview-using-quarto">Preview using Quarto</a></li>
-  <li><a href="#pushing-your-changes-to-the-repository" id="toc-pushing-your-changes-to-the-repository" class="nav-link" data-scroll-target="#pushing-your-changes-to-the-repository">Pushing your changes to the repository</a></li>
+  <li><a href="#adding-your-changes-to-the-repository" id="toc-adding-your-changes-to-the-repository" class="nav-link" data-scroll-target="#adding-your-changes-to-the-repository">Adding your changes to the repository</a></li>
   </ul></li>
   <li><a href="#profiles" id="toc-profiles" class="nav-link" data-scroll-target="#profiles">Profiles</a></li>
   </ul>
@@ -506,17 +507,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you want to contribute new notebooks to the data guide you should set up a local development environment:</p>
 <ol type="1">
 <li><a href="https://quarto.org/docs/get-started/">install Quarto</a></li>
-<li>git clone <a href="https://github.com/rapid-community-data-lab/rapid-data-guide">this repository</a></li>
+<li>create a fork of <a href="https://github.com/rapid-community-data-lab/rapid-data-guide">this Github repository</a></li>
+<li>git clone your forked repository</li>
 <li>create a Python virtual environment</li>
 <li>install the Python requirements</li>
 <li>create/edit notebooks in Jupyter Lab</li>
 <li>preview using Quarto</li>
 <li>push changes back to the repository</li>
 </ol>
-<section id="clone-this-repository" class="level3">
-<h3 class="anchored" data-anchor-id="clone-this-repository">Clone this repository</h3>
-<p>From the command line run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/rapid-community-data-lab/rapid-data-guide</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="create-a-fork-of-the-data-guide-repository" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-fork-of-the-data-guide-repository">Create a fork of the Data Guide repository</h3>
+<p>Go to the <a href="https://github.com/rapid-community-data-lab/rapid-data-guide">RAPID Data Guide repository</a> in GitHub and click on the <strong>Fork</strong> button. Then in the pop-up click <strong>Create fork</strong>.</p>
+<p>There’s <a href="https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo">more information about forking</a> in the GitHub documentation.</p>
+</section>
+<section id="clone-your-forked-repository" class="level3">
+<h3 class="anchored" data-anchor-id="clone-your-forked-repository">Clone your forked repository</h3>
+<p>Go to your newly-forked repository, click on the <strong>Code</strong> button and copy the web url. Then from the command line run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>web url of your fork<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>There’s <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">more information on cloning a repository</a> in the GitHub documentation.</p>
 </section>
 <section id="create-a-python-virtual-environment" class="level3">
 <h3 class="anchored" data-anchor-id="create-a-python-virtual-environment">Create a Python virtual environment</h3>
@@ -538,18 +546,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="createedit-notebooks" class="level3">
 <h3 class="anchored" data-anchor-id="createedit-notebooks">Create/edit notebooks</h3>
-<p>Start Jupyter Lab with:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Before you start making changes, it’s a good idea to create a new git branch to work in, for example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> my-new-notebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then start Jupyter Lab with:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>See the <a href="../contributing/author-guide.html">author guide</a> for some hints and tips.</p>
 </section>
 <section id="preview-using-quarto" class="level3">
 <h3 class="anchored" data-anchor-id="preview-using-quarto">Preview using Quarto</h3>
 <p>To preview the rendered site, run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This will automatically update as you make changes to the files. If your changes aren’t showing up, or you’re getting strange errors, try stopping the preview with <kbd title="Ctrl-C" aria-hidden="true">Ctrl-C</kbd><span class="visually-hidden">Ctrl-C</span> and then restarting.</p>
 </section>
-<section id="pushing-your-changes-to-the-repository" class="level3">
-<h3 class="anchored" data-anchor-id="pushing-your-changes-to-the-repository">Pushing your changes to the repository</h3>
+<section id="adding-your-changes-to-the-repository" class="level3">
+<h3 class="anchored" data-anchor-id="adding-your-changes-to-the-repository">Adding your changes to the repository</h3>
+<p>Once you’ve made your changes, you need to commit them.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add my new notebook"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then you can push your updated branch back to Github:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin my-new-notebook</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Your changes are now in your forked repository, to add them to the main <code>rapid-data-guide</code> repository, you need to <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork">create a pull request</a>.</p>
 </section>
 </section>
 <section id="profiles" class="level2">
