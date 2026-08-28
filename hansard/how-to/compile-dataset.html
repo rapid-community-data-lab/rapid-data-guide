@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Parliamentary Handbook API – Public Interest Data Guide</title>
+<title>Compile a dataset from Hansard – Public Interest Data Guide</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,29 +29,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../inquiries/inquiries-intro.html" rel="next">
-<link href="../hansard/parliamentarians.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3c9c489b3365030a08823a85c71cd1a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-4de2da5e8af8a56ca594d71261300eb6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-3c9c489b3365030a08823a85c71cd1a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../inquiries/inquiries-intro.html" rel="next">
+<link href="../../hansard/tutorials/aliens-and-immigrants.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-3c9c489b3365030a08823a85c71cd1a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-4de2da5e8af8a56ca594d71261300eb6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-3c9c489b3365030a08823a85c71cd1a4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,10 +79,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<meta name="quarto:status" content="draft">
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -250,15 +249,15 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../images/rapid-logo.jpg" alt="" class="navbar-logo light-content">
-    <img src="../images/rapid-logo.jpg" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/rapid-logo.jpg" alt="" class="navbar-logo light-content">
+    <img src="../../images/rapid-logo.jpg" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Public Interest Data Guide</span>
     </a>
   </div>
@@ -273,7 +272,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hansard/hansard-intro.html">Hansard</a></li><li class="breadcrumb-item"><a href="../hansard/parliamentary-handbook-api.html">Related data</a></li><li class="breadcrumb-item"><a href="../hansard/parliamentary-handbook-api.html">Parliamentary Handbook API</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../hansard/hansard-intro.html">Hansard</a></li><li class="breadcrumb-item"><a href="../../hansard/how-to/compile-dataset.html">How to</a></li><li class="breadcrumb-item"><a href="../../hansard/how-to/compile-dataset.html">Compile a dataset from Hansard</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -287,13 +286,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about.html" class="sidebar-item-text sidebar-link">
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
@@ -308,47 +307,87 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hansard/hansard-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">What is Hansard?</span></a>
+  <a href="../../hansard/hansard-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Hansard</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hansard/hansard-structure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The structure of Hansard</span></a>
+  <a href="../../hansard/hansard-contents.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contents of Hansard</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hansard/hansard-contents.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The contents of Hansard</span></a>
+  <a href="../../hansard/parliamentary-processes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hansard and the processes of parliament</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hansard/parliamentary-processes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Understanding Parliamentary processes</span></a>
+  <a href="../../hansard/hansard-structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Structure of Hansard</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hansard/parliamentarians.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Parliamentarians</span></a>
+  <a href="../../hansard/parliamentarians.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Parliamentarians and parties</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Related data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Related resources</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../hansard/parliamentary-handbook-api.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../hansard/resources/parliamentary-handbook-api.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Parliamentary Handbook API</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Tutorials</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hansard/tutorials/intro-language-parliament.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to the language of Parliament</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hansard/tutorials/aliens-and-immigrants.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aliens and immigrants – tracking meanings over time</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">How to</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../hansard/how-to/compile-dataset.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Compile a dataset from Hansard</span></a>
   </div>
 </li>
       </ul>
@@ -357,16 +396,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Inquiries</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inquiries/inquiries-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../inquiries/inquiries-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to reviews and inquiries</span></a>
   </div>
 </li>
@@ -374,22 +413,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
  <span class="menu-text">Contributing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contributing/contributing.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contributing/contributing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Contributing content</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../contributing/author-guide.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contributing/author-guide.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Guide for authors</span></a>
   </div>
 </li>
@@ -400,34 +439,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#records-of-service" id="toc-records-of-service" class="nav-link active" data-scroll-target="#records-of-service">Records of service</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.dev/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/hansard/parliamentary-handbook-api.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/hansard/parliamentary-handbook-api.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../hansard/hansard-intro.html">Hansard</a></li><li class="breadcrumb-item"><a href="../hansard/parliamentary-handbook-api.html">Related data</a></li><li class="breadcrumb-item"><a href="../hansard/parliamentary-handbook-api.html">Parliamentary Handbook API</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../hansard/hansard-intro.html">Hansard</a></li><li class="breadcrumb-item"><a href="../../hansard/how-to/compile-dataset.html">How to</a></li><li class="breadcrumb-item"><a href="../../hansard/how-to/compile-dataset.html">Compile a dataset from Hansard</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Parliamentary Handbook API</h1>
+<h1 class="title">Compile a dataset from Hansard</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Tim Sherratt </p>
-          </div>
-  </div>
     
   
     
@@ -438,54 +465,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The <em>Parliamentary Handbook</em> includes a simple API that you can use to get the data about parliament and parliamentarians in machine-readable form.</p>
-<p>Aggregated data about individuals can be accessed via: <a href="https://handbookapi.aph.gov.au/api/individuals/" class="uri">https://handbookapi.aph.gov.au/api/individuals/</a>. However, this data only includes a summary of the available information for each person. There are a variety of other endpoints that can be used to access the full data. For example:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 29%">
-<col style="width: 32%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>description</th>
-<th>endpoint</th>
-<th>parameters</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>records of service, includes parliamentary terms, committee membership etc</td>
-<td><code>recordsofservice</code></td>
-<td><code>?filter=PHID eq '[PH ID]'</code></td>
-</tr>
-<tr class="even">
-<td>party membership</td>
-<td><code>PartiesData/GetPartyServiceForParliamentarian</code></td>
-<td><code>?personId=[PHID]</code></td>
-</tr>
-</tbody>
-</table>
-<section id="records-of-service" class="level2">
-<h2 class="anchored" data-anchor-id="records-of-service">Records of service</h2>
-<p>Records of Service types (in the <code>ROSTypeID</code> field):</p>
-<ul>
-<li><code>9</code> parliamentary terms</li>
-<li><code>5</code> ministry appointments</li>
-<li><code>22</code> shadow ministry appointments</li>
-<li><code>7</code> Parliamentary Party Positions</li>
-<li><code>2</code> Committee Service</li>
-<li><code>10</code> Party Positions</li>
-<li><code>18</code> occupations</li>
-<li><code>21</code> qualifications</li>
-<li><code>6</code> Parliamentary Appointments</li>
-</ul>
-<p>https://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd</p>
-<p>https://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd</p>
-<p>https://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=N26</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -903,12 +884,12 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../hansard/parliamentarians.html" class="pagination-link" aria-label="Parliamentarians">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Parliamentarians</span>
+      <a href="../../hansard/tutorials/aliens-and-immigrants.html" class="pagination-link" aria-label="Aliens and immigrants – tracking meanings over time">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Aliens and immigrants – tracking meanings over time</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../inquiries/inquiries-intro.html" class="pagination-link" aria-label="Introduction to reviews and inquiries">
+      <a href="../../inquiries/inquiries-intro.html" class="pagination-link" aria-label="Introduction to reviews and inquiries">
         <span class="nav-page-text">Introduction to reviews and inquiries</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -921,7 +902,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Part of the <a href="https://rapid-cdl.edu.au">RAPID-CDL</a> (Reusable and Accessible Public Interest Documents) project</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/hansard/parliamentary-handbook-api.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/hansard/parliamentary-handbook-api.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions"><ul><li><a href="https://github.dev/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/hansard/how-to/compile-dataset.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/hansard/how-to/compile-dataset.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
