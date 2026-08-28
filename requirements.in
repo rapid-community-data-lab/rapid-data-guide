@@ -7,3 +7,5 @@ jupyterlab-code-formatter
 black
 isort
 wordcloud
+decodify
+kml2geojson

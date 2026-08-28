@@ -20,13 +20,20 @@ website:
       - section: Hansard
         contents:
           - hansard/hansard-intro.ipynb
-          - hansard/hansard-structure.ipynb
           - hansard/hansard-contents.ipynb
           - hansard/parliamentary-processes.ipynb
+          - hansard/hansard-structure.ipynb
           - hansard/parliamentarians.ipynb
-          - section: Related data
+          - section: Related resources
             contents:
-              - hansard/parliamentary-handbook-api.ipynb
+              - hansard/resources/parliamentary-handbook-api.ipynb
+          - section: Tutorials
+            contents:
+              - hansard/tutorials/intro-language-parliament.ipynb
+              - hansard/tutorials/aliens-and-immigrants.ipynb
+          - section: How to
+            contents:
+              - hansard/how-to/compile-dataset.ipynb
       - section: Inquiries
         contents:
           - inquiries/inquiries-intro.ipynb
