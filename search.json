@@ -47,7 +47,12 @@
     "href": "hansard/resources/other-resources.html",
     "title": "Other resources",
     "section": "",
-    "text": "Parliamentary Handbook\nParlInfo\nFederal Register of Legislation\nAustLII\nPM Transcripts\nMoAD Election Speeches\nList of Australian Federal Elections\nhistorical electorate boundaries – Parliamentary Handbook!\nsee Parliamentary Handbook for historical election results: https://handbookapi.aph.gov.au/api/Elections/Elections\nPress releases (Parlinfo and Trove), also datasets in GLAM Workbench\nParliamentary Papers (Parlinfo and Trove), see also Trove Data Guide and pre-harvested datasets\nCommonwealth Government Gazette (Trove)"
+    "text": "Parliamentary Handbook\nParlInfo\nFederal Register of Legislation\nAustLII\nPM Transcripts\nMoAD Election Speeches\nList of Australian Federal Elections\nhistorical electorate boundaries – Parliamentary Handbook!\nsee Parliamentary Handbook for historical election results: https://handbookapi.aph.gov.au/api/Elections/Elections\nPress releases (Parlinfo and Trove), also datasets in GLAM Workbench\nParliamentary Papers (Parlinfo and Trove), see also Trove Data Guide and pre-harvested datasets\nCommonwealth Government Gazette (Trove)",
+    "crumbs": [
+      "Hansard",
+      "Related resources",
+      "Other resources"
+    ]
   },
   {
     "objectID": "index.html",
