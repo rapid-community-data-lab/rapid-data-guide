@@ -27,6 +27,7 @@ website:
           - section: Related resources
             contents:
               - hansard/resources/parliamentary-handbook-api.ipynb
+              - hansard/resources/other-resources.ipynb
           - section: Tutorials
             contents:
               - hansard/tutorials/intro-language-parliament.ipynb
