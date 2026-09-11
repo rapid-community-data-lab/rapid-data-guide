@@ -31,9 +31,10 @@ website:
           - hansard/hansard-structure.ipynb
           - hansard/parliamentarians.ipynb
           - section: Related resources
+            href: hansard/resources/related-resources.ipynb
             contents:
               - hansard/resources/parliamentary-handbook-api.ipynb
-              - hansard/resources/other-resources.ipynb
+              - hansard/resources/wikidata.ipynb
           - section: Tutorials
             contents:
               - hansard/tutorials/intro-language-parliament.ipynb
