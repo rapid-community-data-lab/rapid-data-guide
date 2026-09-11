@@ -10,13 +10,19 @@ website:
   draft-mode: visible
   navbar:
     logo: /images/rapid-logo.jpg
+    search: true
+    left:
+      - text: "Home"
+        href: index.ipynb
+      - text: About
+        href: about.ipynb
+      - text: Contribute
+        href: contributing/contributing.ipynb
+
   sidebar:
     style: floating
     contents:
-      - href: index.ipynb
-        text: Home
-      - href: about.ipynb
-        text: About
+      - about.ipynb
       - section: Hansard
         contents:
           - hansard/hansard-intro.ipynb
