@@ -66,115 +66,16 @@
     "text": "Warning\n\n\n\nThis is a development version of the site and is not intended for public use.\n\n\n\n\n\n\n\nPhoto credit: https://nla.gov.au/nla.obj-162853701\n\n\nHansard\n\nExplore the record of what was spoken in the Australian parliament.\nGet started\n\n\n\n\n\n\n\n\nPhoto credit: https://nla.gov.au/nla.obj-138263562\n\n\nReviews and inquiries\n\nExplore public submissions to government reviews and inquiries.\nGet started"
   },
   {
-    "objectID": "hansard/resources/parliamentary-handbook-api.html",
-    "href": "hansard/resources/parliamentary-handbook-api.html",
-    "title": "Parliamentary Handbook API",
-    "section": "",
-    "text": "The Parliamentary Handbook includes a simple API that you can use to get the data about parliament and parliamentarians in machine-readable form.\nAggregated data about individuals can be accessed via: https://handbookapi.aph.gov.au/api/individuals/. However, this data only includes a summary of the available information for each person. There are a variety of other endpoints that can be used to access the full data. For example:",
+    "objectID": "hansard/resources/wikidata.html#legislation",
+    "href": "hansard/resources/wikidata.html#legislation",
+    "title": "Wikidata",
+    "section": "Legislation",
+    "text": "Legislation\nQuery to retrieve Australian federal legislation with dates of assent and repeal and any associated ComLaw identifiers. Try it &gt;\nSELECT ?item ?itemLabel ?assent ?repeal (GROUP_CONCAT(?comlaw; separator = \" | \") as ?comlaw_ids)\nWHERE\n{\n  ?item wdt:P31 wd:Q56731284.\n  OPTIONAL {\n    ?item p:P793 ?date1.\n    ?date1 ps:P793 wd:Q1070654.\n    ?date1 pq:P585 ?assent}\n  OPTIONAL {\n    ?item p:P793 ?date2.\n    ?date2 ps:P793 wd:Q4590027.\n    ?date2 pq:P585 ?repeal}\n  OPTIONAL {\n    ?item wdt:P2461 ?comlaw.\n  }\n  SERVICE wikibase:label { bd:serviceParam wikibase:language \"[AUTO_LANGUAGE],mul,en\". } # Helps get the label in your language, if not, then default for all languages, then en language\n}\nGROUP BY ?item ?itemLabel ?assent ?repeal\nORDER BY ASC(?assent)",
     "crumbs": [
       "Home",
       "Hansard",
       "Related resources",
-      "Parliamentary Handbook API"
-    ]
-  },
-  {
-    "objectID": "hansard/resources/parliamentary-handbook-api.html#records-of-service",
-    "href": "hansard/resources/parliamentary-handbook-api.html#records-of-service",
-    "title": "Parliamentary Handbook API",
-    "section": "Records of service",
-    "text": "Records of service\nRecords of Service types (in the ROSTypeID field):\n\n9 parliamentary terms\n5 ministry appointments\n22 shadow ministry appointments\n7 Parliamentary Party Positions\n2 Committee Service\n10 Party Positions\n18 occupations\n21 qualifications\n6 Parliamentary Appointments\n\nhttps://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=N26",
-    "crumbs": [
-      "Home",
-      "Hansard",
-      "Related resources",
-      "Parliamentary Handbook API"
-    ]
-  },
-  {
-    "objectID": "hansard/resources/parliamentary-handbook-api.html#elections",
-    "href": "hansard/resources/parliamentary-handbook-api.html#elections",
-    "title": "Parliamentary Handbook API",
-    "section": "Elections",
-    "text": "Elections\nAll federal elections: https://handbookapi.aph.gov.au/api/Elections/Elections\n\nIndividual elections\nSummary: https://handbookapi.aph.gov.au/api/Elections/Election?electionId=202 House results by division: https://handbookapi.aph.gov.au/api/Elections/Divisions?state=&year=1901 Members elected: https://handbookapi.aph.gov.au/api/Elections/MembersElected?year=1901 Senators elected: https://handbookapi.aph.gov.au/api/Elections/SenatorsElected?year=1901\nThere’s also detailed results by division, but the amount of data seems to vary.",
-    "crumbs": [
-      "Home",
-      "Hansard",
-      "Related resources",
-      "Parliamentary Handbook API"
-    ]
-  },
-  {
-    "objectID": "hansard/resources/parliamentary-handbook-api.html#electorates",
-    "href": "hansard/resources/parliamentary-handbook-api.html#electorates",
-    "title": "Parliamentary Handbook API",
-    "section": "Electorates",
-    "text": "Electorates\nAll electorates: https://handbookapi.aph.gov.au/api/electorates?$select=EID,Electorate,State,Established,Ceased,Origin,Notes&apply=$filter=Electorate%20ne%20%27%27\nEach individual electorate has set of maps showing redistributions. The dates are here: https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps?electorate=Adelaide&state=South%20Australia\nBut if you request an individual map the geodata is KML encoded as base64.\nSo it should be possible to compile a complete set of historical electorate maps…\n\nimport requests\nfrom pathlib import Path\nimport time\nfrom decodify import decode_message\n\nresponse = requests.get(\"https://handbookapi.aph.gov.au/api/electorates?$select=EID,Electorate,State,Established,Ceased,Origin,Notes&apply=$filter=Electorate%20ne%20%27%27\")\n\n\ndata = response.json()\nelectorates = data[\"value\"]\n\nfor electorate in electorates:\n    name = electorate[\"Electorate\"]\n    state = electorate[\"State\"]\n    response = requests.get(\"https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps\", params={\"electorate\": name, \"state\": state})\n    maps = response.json()\n    for emap in maps:\n        response = requests.get(\"https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMap\", params = {\"id\": emap[\"Id\"]})\n        geo_data = response.json()\n        kml, probabilities = decode_message(geo_data[\"GeoData\"])\n        file_name = f\"{name}_{state.replace(\" \", \"-\")}_{emap[\"Id\"]}_{emap[\"DateFrom\"]}-{emap[\"DateTo\"]}.kml\"\n        Path(\"kml\", file_name).write_text(kml)\n        time.sleep(5)\n    time.sleep(10)",
-    "crumbs": [
-      "Home",
-      "Hansard",
-      "Related resources",
-      "Parliamentary Handbook API"
-    ]
-  },
-  {
-    "objectID": "hansard/hansard-intro.html",
-    "href": "hansard/hansard-intro.html",
-    "title": "Introduction to Hansard",
-    "section": "",
-    "text": "An overview of Hansard and its research possibilities.",
-    "crumbs": [
-      "Home",
-      "Hansard",
-      "Introduction to Hansard"
-    ]
-  },
-  {
-    "objectID": "hansard/hansard-contents.html",
-    "href": "hansard/hansard-contents.html",
-    "title": "Contents of Hansard",
-    "section": "",
-    "text": "An overview of what Hansard is, how it’s created, and what it contains.",
-    "crumbs": [
-      "Home",
-      "Hansard",
-      "Contents of Hansard"
-    ]
-  },
-  {
-    "objectID": "hansard/parliamentary-processes.html",
-    "href": "hansard/parliamentary-processes.html",
-    "title": "Hansard and the processes of parliament",
-    "section": "",
-    "text": "A description of the role Hansard plays in the passing of legislation and the functioning of parliament, including the relationship between Hansard and other parliamentary publications.",
-    "crumbs": [
-      "Home",
-      "Hansard",
-      "Hansard and the processes of parliament"
-    ]
-  },
-  {
-    "objectID": "hansard/parliamentary-processes.html#sitting-days",
-    "href": "hansard/parliamentary-processes.html#sitting-days",
-    "title": "Hansard and the processes of parliament",
-    "section": "Sitting days",
-    "text": "Sitting days\n\nimport pandas as pd\nimport altair as alt\n\ndf = pd.read_json(\"https://handbookapi.aph.gov.au/api/StatisticalInformation/SittingDaysPerYear\")\n\ndfs = []\nfor house in [\"Reps\", \"Senate\"]:\n    df_h = df[[\"Year\", f\"{house}Days\"]]\n    df_h[\"house\"] = house\n    df_h.columns = [\"year\", \"days\", \"house\"]\n    dfs.append(df_h)\ndf_split = pd.concat(dfs)\n\nticks = [t for t in range(1900, 2030, 5)]\nalt.Chart(df_split).mark_bar().encode(\n    x=alt.X(\"year:O\").axis(values=ticks).title(None),\n    y=alt.Y(\"days:Q\").title(None),\n    row=alt.Row(\"house\").title(\"number of days\"),\n    color=alt.Color(\"house\").legend(None),\n    tooltip=[\"year:O\", \"house:N\", \"days:Q\"]\n).properties(height=200, width=600, padding=20)\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate",
-    "crumbs": [
-      "Home",
-      "Hansard",
-      "Hansard and the processes of parliament"
-    ]
-  },
-  {
-    "objectID": "hansard/hansard-structure.html",
-    "href": "hansard/hansard-structure.html",
-    "title": "Structure of Hansard",
-    "section": "",
-    "text": "A detailed description of how the Hansard XML files are structured.",
-    "crumbs": [
-      "Home",
-      "Hansard",
-      "Structure of Hansard"
+      "Wikidata"
     ]
   },
   {
@@ -250,16 +151,199 @@
     ]
   },
   {
-    "objectID": "hansard/resources/other-resources.html",
-    "href": "hansard/resources/other-resources.html",
-    "title": "Other resources",
+    "objectID": "hansard/hansard-structure.html",
+    "href": "hansard/hansard-structure.html",
+    "title": "Structure of Hansard",
     "section": "",
-    "text": "Parliamentary Handbook\nParlInfo\nFederal Register of Legislation\nAustLII\nPM Transcripts\nMoAD Election Speeches\nList of Australian Federal Elections\nhistorical electorate boundaries – Parliamentary Handbook!\nsee Parliamentary Handbook for historical election results: https://handbookapi.aph.gov.au/api/Elections/Elections\nPress releases (Parlinfo and Trove), also datasets in GLAM Workbench\nParliamentary Papers (Parlinfo and Trove), see also Trove Data Guide and pre-harvested datasets\nCommonwealth Government Gazette (Trove)",
+    "text": "A detailed description of how the Hansard XML files are structured.",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Structure of Hansard"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentary-processes.html",
+    "href": "hansard/parliamentary-processes.html",
+    "title": "Hansard and the processes of parliament",
+    "section": "",
+    "text": "A description of the role Hansard plays in the passing of legislation and the functioning of parliament, including the relationship between Hansard and other parliamentary publications.",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Hansard and the processes of parliament"
+    ]
+  },
+  {
+    "objectID": "hansard/parliamentary-processes.html#sitting-days",
+    "href": "hansard/parliamentary-processes.html#sitting-days",
+    "title": "Hansard and the processes of parliament",
+    "section": "Sitting days",
+    "text": "Sitting days\n\nimport pandas as pd\nimport altair as alt\n\ndf = pd.read_json(\"https://handbookapi.aph.gov.au/api/StatisticalInformation/SittingDaysPerYear\")\n\ndfs = []\nfor house in [\"Reps\", \"Senate\"]:\n    df_h = df[[\"Year\", f\"{house}Days\"]]\n    df_h[\"house\"] = house\n    df_h.columns = [\"year\", \"days\", \"house\"]\n    dfs.append(df_h)\ndf_split = pd.concat(dfs)\n\nticks = [t for t in range(1900, 2030, 5)]\nalt.Chart(df_split).mark_bar().encode(\n    x=alt.X(\"year:O\").axis(values=ticks).title(None),\n    y=alt.Y(\"days:Q\").title(None),\n    row=alt.Row(\"house\").title(\"number of days\"),\n    color=alt.Color(\"house\").legend(None),\n    tooltip=[\"year:O\", \"house:N\", \"days:Q\"]\n).properties(height=200, width=600, padding=20)\n\n\n\n\n\n\n\n\n\nFigure 1: Number of sitting days per year for the House of Representatives and the Senate",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Hansard and the processes of parliament"
+    ]
+  },
+  {
+    "objectID": "hansard/hansard-contents.html",
+    "href": "hansard/hansard-contents.html",
+    "title": "Contents of Hansard",
+    "section": "",
+    "text": "An overview of what Hansard is, how it’s created, and what it contains.",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Contents of Hansard"
+    ]
+  },
+  {
+    "objectID": "hansard/hansard-intro.html",
+    "href": "hansard/hansard-intro.html",
+    "title": "Introduction to Hansard",
+    "section": "",
+    "text": "An overview of Hansard and its research possibilities.",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Introduction to Hansard"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/parliamentary-handbook-api.html",
+    "href": "hansard/resources/parliamentary-handbook-api.html",
+    "title": "Parliamentary Handbook API",
+    "section": "",
+    "text": "The Parliamentary Handbook includes a simple API that you can use to get the data about parliament and parliamentarians in machine-readable form.\nAggregated data about individuals can be accessed via: https://handbookapi.aph.gov.au/api/individuals/. However, this data only includes a summary of the available information for each person. There are a variety of other endpoints that can be used to access the full data. For example:",
     "crumbs": [
       "Home",
       "Hansard",
       "Related resources",
-      "Other resources"
+      "Parliamentary Handbook API"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/parliamentary-handbook-api.html#records-of-service",
+    "href": "hansard/resources/parliamentary-handbook-api.html#records-of-service",
+    "title": "Parliamentary Handbook API",
+    "section": "Records of service",
+    "text": "Records of service\nRecords of Service types (in the ROSTypeID field):\n\n9 parliamentary terms\n5 ministry appointments\n22 shadow ministry appointments\n7 Parliamentary Party Positions\n2 Committee Service\n10 Party Positions\n18 occupations\n21 qualifications\n6 Parliamentary Appointments\n\nhttps://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=N26",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources",
+      "Parliamentary Handbook API"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/parliamentary-handbook-api.html#elections",
+    "href": "hansard/resources/parliamentary-handbook-api.html#elections",
+    "title": "Parliamentary Handbook API",
+    "section": "Elections",
+    "text": "Elections\nAll federal elections: https://handbookapi.aph.gov.au/api/Elections/Elections\n\nIndividual elections\nSummary: https://handbookapi.aph.gov.au/api/Elections/Election?electionId=202 House results by division: https://handbookapi.aph.gov.au/api/Elections/Divisions?state=&year=1901 Members elected: https://handbookapi.aph.gov.au/api/Elections/MembersElected?year=1901 Senators elected: https://handbookapi.aph.gov.au/api/Elections/SenatorsElected?year=1901\nThere’s also detailed results by division, but the amount of data seems to vary.",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources",
+      "Parliamentary Handbook API"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/parliamentary-handbook-api.html#electorates",
+    "href": "hansard/resources/parliamentary-handbook-api.html#electorates",
+    "title": "Parliamentary Handbook API",
+    "section": "Electorates",
+    "text": "Electorates\nAll electorates: https://handbookapi.aph.gov.au/api/electorates?$select=EID,Electorate,State,Established,Ceased,Origin,Notes&apply=$filter=Electorate%20ne%20%27%27\nEach individual electorate has set of maps showing redistributions. The dates are here: https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps?electorate=Adelaide&state=South%20Australia\nBut if you request an individual map the geodata is KML encoded as base64.\nSo it should be possible to compile a complete set of historical electorate maps…\n\nimport requests\nfrom pathlib import Path\nimport time\nfrom decodify import decode_message\n\nresponse = requests.get(\"https://handbookapi.aph.gov.au/api/electorates?$select=EID,Electorate,State,Established,Ceased,Origin,Notes&apply=$filter=Electorate%20ne%20%27%27\")\n\n\ndata = response.json()\nelectorates = data[\"value\"]\n\nfor electorate in electorates:\n    name = electorate[\"Electorate\"]\n    state = electorate[\"State\"]\n    response = requests.get(\"https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps\", params={\"electorate\": name, \"state\": state})\n    maps = response.json()\n    for emap in maps:\n        response = requests.get(\"https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMap\", params = {\"id\": emap[\"Id\"]})\n        geo_data = response.json()\n        kml, probabilities = decode_message(geo_data[\"GeoData\"])\n        file_name = f\"{name}_{state.replace(\" \", \"-\")}_{emap[\"Id\"]}_{emap[\"DateFrom\"]}-{emap[\"DateTo\"]}.kml\"\n        Path(\"kml\", file_name).write_text(kml)\n        time.sleep(5)\n    time.sleep(10)",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources",
+      "Parliamentary Handbook API"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/related-resources.html",
+    "href": "hansard/resources/related-resources.html",
+    "title": "Related resources",
+    "section": "",
+    "text": "Commonwealth of Australia parliamentary debates from 1901 to 1980 presented in an easy-to-read format for historians and other lovers of political speech.\n\n\n\n\nhansard-xml – repository containing Hansard XML (and some SGML) files from 1901 to 2005\nA new, comprehensive database of all proceedings of the Australian Parliamentary Debates (1998-2025)\nfederal-hansard-db – a structured PostgreSQL database of the Australian Federal Parliament’s Hansard\nhansard-interjections – a collection of 981,706 interjections were extracted from Hansard XML files, 1901 to 1980",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/related-resources.html#other-hansard-resources",
+    "href": "hansard/resources/related-resources.html#other-hansard-resources",
+    "title": "Related resources",
+    "section": "",
+    "text": "Commonwealth of Australia parliamentary debates from 1901 to 1980 presented in an easy-to-read format for historians and other lovers of political speech.\n\n\n\n\nhansard-xml – repository containing Hansard XML (and some SGML) files from 1901 to 2005\nA new, comprehensive database of all proceedings of the Australian Parliamentary Debates (1998-2025)\nfederal-hansard-db – a structured PostgreSQL database of the Australian Federal Parliament’s Hansard\nhansard-interjections – a collection of 981,706 interjections were extracted from Hansard XML files, 1901 to 1980",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/related-resources.html#parliament",
+    "href": "hansard/resources/related-resources.html#parliament",
+    "title": "Related resources",
+    "section": "Parliament",
+    "text": "Parliament\n\nParliamentary Handbook\nThe Parliamentary Handbook of the Commonwealth of Australia provides detailed information on Parliament, parliamentarians, political parties, elections and electorates. It is a critical resource for understanding the context of Hansard. The Handbook is built on top of an API that can be used to extract useful data in machine-readable form.\nThe Handbook and Hansard use the same identifiers for parliamentarians. This makes it easy to link speeches in Hansard to the biographical details of individual speakers. Provide some examples.\n\n\nParlInfo\nParlInfo is a massive database of material documenting the history, context, and operation of the Australian Parliament. As well as Hansard, it includes a wide variety of publications such as proceedings, reports, and parliamentary papers. However, it is so large and diverse that it can be hard to navigate.\n\n\nParliamentary proceedings\nHansard is complemented by the official record of the decisions and proceedings of each house of Parliament – the Votes and Proceedings of the House of Representatives, and the Journal of the Senate. These are available in ParlInfo, and also via the following pages:\n\nVotes and Proceedings of the House of Representations, 1901-2025\nJournals of the Senate, 1901-2002\nJournals of the Senate, 2002-2026\n\n\n\nParliamentary papers\nParliamentary papers, or tabled papers, are documents presented to the Australian Parliament. Sometimes this is required by law. Other times it’s just for information. As the Parliament of Australia website explains:\n\nDocuments tabled in Parliament include reports from parliamentary committees, annual reports of departments and agencies, reports from the Auditor-General and legislative instruments.\n\nParliamentary papers can be found in ParlInfo and Trove. The Trove Data Guide provides an overview of the digitised parliamentary papers through Trove, as well as some hints for finding them.\n\n\n\n\n\n\nFigure 1: Dates of Parliamentary Papers in Trove (Trove Data Guide)\n\n\n\n\n\nGovernment Gazette\nThe Australian Government is required to publish information about changes to legislation in the Government Gazette. Copies of the Government Gazette are available in the Federal Register of Legislation, and Trove.",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/related-resources.html#legislation",
+    "href": "hansard/resources/related-resources.html#legislation",
+    "title": "Related resources",
+    "section": "Legislation",
+    "text": "Legislation\n\nFederal Register of Legislation\nThe Federal Register of Legislation provides an official list of the Acts of the Australian Parliament, together with related documents such as rules and regulations. As of September 2026, 13,732 Acts were listed. Data from the Register is available through an API.\nActs start their lives as bills, presented to Parliament for the consideration of members. Most of the discussion in Hansard relates to bills. Once passed by Parliament, bills gain Royal Assent and become Acts of Parliament. Over time, Acts can be amended or repealed by other Acts, creating complex histories. All of these changes and relationships are captured by Federal Register, and each version of an Act is assigned its own identifier.\nOf course, not all bills are passed. You can search ParlInfo for details of bills presented to Parliament.\n\n\nAustLII (Australasian Legal Information Institute)\nAustLII provides a large collection of databases documenting Australian legislation and court law.",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/related-resources.html#sources-of-political-speech",
+    "href": "hansard/resources/related-resources.html#sources-of-political-speech",
+    "title": "Related resources",
+    "section": "Sources of political speech",
+    "text": "Sources of political speech\n\nPM Transcripts\nA collection of 20,000+ transcripts of speeches, interviews, and press releases delivered by Australian Prime Ministers from the 1940s to the present. The transcripts are also available as XML files via a simple API.\n\n\n\n\n\n\nFigure 2: Number of transcripts by Prime Minister and year\n\n\n\nThe GLAM Workbench includes examples of harvesting, indexing, aggregating and visualising the transcripts. The full collection of XML files, as well as a CSV index, and aggregations by Prime Minister, are available in this GitHub repository.\n\n\nElection Speeches (Museum of Australian Democracy)\nA recent update to the site removed the link to download the speeches as a dataset.\n\n\nPress release database (Parliamentary Library)\nParlInfo includes a collection of thousands of press releases, speeches, and interview transcripts issued by Australian federal politicians and saved by the Parliamentary Library. More than 380,000 of these press releases have been indexed in Trove.\nThe GLAM Workbench includes examples of harvesting press releases from Trove and ParlInfo. Sample datasets of press releases relating to COVID and refugees are available for download.",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/related-resources.html#wikidata",
+    "href": "hansard/resources/related-resources.html#wikidata",
+    "title": "Related resources",
+    "section": "Wikidata",
+    "text": "Wikidata\nWikidata includes data relating to Australian federal parliamentarians and legislation.",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/related-resources.html#related-datasets",
+    "href": "hansard/resources/related-resources.html#related-datasets",
+    "title": "Related resources",
+    "section": "Related datasets",
+    "text": "Related datasets\n\nHistorical Federal Electorate Boundaries",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources"
     ]
   },
   {
