@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="keywords" content="Jupyter Book, documentation">
+<meta name="keywords" content="Quarto, documentation">
 
 <title>Guide for authors – Public Interest Data Guide</title>
 <style>
@@ -117,6 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<meta name="quarto:status" content="draft">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -287,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top"><div id="quarto-draft-alert" class="alert alert-warning"><i class="bi bi-pencil-square"></i>Draft</div>
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -505,6 +506,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#labelling-cells-and-content" id="toc-labelling-cells-and-content" class="nav-link" data-scroll-target="#labelling-cells-and-content">Labelling cells and content</a></li>
   <li><a href="#links-and-cross-references" id="toc-links-and-cross-references" class="nav-link" data-scroll-target="#links-and-cross-references">Links and cross-references</a></li>
   <li><a href="#embedding-and-reusing-content" id="toc-embedding-and-reusing-content" class="nav-link" data-scroll-target="#embedding-and-reusing-content">Embedding and reusing content</a></li>
+  <li><a href="#inline-styles" id="toc-inline-styles" class="nav-link" data-scroll-target="#inline-styles">Inline styles</a></li>
+  <li><a href="#code-renderingexecution" id="toc-code-renderingexecution" class="nav-link" data-scroll-target="#code-renderingexecution">Code rendering/execution</a></li>
   <li><a href="#style" id="toc-style" class="nav-link" data-scroll-target="#style">Style</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/contributing/author-guide.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/blob/main/public-interest-data-guide/contributing/author-guide.ipynb" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/rapid-community-data-lab/rapid-data-guide/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-notebooks"><h2>Notebooks</h2><ul><li><a href="../hansard/parliamentarians-preview.html"><i class="bi bi-journal-code"></i>Parliamentarians and parties</a></li></ul></div></nav>
@@ -543,7 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Jupyter Book, documentation</p>
+    <p>Quarto, documentation</p>
   </div>
 </div>
 
@@ -552,30 +555,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="front-matter" class="level2">
 <h2 class="anchored" data-anchor-id="front-matter">Front matter</h2>
-<p>Include extra metadata in the front matter section of a notebook. Possible values include:</p>
-<ul>
-<li><code>authors</code></li>
-<li><code>abstract</code></li>
-<li><code>keywords</code></li>
-</ul>
+<p>Extra metadata can be added in the front matter section of a notebook. At a minimum, provide a value for <code>authors</code>. While you’re developing a new notebook set <code>draft</code> to <code>true</code> – this will add a ‘draft’ header in the development version and exclude the notebook from the production version (see <a href="../contributing/contributing.html#sec-dev-prod-sites">more on dev and prod sites</a>).</p>
 <p>For example, to list the notebook’s authors add their details to the <strong>first cell</strong> of the notebook like this.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">authors</span><span class="kw">:</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Tim Sherratt</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">orcid</span><span class="kw">:</span><span class="at"> http://orcid.org/0000-0001-7956-4498</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">url</span><span class="kw">:</span><span class="at"> https://timsherratt.au</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Front matter rules: - has to be in the first cell of the notebook - cell has to be set to ‘Markdown’ - data has to be valid YAML - YAML data has to be enclosed top and bottom by <code>---</code> lines</p>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">draft</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you add these fields, they’ll be automatically added to the page header</p>
+<ul>
+<li><code>abstract</code></li>
+<li><code>keywords</code></li>
+</ul>
+<p>Front matter rules:</p>
+<ul>
+<li>has to be in the first cell of the notebook</li>
+<li>cell has to be set to ‘Markdown’</li>
+<li>data has to be valid YAML</li>
+<li>YAML data has to be enclosed top and bottom by <code>---</code> lines</li>
+</ul>
 </section>
 <section id="labelling-cells-and-content" class="level2">
 <h2 class="anchored" data-anchor-id="labelling-cells-and-content">Labelling cells and content</h2>
 <p>By labelling code and Markdown cells they can used in cross-references or embedded elsewhere in the book.</p>
 <p>Note that labels are accessible across the whole site, not just a notebook, so should be unique. Quarto defines a set of prefixes that should be used in labels, eg: ‘fig’, ‘tbl’, and ‘sec’ for figures, tables and sections.</p>
-<p>To label a section, add <code>{#sec-my-section-name}</code> after a heading. For example:</p>
+<p>To label a <a href="https://quarto.org/docs/authoring/cross-references.html#sections">section</a>, add <code>{#sec-my-section-name}</code> after a heading. For example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cool things about Hansard {#sec-my-cool-hansard-things}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To label an image add <code>{#fig-my-image}</code> after the standard Markdown image embed link:</p>
+<p>To label an <a href="https://quarto.org/docs/authoring/cross-references.html#overview">image</a> add <code>{#fig-my-image}</code> after the standard Markdown image embed link:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](parliament-house.jpeg)</span> {#fig-parliament-house}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>To label an image with a caption:</p>
+<p>To label an <a href="https://quarto.org/docs/authoring/cross-references.html#figures">image with a caption</a>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>::: {#fig-parliament-house}</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="al">![](parliament-house.jpeg)</span></span>
@@ -599,7 +609,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <blockquote class="blockquote">
 <p>This site uses <a href="../contributing/contributing.html#quarto">quarto</a>.</p>
 </blockquote>
-<p>To create a link to a figure or table, use <code>@</code> plus the label.</p>
+<p>To create a link to a figure or table, use <code>@</code> plus the label. <mark>( I can’t seem to get this to work for sections…)</mark></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>@fig-gender-parliaments shows the gender breakdown of each parliament.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><a href="#fig-gender-parliaments" class="quarto-xref">Figure&nbsp;1</a> shows the gender breakdown of each parliament.</p>
 </section>
@@ -688,6 +698,30 @@ Figure&nbsp;1: Gender breakdown by parliament (both houses combined)
 </div>
 </div>
 <a class="quarto-notebook-link" id="nblink-1" href="../hansard/parliamentarians-preview.html#cell-fig-gender-parliaments">Source: Parliamentarians and parties</a></div>
+</section>
+<section id="inline-styles" class="level2">
+<h2 class="anchored" data-anchor-id="inline-styles">Inline styles</h2>
+<p>Add <code>{.mark}</code> to highlight text (useful for adding notes to yourself during development):</p>
+<p><code>[Provide some examples.]{.mark}</code></p>
+<p><mark>Provide some examples here.</mark></p>
+</section>
+<section id="code-renderingexecution" class="level2">
+<h2 class="anchored" data-anchor-id="code-renderingexecution">Code rendering/execution</h2>
+<p>Code cells will be displayed by default. To hide all the code cells in a notebook behind a ‘Code’ dropdown, add the following to the front matter:</p>
+<pre><code>format:
+  html:
+    code-fold: true</code></pre>
+<p>To completely hide a particular cell, add this to the top of the code cell: <code>#| echo: false</code>.</p>
+<p>To include a variable defined in a code cell with Markdown text, first add the following to the front matter:</p>
+<pre><code>execute:
+  enabled: true</code></pre>
+<p>Then use `<code>{python} my-variable</code>` in your Markdown.</p>
+<div id="a3ac4a59-b3c7-40a5-b724-a5ec65b3a024" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>date <span class="op">=</span> datetime.datetime.now().isoformat()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Markdown code: The date is `<code>{python} date</code>`</p>
+<p>The date is <code>{python} date</code></p>
 </section>
 <section id="style" class="level2">
 <h2 class="anchored" data-anchor-id="style">Style</h2>

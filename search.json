@@ -15,7 +15,7 @@
     "href": "contributing/contributing.html",
     "title": "Contributing content",
     "section": "",
-    "text": "This site is built using Quarto. Quarto takes a collection of Markdown files and Jupyter notebooks and renders them as a static HTML site. The Jupyter notebooks can include code cells that are executed at build time to generate tables, visualisations and other outputs.",
+    "text": "This site is built using Quarto. Quarto takes a collection of Markdown files and Jupyter notebooks and renders them as a static HTML site. The Jupyter notebooks can include code cells that are executed to generate tables, visualisations and other outputs.",
     "crumbs": [
       "Home",
       "Contributing",
@@ -27,7 +27,7 @@
     "href": "contributing/contributing.html#quarto",
     "title": "Contributing content",
     "section": "",
-    "text": "This site is built using Quarto. Quarto takes a collection of Markdown files and Jupyter notebooks and renders them as a static HTML site. The Jupyter notebooks can include code cells that are executed at build time to generate tables, visualisations and other outputs.",
+    "text": "This site is built using Quarto. Quarto takes a collection of Markdown files and Jupyter notebooks and renders them as a static HTML site. The Jupyter notebooks can include code cells that are executed to generate tables, visualisations and other outputs.",
     "crumbs": [
       "Home",
       "Contributing",
@@ -35,11 +35,11 @@
     ]
   },
   {
-    "objectID": "contributing/contributing.html#local-development",
-    "href": "contributing/contributing.html#local-development",
+    "objectID": "contributing/contributing.html#setting-up-a-local-development-environment",
+    "href": "contributing/contributing.html#setting-up-a-local-development-environment",
     "title": "Contributing content",
-    "section": "Local development",
-    "text": "Local development\nIf you want to contribute new notebooks to the data guide you should set up a local development environment:\n\ninstall Quarto\ncreate a fork of this Github repository\ngit clone your forked repository\ncreate a Python virtual environment\ninstall the Python requirements\ncreate/edit notebooks in Jupyter Lab\npreview using Quarto\npush changes back to the repository\n\n\nCreate a fork of the Data Guide repository\nGo to the RAPID Data Guide repository in GitHub and click on the Fork button. Then in the pop-up click Create fork.\nThere’s more information about forking in the GitHub documentation.\n\n\nClone your forked repository\nGo to your newly-forked repository, click on the Code button and copy the web url. Then from the command line run:\ngit clone &lt;web url of your fork&gt;\nThere’s more information on cloning a repository in the GitHub documentation.\n\n\nCreate a Python virtual environment\nThere are a number of different tools and methods used to create Python virtual environments. I mostly use pyenv to manage different Python versions and pyenv-virtualenv to create virtual environments. Assuming you’ve installed both of these, and used pyenv to install Python 3.12, you can create and activate a virtual environment like this:\ncd rapid-data-guide\npyenv virtualenv 3.12 rapid-data-guide\npyenv local rapid-data-guide\nOnce this is done, the virtual environment will be automatically activated anytime you enter the rapid-data-guide directory.\n\n\nInstall requirements\nYou can install the current set of pinned requirements using pip:\npip install -r requirements.txt\nIf you’re creating new notebooks, you might want to add additional Python packages. In this case you’ll need to update the requirements.in and requirements.txt files. I use pip-tools to manage dependencies and generate the requirements.txt file. First, edit requirements.in to add the new package name/s. Then generate the requirements.txt file by running:\npip-compile requirements.in\nYou can also use pip-tools to install packages:\npip-sync requirements.txt\nMake sure you include the updated files when you push your changes back to the GitHub repository.\n\n\nCreate/edit notebooks\nBefore you start making changes, it’s a good idea to create a new git branch to work in, for example:\ngit checkout -b my-new-notebook\nThen start Jupyter Lab with:\njupyter lab\nSee the author guide for some hints and tips.\n\n\nPreview using Quarto\nTo preview the rendered site, run:\nquarto preview\nThis will automatically update as you make changes to the files. If your changes aren’t showing up, or you’re getting strange errors, try stopping the preview with Ctrl-CCtrl-C and then restarting.\n\n\nAdding your changes to the repository\nOnce you’ve made your changes, you need to commit them.\ngit add .\ngit commit -m \"Add my new notebook\"\nThen you can push your updated branch back to Github:\ngit push origin my-new-notebook\nYour changes are now in your forked repository, to add them to the main rapid-data-guide repository, you need to create a pull request.",
+    "section": "Setting up a local development environment",
+    "text": "Setting up a local development environment\nIf you want to contribute new notebooks/sections to the data guide you should set up a local development environment:\n\ninstall Quarto\ncreate a fork of this Github repository\ngit clone your forked repository\ncreate a Python virtual environment\ninstall the Python requirements\ncreate/edit notebooks in Jupyter Lab\npreview using Quarto\npush changes back to the repository\n\n\nCreate a fork of the Data Guide repository\nIf you don’t have permission to write directly to the rapid-data-guide you’ll need to create your own fork.\nGo to the RAPID Data Guide repository in GitHub and click on the Fork button. Then in the pop-up click Create fork.\nThere’s more information about forking in the GitHub documentation.\n\n\nClone the rapid-data-guide repository\nIf you have permission to write to the rapid-data-guide repository, you can clone it directly, otherwise you need to clone your forked copy.\nGo to your newly-forked repository, click on the Code button and copy the web url. Then from the command line run:\ngit clone &lt;web url of your fork&gt;\nThere’s more information on cloning a repository in the GitHub documentation.\n\n\nCreate a Python virtual environment\nThere are a number of different tools and methods used to create Python virtual environments. I mostly use pyenv to manage different Python versions and pyenv-virtualenv to create virtual environments. Assuming you’ve installed both of these, and used pyenv to install Python 3.12, you can create and activate a virtual environment like this:\ncd rapid-data-guide\npyenv virtualenv 3.12 rapid-data-guide\npyenv local rapid-data-guide\nOnce this is done, the virtual environment will be automatically activated anytime you enter the rapid-data-guide directory.\n\n\nInstall requirements\nYou can install the current set of pinned requirements using pip:\npip install -r requirements.txt\nIf you’re creating new notebooks, you might want to add additional Python packages. In this case you’ll need to update the requirements.in and requirements.txt files. I use pip-tools to manage dependencies and generate the requirements.txt file. First, edit requirements.in to add the new package name/s. Then generate the requirements.txt file by running:\npip-compile requirements.in\nYou can also use pip-tools to install packages:\npip-sync requirements.txt\nMake sure you include the updated requirements files when you push your changes back to the GitHub repository.\n\n\nCreate/edit notebooks\nBefore you start making changes, it’s a good idea to create a new git branch to work in, for example:\ngit checkout -b my-new-notebook\nThen start Jupyter Lab with:\njupyter lab\nSee the author guide for some hints and tips.\nAlternatively, you can create pages using Markdown.\n\n\nPreview using Quarto\nTo preview the rendered site, run:\nquarto preview\nThis will automatically update as you make changes to the files. If your changes aren’t showing up, or you’re getting strange errors, try stopping the preview with Ctrl-CCtrl-C and then restarting.\n\n\nAdding your changes to the repository\nOnce you’ve made your changes, you need to commit them.\ngit add .\ngit commit -m \"Add my new notebook\"\nThen you can push your updated branch back to Github:\ngit push origin my-new-notebook\n\n\nCreating a pull request\nYou can’t directly make changes to the main branch of the repository. To submit your additions for approval, you need to create a pull request.\nIf you have permission to write to the RAPID Data Guide repository, click on the ‘Pull requests’ tab and create a pull request from the branch you just added.\nIf you’re working in a forked version of the repository, click on the ‘Pull requests’ tab of the forked repository and create a pull request from your new branch.\nThere’s more information on creating a pull request in the GitHub documentation..\nOnce the pull requests has been reviewed and approved, it’ll be merged into the main repository.",
     "crumbs": [
       "Home",
       "Contributing",
@@ -47,11 +47,11 @@
     ]
   },
   {
-    "objectID": "contributing/contributing.html#profiles",
-    "href": "contributing/contributing.html#profiles",
+    "objectID": "contributing/contributing.html#sec-dev-prod-sites",
+    "href": "contributing/contributing.html#sec-dev-prod-sites",
     "title": "Contributing content",
-    "section": "Profiles",
-    "text": "Profiles\nTwo profiles are defined dev and prod. The dev profile is the default, it displays all draft pages and includes a warning on the home page that this is the development site. The prod profile removes any draft pages from the site.\nYou can specify which profile to use by adding the --profile parameter to the quarto preview, quarto render or quarto publish commands. For example to see what the prod site will look like, enter quarto preview --profile prod at the command line.\nYou can also use the profiles to selectively include/exclude markdown content. For example the homepage dev site warning is wrapped in a .content-visible when-profile=\"dev\" block:\n:::: {.content-visible when-profile=\"dev\"}\n::: {.callout-warning}\nThis is a development version of the site and is not intended for public use.\n:::\n::::",
+    "section": "Production and development sites",
+    "text": "Production and development sites\nThe development version of the data guide includes all the ‘draft’ pages and is intended for collaboration, review, and testing. It’s generated by a GitHub action when changes are pushed to the main branch of the repository. It’s available on GitHub pages: https://rapid-community-data-lab.github.io/rapid-data-guide/.\nThe production version will exclude all draft content and be the public version of the site. It will be uploaded a RAPID-CDL web server and be available under the RAPID domain.\nThe two versions are generated using Quarto profiles.\n\nProfiles\nTwo profiles are defined dev and prod. The dev profile is the default, it displays all draft pages and includes a warning on the home page that this is the development site. The prod profile removes any draft pages from the site.\nYou can specify which profile to use by adding the --profile parameter to the quarto preview, quarto render or quarto publish commands. For example to see what the prod site will look like, enter quarto preview --profile prod at the command line.\nYou can also use the profiles to selectively include/exclude markdown content. For example the homepage dev site warning is wrapped in a .content-visible when-profile=\"dev\" block:\n:::: {.content-visible when-profile=\"dev\"}\n::: {.callout-warning}\nThis is a development version of the site and is not intended for public use.\n:::\n::::",
     "crumbs": [
       "Home",
       "Contributing",
@@ -351,7 +351,7 @@
     "href": "contributing/author-guide.html",
     "title": "Guide for authors",
     "section": "",
-    "text": "Include extra metadata in the front matter section of a notebook. Possible values include:\n\nauthors\nabstract\nkeywords\n\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\n---\nFront matter rules: - has to be in the first cell of the notebook - cell has to be set to ‘Markdown’ - data has to be valid YAML - YAML data has to be enclosed top and bottom by --- lines",
+    "text": "Extra metadata can be added in the front matter section of a notebook. At a minimum, provide a value for authors. While you’re developing a new notebook set draft to true – this will add a ‘draft’ header in the development version and exclude the notebook from the production version (see more on dev and prod sites).\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\ndraft: true\n---\nIf you add these fields, they’ll be automatically added to the page header\n\nabstract\nkeywords\n\nFront matter rules:\n\nhas to be in the first cell of the notebook\ncell has to be set to ‘Markdown’\ndata has to be valid YAML\nYAML data has to be enclosed top and bottom by --- lines",
     "crumbs": [
       "Home",
       "Contributing",
@@ -363,7 +363,7 @@
     "href": "contributing/author-guide.html#front-matter",
     "title": "Guide for authors",
     "section": "",
-    "text": "Include extra metadata in the front matter section of a notebook. Possible values include:\n\nauthors\nabstract\nkeywords\n\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\n---\nFront matter rules: - has to be in the first cell of the notebook - cell has to be set to ‘Markdown’ - data has to be valid YAML - YAML data has to be enclosed top and bottom by --- lines",
+    "text": "Extra metadata can be added in the front matter section of a notebook. At a minimum, provide a value for authors. While you’re developing a new notebook set draft to true – this will add a ‘draft’ header in the development version and exclude the notebook from the production version (see more on dev and prod sites).\nFor example, to list the notebook’s authors add their details to the first cell of the notebook like this.\n---\nauthors:\n    - name: Tim Sherratt\n      orcid: http://orcid.org/0000-0001-7956-4498\n      url: https://timsherratt.au\ndraft: true\n---\nIf you add these fields, they’ll be automatically added to the page header\n\nabstract\nkeywords\n\nFront matter rules:\n\nhas to be in the first cell of the notebook\ncell has to be set to ‘Markdown’\ndata has to be valid YAML\nYAML data has to be enclosed top and bottom by --- lines",
     "crumbs": [
       "Home",
       "Contributing",
@@ -387,7 +387,7 @@
     "href": "contributing/author-guide.html#links-and-cross-references",
     "title": "Guide for authors",
     "section": "Links and cross-references",
-    "text": "Links and cross-references\nTo create an internal link to another notebook, use standard Markdown syntax with the full or relative path to the notebook in the file structure, including the file extension.\nFor example, [introduction to Hansard](/hansard/hansard-intro.ipynb) produces:\n\nHere’s an introduction to Hansard\n\nTo create an internal link to a heading in another notebook, use standard Markdown syntax with the full path to the notebook and the heading’s HTML id. For example to link to the ‘Quarto’ heading in the ‘contributing’ notebook, use [](/contributing/contributing#quarto):\n\nThis site uses quarto.\n\nTo create a link to a figure or table, use @ plus the label.\n@fig-gender-parliaments shows the gender breakdown of each parliament.\nFigure 1 shows the gender breakdown of each parliament.",
+    "text": "Links and cross-references\nTo create an internal link to another notebook, use standard Markdown syntax with the full or relative path to the notebook in the file structure, including the file extension.\nFor example, [introduction to Hansard](/hansard/hansard-intro.ipynb) produces:\n\nHere’s an introduction to Hansard\n\nTo create an internal link to a heading in another notebook, use standard Markdown syntax with the full path to the notebook and the heading’s HTML id. For example to link to the ‘Quarto’ heading in the ‘contributing’ notebook, use [](/contributing/contributing#quarto):\n\nThis site uses quarto.\n\nTo create a link to a figure or table, use @ plus the label. ( I can’t seem to get this to work for sections…)\n@fig-gender-parliaments shows the gender breakdown of each parliament.\nFigure 1 shows the gender breakdown of each parliament.",
     "crumbs": [
       "Home",
       "Contributing",
@@ -400,6 +400,30 @@
     "title": "Guide for authors",
     "section": "Embedding and reusing content",
     "text": "Embedding and reusing content\nTo embed the chart labelled fig-gender-parliaments from the parliamentarians.ipynb notebook in the hansard directory:\n{{&lt; embed /hansard/parliamentarians.ipynb#fig-gender-parliaments &gt;}}\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Gender breakdown by parliament (both houses combined)\n\n\n\n\nSource: Parliamentarians and parties",
+    "crumbs": [
+      "Home",
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#inline-styles",
+    "href": "contributing/author-guide.html#inline-styles",
+    "title": "Guide for authors",
+    "section": "Inline styles",
+    "text": "Inline styles\nAdd {.mark} to highlight text (useful for adding notes to yourself during development):\n[Provide some examples.]{.mark}\nProvide some examples here.",
+    "crumbs": [
+      "Home",
+      "Contributing",
+      "Guide for authors"
+    ]
+  },
+  {
+    "objectID": "contributing/author-guide.html#code-renderingexecution",
+    "href": "contributing/author-guide.html#code-renderingexecution",
+    "title": "Guide for authors",
+    "section": "Code rendering/execution",
+    "text": "Code rendering/execution\nCode cells will be displayed by default. To hide all the code cells in a notebook behind a ‘Code’ dropdown, add the following to the front matter:\nformat:\n  html:\n    code-fold: true\nTo completely hide a particular cell, add this to the top of the code cell: #| echo: false.\nTo include a variable defined in a code cell with Markdown text, first add the following to the front matter:\nexecute:\n  enabled: true\nThen use `{python} my-variable` in your Markdown.\n\nimport datetime\ndate = datetime.datetime.now().isoformat()\n\nMarkdown code: The date is `{python} date`\nThe date is {python} date",
     "crumbs": [
       "Home",
       "Contributing",
