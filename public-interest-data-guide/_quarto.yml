@@ -24,6 +24,7 @@ website:
 
   sidebar:
     style: floating
+    collapse-level: 1
     contents:
       - about.ipynb
       - section: Hansard
@@ -48,6 +49,14 @@ website:
       - section: Inquiries
         contents:
           - inquiries/inquiries-intro.ipynb
+          - inquiries/types-of-reviews.ipynb
+          - inquiries/records-of-reviews.ipynb
+          - section: Tutorials
+            contents:
+              - inquiries/tutorials/language-of-reviews.ipynb
+          - section: How to
+            contents:
+              - inquiries/how-to/download-public-submissions.ipynb
       - section: Contributing
         contents:
           - contributing/contributing.ipynb
