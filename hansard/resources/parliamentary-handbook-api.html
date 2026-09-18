@@ -545,7 +545,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#records-of-service" id="toc-records-of-service" class="nav-link active" data-scroll-target="#records-of-service">Records of service</a></li>
+  <li><a href="#parliamentarians" id="toc-parliamentarians" class="nav-link active" data-scroll-target="#parliamentarians">Parliamentarians</a>
+  <ul class="collapse">
+  <li><a href="#records-of-service" id="toc-records-of-service" class="nav-link" data-scroll-target="#records-of-service">Records of service</a></li>
+  <li><a href="#party-membership" id="toc-party-membership" class="nav-link" data-scroll-target="#party-membership">Party membership</a></li>
+  <li><a href="#biography" id="toc-biography" class="nav-link" data-scroll-target="#biography">Biography</a></li>
+  </ul></li>
+  <li><a href="#ministries" id="toc-ministries" class="nav-link" data-scroll-target="#ministries">Ministries</a></li>
   <li><a href="#elections" id="toc-elections" class="nav-link" data-scroll-target="#elections">Elections</a>
   <ul class="collapse">
   <li><a href="#individual-elections" id="toc-individual-elections" class="nav-link" data-scroll-target="#individual-elections">Individual elections</a></li>
@@ -584,6 +590,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>The <em>Parliamentary Handbook</em> includes a simple API that you can use to get the data about parliament and parliamentarians in machine-readable form.</p>
+<section id="parliamentarians" class="level2">
+<h2 class="anchored" data-anchor-id="parliamentarians">Parliamentarians</h2>
 <p>Aggregated data about individuals can be accessed via: <a href="https://handbookapi.aph.gov.au/api/individuals/" class="uri">https://handbookapi.aph.gov.au/api/individuals/</a>. However, this data only includes a summary of the available information for each person. There are a variety of other endpoints that can be used to access the full data. For example:</p>
 <table class="caption-top table">
 <colgroup>
@@ -609,13 +617,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td><code>PartiesData/GetPartyServiceForParliamentarian</code></td>
 <td><code>?personId=[PHID]</code></td>
 </tr>
+<tr class="odd">
+<td>timeline of Parliamentary and Party service</td>
+<td><code>Parliamentarian/GetTimeline</code></td>
+<td><code>?id=[PHID]</code></td>
+</tr>
+<tr class="even">
+<td>biography</td>
+<td><code>Parliamentarian/GetBiography</code></td>
+<td><code>?id=[PHID]</code></td>
+</tr>
+<tr class="odd">
+<td>speeches</td>
+<td><code>Parliamentarian/GetSpeeches</code></td>
+<td><code>?Id=[PHID]</code></td>
+</tr>
+<tr class="even">
+<td>Ministerial Statements</td>
+<td><code>Parliamentarian/GetMinisterialStatements</code></td>
+<td><code>?Id=[PHID]</code></td>
+</tr>
+<tr class="odd">
+<td>committee service</td>
+<td><code>CommitteeServiceRecords/BiographyService/[PHID]</code></td>
+<td>&nbsp;</td>
+</tr>
 </tbody>
 </table>
-<section id="records-of-service" class="level2">
-<h2 class="anchored" data-anchor-id="records-of-service">Records of service</h2>
+<section id="records-of-service" class="level3">
+<h3 class="anchored" data-anchor-id="records-of-service">Records of service</h3>
+<p>Example: <a href="https://handbookapi.aph.gov.au/api/recordsofservice?$filter=PHID+eq+'EZ5'" class="uri">https://handbookapi.aph.gov.au/api/recordsofservice?$filter=PHID+eq+'EZ5'</a></p>
 <p>Records of Service types (in the <code>ROSTypeID</code> field):</p>
 <ul>
 <li><code>9</code> parliamentary terms</li>
+<li><code>4</code> ? seems to be date/electorate first elected</li>
+<li><code>11</code> party? (doesn’t have dates)</li>
 <li><code>5</code> ministry appointments</li>
 <li><code>22</code> shadow ministry appointments</li>
 <li><code>7</code> Parliamentary Party Positions</li>
@@ -624,52 +660,94 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>18</code> occupations</li>
 <li><code>21</code> qualifications</li>
 <li><code>6</code> Parliamentary Appointments</li>
+<li><code>14</code> honours</li>
+<li><code>20</code> publications</li>
 </ul>
-<p>https://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd</p>
-<p>https://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd</p>
-<p>https://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=N26</p>
+</section>
+<section id="party-membership" class="level3">
+<h3 class="anchored" data-anchor-id="party-membership">Party membership</h3>
+<p>Example: <a href="https://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=EZ5" class="uri">https://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=EZ5</a></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">$id</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">PHID</span><span class="fu">:</span> <span class="st">"EZ5"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">DisplayName</span><span class="fu">:</span> <span class="st">"ABBOTT, the Hon. Anthony (Tony) John AC"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="er">PartyRecords</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            <span class="er">$id</span><span class="fu">:</span> <span class="st">"2"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            <span class="er">PartyID</span><span class="fu">:</span> <span class="dv">4</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            <span class="er">PartyName</span><span class="fu">:</span> <span class="st">"Liberal Party of Australia"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            <span class="er">PartyRecords</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                <span class="fu">{</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                    <span class="er">$id</span><span class="fu">:</span> <span class="st">"3"</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                    <span class="er">StartDate</span><span class="fu">:</span> <span class="st">"1994-03-26T00:00:00"</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                    <span class="er">EndDate</span><span class="fu">:</span> <span class="st">"2019-05-18T00:00:00"</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                    <span class="er">StartDateLOD</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                    <span class="er">EndDateLOD</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                    <span class="er">StartDateString</span><span class="fu">:</span> <span class="st">"26.03.1994"</span><span class="fu">,</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                    <span class="er">EndDateString</span><span class="fu">:</span> <span class="st">"18.05.2019"</span><span class="fu">,</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                    <span class="er">CorrectedStartDate</span><span class="fu">:</span> <span class="st">"1994-03-26T00:00:00"</span><span class="fu">,</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                    <span class="er">CorrectedEndDate</span><span class="fu">:</span> <span class="st">"2019-05-18T00:00:00"</span><span class="fu">,</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                    <span class="er">CorrectedStartDateString</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                    <span class="er">CorrectedEndDateString</span><span class="fu">:</span> <span class="kw">null</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                <span class="fu">}</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="ot">]</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="biography" class="level3">
+<h3 class="anchored" data-anchor-id="biography">Biography</h3>
+<p>Mainly seems to be family relationships.</p>
+<p>Example (Doug Anthony): <a href="https://handbookapi.aph.gov.au/api/Parliamentarian/GetBiography?id=BU4" class="uri">https://handbookapi.aph.gov.au/api/Parliamentarian/GetBiography?id=BU4</a></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="er">$id</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="er">Phid</span><span class="fu">:</span> <span class="st">"BU4"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="er">PersonFk</span><span class="fu">:</span> <span class="dv">1090</span><span class="fu">,</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="er">AdbLink</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="er">Biography</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="er">FamilyRelationship</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            <span class="er">$id</span><span class="fu">:</span> <span class="st">"2"</span><span class="fu">,</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            <span class="er">Id</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="er">Relationship</span><span class="fu">:</span> <span class="st">"Father"</span><span class="fu">,</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            <span class="er">Phid</span><span class="fu">:</span> <span class="st">"XJ6"</span><span class="fu">,</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            <span class="er">DisplayName</span><span class="fu">:</span> <span class="st">"ANTHONY, the Hon. Lawrence (Larry) James, AO"</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">{</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="er">$id</span><span class="fu">:</span> <span class="st">"3"</span><span class="fu">,</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            <span class="er">Id</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            <span class="er">Relationship</span><span class="fu">:</span> <span class="st">"Son"</span><span class="fu">,</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            <span class="er">Phid</span><span class="fu">:</span> <span class="st">"JLZ"</span><span class="fu">,</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="er">DisplayName</span><span class="fu">:</span> <span class="st">"ANTHONY, the Hon. Hubert Lawrence"</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">}</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="ministries" class="level2">
+<h2 class="anchored" data-anchor-id="ministries">Ministries</h2>
+<p><a href="https://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd" class="uri">https://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd</a></p>
+<p><a href="https://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd" class="uri">https://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd</a></p>
 </section>
 <section id="elections" class="level2">
 <h2 class="anchored" data-anchor-id="elections">Elections</h2>
 <p>All federal elections: <a href="https://handbookapi.aph.gov.au/api/Elections/Elections" class="uri">https://handbookapi.aph.gov.au/api/Elections/Elections</a></p>
 <section id="individual-elections" class="level3">
 <h3 class="anchored" data-anchor-id="individual-elections">Individual elections</h3>
-<p>Summary: <a href="https://handbookapi.aph.gov.au/api/Elections/Election?electionId=202" class="uri">https://handbookapi.aph.gov.au/api/Elections/Election?electionId=202</a> House results by division: <a href="https://handbookapi.aph.gov.au/api/Elections/Divisions?state=&amp;year=1901" class="uri">https://handbookapi.aph.gov.au/api/Elections/Divisions?state=&amp;year=1901</a> Members elected: <a href="https://handbookapi.aph.gov.au/api/Elections/MembersElected?year=1901" class="uri">https://handbookapi.aph.gov.au/api/Elections/MembersElected?year=1901</a> Senators elected: <a href="https://handbookapi.aph.gov.au/api/Elections/SenatorsElected?year=1901" class="uri">https://handbookapi.aph.gov.au/api/Elections/SenatorsElected?year=1901</a></p>
+<p>Summary: <a href="https://handbookapi.aph.gov.au/api/Elections/Election?electionId=202" class="uri">https://handbookapi.aph.gov.au/api/Elections/Election?electionId=202</a></p>
+<p>House results by division: <a href="https://handbookapi.aph.gov.au/api/Elections/Divisions?state=&amp;year=1901" class="uri">https://handbookapi.aph.gov.au/api/Elections/Divisions?state=&amp;year=1901</a></p>
+<p>Members elected: <a href="https://handbookapi.aph.gov.au/api/Elections/MembersElected?year=1901" class="uri">https://handbookapi.aph.gov.au/api/Elections/MembersElected?year=1901</a></p>
+<p>Senators elected: <a href="https://handbookapi.aph.gov.au/api/Elections/SenatorsElected?year=1901" class="uri">https://handbookapi.aph.gov.au/api/Elections/SenatorsElected?year=1901</a></p>
 <p>There’s also detailed results by division, but the amount of data seems to vary.</p>
 </section>
 </section>
 <section id="electorates" class="level2">
 <h2 class="anchored" data-anchor-id="electorates">Electorates</h2>
-<p>All electorates: <a href="https://handbookapi.aph.gov.au/api/electorates?$select=EID,Electorate,State,Established,Ceased,Origin,Notes&amp;apply=$filter=Electorate%20ne%20%27%27" class="uri">https://handbookapi.aph.gov.au/api/electorates?$select=EID,Electorate,State,Established,Ceased,Origin,Notes&amp;apply=$filter=Electorate%20ne%20%27%27</a></p>
-<p>Each individual electorate has set of maps showing redistributions. The dates are here: <a href="https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps?electorate=Adelaide&amp;state=South%20Australia" class="uri">https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps?electorate=Adelaide&amp;state=South%20Australia</a></p>
+<p>All electorates: <a href="https://handbookapi.aph.gov.au/api/electorates?$filter=Electorate%20ne%20%27%27" class="uri">https://handbookapi.aph.gov.au/api/electorates?$filter=Electorate%20ne%20%27%27</a></p>
+<p>Each individual electorate has set of maps showing redistributions. The dates are here:</p>
+<p><a href="https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps?electorate=Adelaide&amp;state=South%20Australia" class="uri">https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps?electorate=Adelaide&amp;state=South%20Australia</a></p>
 <p>But if you request an individual map the geodata is KML encoded as base64.</p>
-<p>So it should be possible to compile a complete set of historical electorate maps…</p>
-<div id="8f7b5d69-777e-4c4a-8e93-30f5710354ca" class="cell" data-execution_count="24">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decodify <span class="im">import</span> decode_message</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"https://handbookapi.aph.gov.au/api/electorates?$select=EID,Electorate,State,Established,Ceased,Origin,Notes&amp;apply=$filter=Electorate%20ne</span><span class="sc">%20%</span><span class="st">27%27"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="ac9dfba3-38b5-4493-856a-44965497977a" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> response.json()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>electorates <span class="op">=</span> data[<span class="st">"value"</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> electorate <span class="kw">in</span> electorates:</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    name <span class="op">=</span> electorate[<span class="st">"Electorate"</span>]</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    state <span class="op">=</span> electorate[<span class="st">"State"</span>]</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(<span class="st">"https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps"</span>, params<span class="op">=</span>{<span class="st">"electorate"</span>: name, <span class="st">"state"</span>: state})</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    maps <span class="op">=</span> response.json()</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> emap <span class="kw">in</span> maps:</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        response <span class="op">=</span> requests.get(<span class="st">"https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMap"</span>, params <span class="op">=</span> {<span class="st">"id"</span>: emap[<span class="st">"Id"</span>]})</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        geo_data <span class="op">=</span> response.json()</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        kml, probabilities <span class="op">=</span> decode_message(geo_data[<span class="st">"GeoData"</span>])</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        file_name <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>state<span class="sc">.</span>replace(<span class="st">" "</span>, <span class="st">"-"</span>)<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>emap[<span class="st">"Id"</span>]<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>emap[<span class="st">"DateFrom"</span>]<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>emap[<span class="st">"DateTo"</span>]<span class="sc">}</span><span class="ss">.kml"</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        Path(<span class="st">"kml"</span>, file_name).write_text(kml)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        time.sleep(<span class="dv">5</span>)</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p>See: <a href="https://updates.timsherratt.org/2026/09/15/a-complete-set-of-historical.html" class="uri">https://updates.timsherratt.org/2026/09/15/a-complete-set-of-historical.html</a></p>
 
 
 </section>

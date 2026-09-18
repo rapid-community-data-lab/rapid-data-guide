@@ -215,7 +215,7 @@
     "href": "hansard/resources/parliamentary-handbook-api.html",
     "title": "Parliamentary Handbook API",
     "section": "",
-    "text": "The Parliamentary Handbook includes a simple API that you can use to get the data about parliament and parliamentarians in machine-readable form.\nAggregated data about individuals can be accessed via: https://handbookapi.aph.gov.au/api/individuals/. However, this data only includes a summary of the available information for each person. There are a variety of other endpoints that can be used to access the full data. For example:",
+    "text": "The Parliamentary Handbook includes a simple API that you can use to get the data about parliament and parliamentarians in machine-readable form.",
     "crumbs": [
       "Home",
       "Hansard",
@@ -224,11 +224,24 @@
     ]
   },
   {
-    "objectID": "hansard/resources/parliamentary-handbook-api.html#records-of-service",
-    "href": "hansard/resources/parliamentary-handbook-api.html#records-of-service",
+    "objectID": "hansard/resources/parliamentary-handbook-api.html#parliamentarians",
+    "href": "hansard/resources/parliamentary-handbook-api.html#parliamentarians",
     "title": "Parliamentary Handbook API",
-    "section": "Records of service",
-    "text": "Records of service\nRecords of Service types (in the ROSTypeID field):\n\n9 parliamentary terms\n5 ministry appointments\n22 shadow ministry appointments\n7 Parliamentary Party Positions\n2 Committee Service\n10 Party Positions\n18 occupations\n21 qualifications\n6 Parliamentary Appointments\n\nhttps://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=N26",
+    "section": "Parliamentarians",
+    "text": "Parliamentarians\nAggregated data about individuals can be accessed via: https://handbookapi.aph.gov.au/api/individuals/. However, this data only includes a summary of the available information for each person. There are a variety of other endpoints that can be used to access the full data. For example:\n\n\n\n\n\n\n\n\ndescription\nendpoint\nparameters\n\n\n\n\nrecords of service, includes parliamentary terms, committee membership etc\nrecordsofservice\n?filter=PHID eq '[PH ID]'\n\n\nparty membership\nPartiesData/GetPartyServiceForParliamentarian\n?personId=[PHID]\n\n\ntimeline of Parliamentary and Party service\nParliamentarian/GetTimeline\n?id=[PHID]\n\n\nbiography\nParliamentarian/GetBiography\n?id=[PHID]\n\n\nspeeches\nParliamentarian/GetSpeeches\n?Id=[PHID]\n\n\nMinisterial Statements\nParliamentarian/GetMinisterialStatements\n?Id=[PHID]\n\n\ncommittee service\nCommitteeServiceRecords/BiographyService/[PHID]\n \n\n\n\n\nRecords of service\nExample: https://handbookapi.aph.gov.au/api/recordsofservice?$filter=PHID+eq+'EZ5'\nRecords of Service types (in the ROSTypeID field):\n\n9 parliamentary terms\n4 ? seems to be date/electorate first elected\n11 party? (doesn’t have dates)\n5 ministry appointments\n22 shadow ministry appointments\n7 Parliamentary Party Positions\n2 Committee Service\n10 Party Positions\n18 occupations\n21 qualifications\n6 Parliamentary Appointments\n14 honours\n20 publications\n\n\n\nParty membership\nExample: https://handbookapi.aph.gov.au/api/PartiesData/GetPartyServiceForParliamentarian?personId=EZ5\n{\n    $id: \"1\",\n    PHID: \"EZ5\",\n    DisplayName: \"ABBOTT, the Hon. Anthony (Tony) John AC\",\n    PartyRecords: [\n        {\n            $id: \"2\",\n            PartyID: 4,\n            PartyName: \"Liberal Party of Australia\",\n            PartyRecords: [\n                {\n                    $id: \"3\",\n                    StartDate: \"1994-03-26T00:00:00\",\n                    EndDate: \"2019-05-18T00:00:00\",\n                    StartDateLOD: 0,\n                    EndDateLOD: 0,\n                    StartDateString: \"26.03.1994\",\n                    EndDateString: \"18.05.2019\",\n                    CorrectedStartDate: \"1994-03-26T00:00:00\",\n                    CorrectedEndDate: \"2019-05-18T00:00:00\",\n                    CorrectedStartDateString: null,\n                    CorrectedEndDateString: null\n                }\n            ]\n        }\n    ]\n}\n\n\nBiography\nMainly seems to be family relationships.\nExample (Doug Anthony): https://handbookapi.aph.gov.au/api/Parliamentarian/GetBiography?id=BU4\n{\n    $id: \"1\",\n    Phid: \"BU4\",\n    PersonFk: 1090,\n    AdbLink: null,\n    Biography: null,\n    FamilyRelationship: [\n        {\n            $id: \"2\",\n            Id: 5,\n            Relationship: \"Father\",\n            Phid: \"XJ6\",\n            DisplayName: \"ANTHONY, the Hon. Lawrence (Larry) James, AO\"\n        },\n        {\n            $id: \"3\",\n            Id: 3,\n            Relationship: \"Son\",\n            Phid: \"JLZ\",\n            DisplayName: \"ANTHONY, the Hon. Hubert Lawrence\"\n        }\n    ]\n}",
+    "crumbs": [
+      "Home",
+      "Hansard",
+      "Related resources",
+      "Parliamentary Handbook API"
+    ]
+  },
+  {
+    "objectID": "hansard/resources/parliamentary-handbook-api.html#ministries",
+    "href": "hansard/resources/parliamentary-handbook-api.html#ministries",
+    "title": "Parliamentary Handbook API",
+    "section": "Ministries",
+    "text": "Ministries\nhttps://handbookapi.aph.gov.au/api/ministries?Select=MID,DateStart,DateEnd\nhttps://handbookapi.aph.gov.au/api/shadowministries?Select=SMID,DateStart,DateEnd",
     "crumbs": [
       "Home",
       "Hansard",
@@ -241,7 +254,7 @@
     "href": "hansard/resources/parliamentary-handbook-api.html#elections",
     "title": "Parliamentary Handbook API",
     "section": "Elections",
-    "text": "Elections\nAll federal elections: https://handbookapi.aph.gov.au/api/Elections/Elections\n\nIndividual elections\nSummary: https://handbookapi.aph.gov.au/api/Elections/Election?electionId=202 House results by division: https://handbookapi.aph.gov.au/api/Elections/Divisions?state=&year=1901 Members elected: https://handbookapi.aph.gov.au/api/Elections/MembersElected?year=1901 Senators elected: https://handbookapi.aph.gov.au/api/Elections/SenatorsElected?year=1901\nThere’s also detailed results by division, but the amount of data seems to vary.",
+    "text": "Elections\nAll federal elections: https://handbookapi.aph.gov.au/api/Elections/Elections\n\nIndividual elections\nSummary: https://handbookapi.aph.gov.au/api/Elections/Election?electionId=202\nHouse results by division: https://handbookapi.aph.gov.au/api/Elections/Divisions?state=&year=1901\nMembers elected: https://handbookapi.aph.gov.au/api/Elections/MembersElected?year=1901\nSenators elected: https://handbookapi.aph.gov.au/api/Elections/SenatorsElected?year=1901\nThere’s also detailed results by division, but the amount of data seems to vary.",
     "crumbs": [
       "Home",
       "Hansard",
@@ -254,7 +267,7 @@
     "href": "hansard/resources/parliamentary-handbook-api.html#electorates",
     "title": "Parliamentary Handbook API",
     "section": "Electorates",
-    "text": "Electorates\nAll electorates: https://handbookapi.aph.gov.au/api/electorates?$select=EID,Electorate,State,Established,Ceased,Origin,Notes&apply=$filter=Electorate%20ne%20%27%27\nEach individual electorate has set of maps showing redistributions. The dates are here: https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps?electorate=Adelaide&state=South%20Australia\nBut if you request an individual map the geodata is KML encoded as base64.\nSo it should be possible to compile a complete set of historical electorate maps…\n\nimport requests\nfrom pathlib import Path\nimport time\nfrom decodify import decode_message\n\nresponse = requests.get(\"https://handbookapi.aph.gov.au/api/electorates?$select=EID,Electorate,State,Established,Ceased,Origin,Notes&apply=$filter=Electorate%20ne%20%27%27\")\n\n\ndata = response.json()\nelectorates = data[\"value\"]\n\nfor electorate in electorates:\n    name = electorate[\"Electorate\"]\n    state = electorate[\"State\"]\n    response = requests.get(\"https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps\", params={\"electorate\": name, \"state\": state})\n    maps = response.json()\n    for emap in maps:\n        response = requests.get(\"https://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMap\", params = {\"id\": emap[\"Id\"]})\n        geo_data = response.json()\n        kml, probabilities = decode_message(geo_data[\"GeoData\"])\n        file_name = f\"{name}_{state.replace(\" \", \"-\")}_{emap[\"Id\"]}_{emap[\"DateFrom\"]}-{emap[\"DateTo\"]}.kml\"\n        Path(\"kml\", file_name).write_text(kml)\n        time.sleep(5)\n    time.sleep(10)",
+    "text": "Electorates\nAll electorates: https://handbookapi.aph.gov.au/api/electorates?$filter=Electorate%20ne%20%27%27\nEach individual electorate has set of maps showing redistributions. The dates are here:\nhttps://handbookapi.aph.gov.au/api/ElectorateMaps/ElectorateMaps?electorate=Adelaide&state=South%20Australia\nBut if you request an individual map the geodata is KML encoded as base64.\nSee: https://updates.timsherratt.org/2026/09/15/a-complete-set-of-historical.html",
     "crumbs": [
       "Home",
       "Hansard",
