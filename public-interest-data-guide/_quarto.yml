@@ -45,6 +45,8 @@ website:
               - hansard/tutorials/aliens-and-immigrants.ipynb
           - section: How to
             contents:
+              - hansard/how-to/find-ministry-by-date.ipynb
+              - hansard/how-to/create-a-list-of-governments.ipynb
               - hansard/how-to/compile-dataset.ipynb
       - section: Inquiries
         contents:
