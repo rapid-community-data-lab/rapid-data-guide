@@ -601,7 +601,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="c15d42f4-982a-424e-b66a-de45ca8f3b05" class="cell" data-execution_count="24">
+<div id="c15d42f4-982a-424e-b66a-de45ca8f3b05" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_min <span class="op">=</span> pd.read_json(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://handbookapi.aph.gov.au/api/StatisticalInformation/Ministries"</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    convert_dates<span class="op">=</span>[<span class="st">"DateStart"</span>, <span class="st">"DateEnd"</span>],</span>
@@ -615,7 +615,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    axis<span class="op">=</span><span class="dv">1</span>,</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="982b23f1-3b9e-4dfb-928e-afb3f0090158" class="cell" data-execution_count="25">
+<div id="982b23f1-3b9e-4dfb-928e-afb3f0090158" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pm_data <span class="op">=</span> requests.get(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://handbookapi.aph.gov.au/api/HistoricalInformation/PrimeMinisters"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>).json()</span>
@@ -638,20 +638,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                <span class="st">"phid"</span>: mini.LeaderPHID,</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                <span class="st">"pm"</span>: pms[mini.LeaderPHID][<span class="st">"DisplayName"</span>],</span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                <span class="st">"party"</span>: mini.party,</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">"parties"</span>: mini.parties,</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                <span class="st">"start_date"</span>: mini.DateStart.date().isoformat(),</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update values</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    current_end <span class="op">=</span> mini.DateEnd.date().isoformat()</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    current_party <span class="op">=</span> mini.party</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    current_pm <span class="op">=</span> mini.LeaderPHID</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                <span class="st">"start_date"</span>: mini.DateStart.date().isoformat(),</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update values</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    current_end <span class="op">=</span> mini.DateEnd.date().isoformat()</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    current_party <span class="op">=</span> mini.party</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    current_pm <span class="op">=</span> mini.LeaderPHID</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="53a1e979-152e-4ec3-b33a-638e9fc33823" class="cell" data-execution_count="26">
+<div id="53a1e979-152e-4ec3-b33a-638e9fc33823" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_govs <span class="op">=</span> pd.DataFrame(governments)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_govs.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <div>
 
 
@@ -662,7 +661,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">phid</th>
 <th data-quarto-table-cell-role="th">pm</th>
 <th data-quarto-table-cell-role="th">party</th>
-<th data-quarto-table-cell-role="th">parties</th>
 <th data-quarto-table-cell-role="th">start_date</th>
 <th data-quarto-table-cell-role="th">end_date</th>
 </tr>
@@ -673,7 +671,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>009LR</td>
 <td>BARTON, the Rt. Hon. Sir Edmund, GCMG, KC</td>
 <td>Non-Labor</td>
-<td></td>
 <td>1901-01-01</td>
 <td>1903-09-24</td>
 </tr>
@@ -682,7 +679,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>009MD</td>
 <td>DEAKIN, the Hon. Alfred</td>
 <td>Non-Labor</td>
-<td>Free Trade | Protectionist Party</td>
 <td>1903-09-24</td>
 <td>1904-04-27</td>
 </tr>
@@ -691,7 +687,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>F4R</td>
 <td>WATSON, the Hon. John (Chris) Christian</td>
 <td>Labor</td>
-<td>Australian Labor Party | Protectionist Party</td>
 <td>1904-04-27</td>
 <td>1904-08-18</td>
 </tr>
@@ -700,7 +695,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>F4P</td>
 <td>REID, the Rt. Hon. Sir George Houstoun, GCB, G...</td>
 <td>Non-Labor</td>
-<td>Anti-Socialist Party | Free Trade | Protection...</td>
 <td>1904-08-18</td>
 <td>1905-07-05</td>
 </tr>
@@ -709,7 +703,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>009MD</td>
 <td>DEAKIN, the Hon. Alfred</td>
 <td>Non-Labor</td>
-<td>Protectionist Party | Western Australia Party</td>
 <td>1905-07-05</td>
 <td>1908-11-13</td>
 </tr>
@@ -719,12 +712,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="39894fa8-bcf5-48a5-8523-e7b82fdc3a68" class="cell" data-execution_count="27">
+<div id="39894fa8-bcf5-48a5-8523-e7b82fdc3a68" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_govs.to_csv(<span class="st">"governments.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="list-governments-showing-number-of-days-in-office" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="list-governments-showing-number-of-days-in-office">List governments showing number of days in office</h2>
-<div id="43282d5d-cb53-49e0-84a2-9a260a52f69a" class="cell" data-execution_count="22">
+<div id="43282d5d-cb53-49e0-84a2-9a260a52f69a" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure dates are datetime objects</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_govs[<span class="st">"start_date"</span>] <span class="op">=</span> pd.to_datetime(df_govs[<span class="st">"start_date"</span>])</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df_govs[<span class="st">"end_date"</span>] <span class="op">=</span> pd.to_datetime(df_govs[<span class="st">"end_date"</span>])</span>
@@ -740,475 +733,471 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Style and display the dataframe, including a built-in bar chart</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>df_govs.style.bar(subset<span class="op">=</span>[<span class="st">"days_in_office"</span>], color<span class="op">=</span><span class="st">"#d65f5f"</span>).<span class="bu">format</span>(</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"start_date"</span>: <span class="st">"{:%Y-%m-</span><span class="sc">%d</span><span class="st">}"</span>, <span class="st">"end_date"</span>: <span class="st">"{:%Y-%m-</span><span class="sc">%d</span><span class="st">}"</span>}</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"start_date"</span>: <span class="st">"{:%Y-%m-</span><span class="sc">%d</span><span class="st">}"</span>, <span class="st">"end_date"</span>: <span class="st">"{:%Y-%m-</span><span class="sc">%d</span><span class="st">}"</span>, <span class="st">"days_in_office"</span>: <span class="st">"</span><span class="sc">{:,}</span><span class="st">"</span>}</span>
 <span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>).hide()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cell-fig-governments-days" class="cell column-page-inset" data-execution_count="17">
-<div id="fig-governments-days" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="17">
+<div id="cell-fig-governments-days" class="cell column-page-inset" data-execution_count="37">
+<div id="fig-governments-days" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="37">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-governments-days-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <style type="text/css">
-#T_201a6_row0_col5 {
+#T_adad1_row0_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 16.9%, transparent 16.9%);
 }
-#T_201a6_row1_col5 {
+#T_adad1_row1_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 3.7%, transparent 3.7%);
 }
-#T_201a6_row2_col5 {
+#T_adad1_row2_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 1.9%, transparent 1.9%);
 }
-#T_201a6_row3_col5 {
+#T_adad1_row3_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 5.5%, transparent 5.5%);
 }
-#T_201a6_row4_col5 {
+#T_adad1_row4_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 20.9%, transparent 20.9%);
 }
-#T_201a6_row5_col5 {
+#T_adad1_row5_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 3.4%, transparent 3.4%);
 }
-#T_201a6_row6_col5 {
+#T_adad1_row6_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 5.6%, transparent 5.6%);
 }
-#T_201a6_row7_col5, #T_201a6_row24_col5 {
+#T_adad1_row7_col5, #T_adad1_row24_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 19.6%, transparent 19.6%);
 }
-#T_201a6_row8_col5 {
+#T_adad1_row8_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 7.7%, transparent 7.7%);
 }
-#T_201a6_row9_col5 {
+#T_adad1_row9_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 6.9%, transparent 6.9%);
 }
-#T_201a6_row10_col5 {
+#T_adad1_row10_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 6.5%, transparent 6.5%);
 }
-#T_201a6_row11_col5 {
+#T_adad1_row11_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 38.7%, transparent 38.7%);
 }
-#T_201a6_row12_col5 {
+#T_adad1_row12_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 41.6%, transparent 41.6%);
 }
-#T_201a6_row13_col5 {
+#T_adad1_row13_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 13.7%, transparent 13.7%);
 }
-#T_201a6_row14_col5 {
+#T_adad1_row14_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 45.0%, transparent 45.0%);
 }
-#T_201a6_row15_col5 {
+#T_adad1_row15_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 0.3%, transparent 0.3%);
 }
-#T_201a6_row16_col5 {
+#T_adad1_row16_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 14.6%, transparent 14.6%);
 }
-#T_201a6_row17_col5 {
+#T_adad1_row17_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 0.7%, transparent 0.7%);
 }
-#T_201a6_row18_col5, #T_201a6_row36_col5 {
+#T_adad1_row18_col5, #T_adad1_row36_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 23.3%, transparent 23.3%);
 }
-#T_201a6_row19_col5 {
+#T_adad1_row19_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 0.1%, transparent 0.1%);
 }
-#T_201a6_row20_col5 {
+#T_adad1_row20_col5, #T_adad1_row37_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 27.5%, transparent 27.5%);
 }
-#T_201a6_row21_col5 {
+#T_adad1_row21_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 100.0%, transparent 100.0%);
 }
-#T_201a6_row22_col5 {
+#T_adad1_row22_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 11.8%, transparent 11.8%);
 }
-#T_201a6_row23_col5 {
+#T_adad1_row23_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 0.4%, transparent 0.4%);
 }
-#T_201a6_row25_col5 {
+#T_adad1_row25_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 10.8%, transparent 10.8%);
 }
-#T_201a6_row26_col5 {
+#T_adad1_row26_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 18.2%, transparent 18.2%);
 }
-#T_201a6_row27_col5 {
+#T_adad1_row27_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 45.5%, transparent 45.5%);
 }
-#T_201a6_row28_col5 {
+#T_adad1_row28_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 54.5%, transparent 54.5%);
 }
-#T_201a6_row29_col5 {
+#T_adad1_row29_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 26.2%, transparent 26.2%);
 }
-#T_201a6_row30_col5 {
+#T_adad1_row30_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 72.8%, transparent 72.8%);
 }
-#T_201a6_row31_col5 {
+#T_adad1_row31_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 15.9%, transparent 15.9%);
 }
-#T_201a6_row32_col5 {
+#T_adad1_row32_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 18.7%, transparent 18.7%);
 }
-#T_201a6_row33_col5 {
+#T_adad1_row33_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 1.4%, transparent 1.4%);
 }
-#T_201a6_row34_col5 {
+#T_adad1_row34_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 12.4%, transparent 12.4%);
 }
-#T_201a6_row35_col5 {
+#T_adad1_row35_col5 {
   width: 10em;
   background: linear-gradient(90deg, #d65f5f 18.3%, transparent 18.3%);
 }
-#T_201a6_row37_col5 {
-  width: 10em;
-  background: linear-gradient(90deg, #d65f5f 27.4%, transparent 27.4%);
-}
 </style>
 
-<table id="T_201a6" class="caption-top table table-sm table-striped small">
+<table id="T_adad1" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_201a6_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">phid</th>
-<th id="T_201a6_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">pm</th>
-<th id="T_201a6_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">start_date</th>
-<th id="T_201a6_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">party</th>
-<th id="T_201a6_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">end_date</th>
-<th id="T_201a6_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">days_in_office</th>
+<th id="T_adad1_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">phid</th>
+<th id="T_adad1_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">pm</th>
+<th id="T_adad1_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">party</th>
+<th id="T_adad1_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">start_date</th>
+<th id="T_adad1_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">end_date</th>
+<th id="T_adad1_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">days_in_office</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_201a6_row0_col0" class="data row0 col0">009LR</td>
-<td id="T_201a6_row0_col1" class="data row0 col1">BARTON, the Rt. Hon. Sir Edmund, GCMG, KC</td>
-<td id="T_201a6_row0_col2" class="data row0 col2">1901-01-01</td>
-<td id="T_201a6_row0_col3" class="data row0 col3">Non-Labor</td>
-<td id="T_201a6_row0_col4" class="data row0 col4">1903-09-24</td>
-<td id="T_201a6_row0_col5" class="data row0 col5">996</td>
+<td id="T_adad1_row0_col0" class="data row0 col0">009LR</td>
+<td id="T_adad1_row0_col1" class="data row0 col1">BARTON, the Rt. Hon. Sir Edmund, GCMG, KC</td>
+<td id="T_adad1_row0_col2" class="data row0 col2">Non-Labor</td>
+<td id="T_adad1_row0_col3" class="data row0 col3">1901-01-01</td>
+<td id="T_adad1_row0_col4" class="data row0 col4">1903-09-24</td>
+<td id="T_adad1_row0_col5" class="data row0 col5">996</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row1_col0" class="data row1 col0">009MD</td>
-<td id="T_201a6_row1_col1" class="data row1 col1">DEAKIN, the Hon. Alfred</td>
-<td id="T_201a6_row1_col2" class="data row1 col2">1903-09-24</td>
-<td id="T_201a6_row1_col3" class="data row1 col3">Non-Labor</td>
-<td id="T_201a6_row1_col4" class="data row1 col4">1904-04-27</td>
-<td id="T_201a6_row1_col5" class="data row1 col5">216</td>
+<td id="T_adad1_row1_col0" class="data row1 col0">009MD</td>
+<td id="T_adad1_row1_col1" class="data row1 col1">DEAKIN, the Hon. Alfred</td>
+<td id="T_adad1_row1_col2" class="data row1 col2">Non-Labor</td>
+<td id="T_adad1_row1_col3" class="data row1 col3">1903-09-24</td>
+<td id="T_adad1_row1_col4" class="data row1 col4">1904-04-27</td>
+<td id="T_adad1_row1_col5" class="data row1 col5">216</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row2_col0" class="data row2 col0">F4R</td>
-<td id="T_201a6_row2_col1" class="data row2 col1">WATSON, the Hon. John (Chris) Christian</td>
-<td id="T_201a6_row2_col2" class="data row2 col2">1904-04-27</td>
-<td id="T_201a6_row2_col3" class="data row2 col3">Labor</td>
-<td id="T_201a6_row2_col4" class="data row2 col4">1904-08-18</td>
-<td id="T_201a6_row2_col5" class="data row2 col5">113</td>
+<td id="T_adad1_row2_col0" class="data row2 col0">F4R</td>
+<td id="T_adad1_row2_col1" class="data row2 col1">WATSON, the Hon. John (Chris) Christian</td>
+<td id="T_adad1_row2_col2" class="data row2 col2">Labor</td>
+<td id="T_adad1_row2_col3" class="data row2 col3">1904-04-27</td>
+<td id="T_adad1_row2_col4" class="data row2 col4">1904-08-18</td>
+<td id="T_adad1_row2_col5" class="data row2 col5">113</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row3_col0" class="data row3 col0">F4P</td>
-<td id="T_201a6_row3_col1" class="data row3 col1">REID, the Rt. Hon. Sir George Houstoun, GCB, GCMG, KC</td>
-<td id="T_201a6_row3_col2" class="data row3 col2">1904-08-18</td>
-<td id="T_201a6_row3_col3" class="data row3 col3">Non-Labor</td>
-<td id="T_201a6_row3_col4" class="data row3 col4">1905-07-05</td>
-<td id="T_201a6_row3_col5" class="data row3 col5">321</td>
+<td id="T_adad1_row3_col0" class="data row3 col0">F4P</td>
+<td id="T_adad1_row3_col1" class="data row3 col1">REID, the Rt. Hon. Sir George Houstoun, GCB, GCMG, KC</td>
+<td id="T_adad1_row3_col2" class="data row3 col2">Non-Labor</td>
+<td id="T_adad1_row3_col3" class="data row3 col3">1904-08-18</td>
+<td id="T_adad1_row3_col4" class="data row3 col4">1905-07-05</td>
+<td id="T_adad1_row3_col5" class="data row3 col5">321</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row4_col0" class="data row4 col0">009MD</td>
-<td id="T_201a6_row4_col1" class="data row4 col1">DEAKIN, the Hon. Alfred</td>
-<td id="T_201a6_row4_col2" class="data row4 col2">1905-07-05</td>
-<td id="T_201a6_row4_col3" class="data row4 col3">Non-Labor</td>
-<td id="T_201a6_row4_col4" class="data row4 col4">1908-11-13</td>
-<td id="T_201a6_row4_col5" class="data row4 col5">1227</td>
+<td id="T_adad1_row4_col0" class="data row4 col0">009MD</td>
+<td id="T_adad1_row4_col1" class="data row4 col1">DEAKIN, the Hon. Alfred</td>
+<td id="T_adad1_row4_col2" class="data row4 col2">Non-Labor</td>
+<td id="T_adad1_row4_col3" class="data row4 col3">1905-07-05</td>
+<td id="T_adad1_row4_col4" class="data row4 col4">1908-11-13</td>
+<td id="T_adad1_row4_col5" class="data row4 col5">1,227</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row5_col0" class="data row5 col0">F4N</td>
-<td id="T_201a6_row5_col1" class="data row5 col1">FISHER, the Rt. Hon. Andrew</td>
-<td id="T_201a6_row5_col2" class="data row5 col2">1908-11-13</td>
-<td id="T_201a6_row5_col3" class="data row5 col3">Labor</td>
-<td id="T_201a6_row5_col4" class="data row5 col4">1909-06-02</td>
-<td id="T_201a6_row5_col5" class="data row5 col5">201</td>
+<td id="T_adad1_row5_col0" class="data row5 col0">F4N</td>
+<td id="T_adad1_row5_col1" class="data row5 col1">FISHER, the Rt. Hon. Andrew</td>
+<td id="T_adad1_row5_col2" class="data row5 col2">Labor</td>
+<td id="T_adad1_row5_col3" class="data row5 col3">1908-11-13</td>
+<td id="T_adad1_row5_col4" class="data row5 col4">1909-06-02</td>
+<td id="T_adad1_row5_col5" class="data row5 col5">201</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row6_col0" class="data row6 col0">009MD</td>
-<td id="T_201a6_row6_col1" class="data row6 col1">DEAKIN, the Hon. Alfred</td>
-<td id="T_201a6_row6_col2" class="data row6 col2">1909-06-02</td>
-<td id="T_201a6_row6_col3" class="data row6 col3">Non-Labor</td>
-<td id="T_201a6_row6_col4" class="data row6 col4">1910-04-29</td>
-<td id="T_201a6_row6_col5" class="data row6 col5">331</td>
+<td id="T_adad1_row6_col0" class="data row6 col0">009MD</td>
+<td id="T_adad1_row6_col1" class="data row6 col1">DEAKIN, the Hon. Alfred</td>
+<td id="T_adad1_row6_col2" class="data row6 col2">Non-Labor</td>
+<td id="T_adad1_row6_col3" class="data row6 col3">1909-06-02</td>
+<td id="T_adad1_row6_col4" class="data row6 col4">1910-04-29</td>
+<td id="T_adad1_row6_col5" class="data row6 col5">331</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row7_col0" class="data row7 col0">F4N</td>
-<td id="T_201a6_row7_col1" class="data row7 col1">FISHER, the Rt. Hon. Andrew</td>
-<td id="T_201a6_row7_col2" class="data row7 col2">1910-04-29</td>
-<td id="T_201a6_row7_col3" class="data row7 col3">Labor</td>
-<td id="T_201a6_row7_col4" class="data row7 col4">1913-06-24</td>
-<td id="T_201a6_row7_col5" class="data row7 col5">1152</td>
+<td id="T_adad1_row7_col0" class="data row7 col0">F4N</td>
+<td id="T_adad1_row7_col1" class="data row7 col1">FISHER, the Rt. Hon. Andrew</td>
+<td id="T_adad1_row7_col2" class="data row7 col2">Labor</td>
+<td id="T_adad1_row7_col3" class="data row7 col3">1910-04-29</td>
+<td id="T_adad1_row7_col4" class="data row7 col4">1913-06-24</td>
+<td id="T_adad1_row7_col5" class="data row7 col5">1,152</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row8_col0" class="data row8 col0">F4S</td>
-<td id="T_201a6_row8_col1" class="data row8 col1">COOK, the Rt. Hon. Sir Joseph, GCMG</td>
-<td id="T_201a6_row8_col2" class="data row8 col2">1913-06-24</td>
-<td id="T_201a6_row8_col3" class="data row8 col3">Non-Labor</td>
-<td id="T_201a6_row8_col4" class="data row8 col4">1914-09-17</td>
-<td id="T_201a6_row8_col5" class="data row8 col5">450</td>
+<td id="T_adad1_row8_col0" class="data row8 col0">F4S</td>
+<td id="T_adad1_row8_col1" class="data row8 col1">COOK, the Rt. Hon. Sir Joseph, GCMG</td>
+<td id="T_adad1_row8_col2" class="data row8 col2">Non-Labor</td>
+<td id="T_adad1_row8_col3" class="data row8 col3">1913-06-24</td>
+<td id="T_adad1_row8_col4" class="data row8 col4">1914-09-17</td>
+<td id="T_adad1_row8_col5" class="data row8 col5">450</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row9_col0" class="data row9 col0">F4N</td>
-<td id="T_201a6_row9_col1" class="data row9 col1">FISHER, the Rt. Hon. Andrew</td>
-<td id="T_201a6_row9_col2" class="data row9 col2">1914-09-17</td>
-<td id="T_201a6_row9_col3" class="data row9 col3">Labor</td>
-<td id="T_201a6_row9_col4" class="data row9 col4">1915-10-27</td>
-<td id="T_201a6_row9_col5" class="data row9 col5">405</td>
+<td id="T_adad1_row9_col0" class="data row9 col0">F4N</td>
+<td id="T_adad1_row9_col1" class="data row9 col1">FISHER, the Rt. Hon. Andrew</td>
+<td id="T_adad1_row9_col2" class="data row9 col2">Labor</td>
+<td id="T_adad1_row9_col3" class="data row9 col3">1914-09-17</td>
+<td id="T_adad1_row9_col4" class="data row9 col4">1915-10-27</td>
+<td id="T_adad1_row9_col5" class="data row9 col5">405</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row10_col0" class="data row10 col0">DQC</td>
-<td id="T_201a6_row10_col1" class="data row10 col1">HUGHES, the Rt. Hon. William (Billy) Morris, CH QC</td>
-<td id="T_201a6_row10_col2" class="data row10 col2">1915-10-27</td>
-<td id="T_201a6_row10_col3" class="data row10 col3">Labor</td>
-<td id="T_201a6_row10_col4" class="data row10 col4">1916-11-14</td>
-<td id="T_201a6_row10_col5" class="data row10 col5">384</td>
+<td id="T_adad1_row10_col0" class="data row10 col0">DQC</td>
+<td id="T_adad1_row10_col1" class="data row10 col1">HUGHES, the Rt. Hon. William (Billy) Morris, CH QC</td>
+<td id="T_adad1_row10_col2" class="data row10 col2">Labor</td>
+<td id="T_adad1_row10_col3" class="data row10 col3">1915-10-27</td>
+<td id="T_adad1_row10_col4" class="data row10 col4">1916-11-14</td>
+<td id="T_adad1_row10_col5" class="data row10 col5">384</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row11_col0" class="data row11 col0">DQC</td>
-<td id="T_201a6_row11_col1" class="data row11 col1">HUGHES, the Rt. Hon. William (Billy) Morris, CH QC</td>
-<td id="T_201a6_row11_col2" class="data row11 col2">1916-11-14</td>
-<td id="T_201a6_row11_col3" class="data row11 col3">Non-Labor</td>
-<td id="T_201a6_row11_col4" class="data row11 col4">1923-02-09</td>
-<td id="T_201a6_row11_col5" class="data row11 col5">2278</td>
+<td id="T_adad1_row11_col0" class="data row11 col0">DQC</td>
+<td id="T_adad1_row11_col1" class="data row11 col1">HUGHES, the Rt. Hon. William (Billy) Morris, CH QC</td>
+<td id="T_adad1_row11_col2" class="data row11 col2">Non-Labor</td>
+<td id="T_adad1_row11_col3" class="data row11 col3">1916-11-14</td>
+<td id="T_adad1_row11_col4" class="data row11 col4">1923-02-09</td>
+<td id="T_adad1_row11_col5" class="data row11 col5">2,278</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row12_col0" class="data row12 col0">F4B</td>
-<td id="T_201a6_row12_col1" class="data row12 col1">BRUCE, the Rt. Hon. Stanley Melbourne, CH, MC</td>
-<td id="T_201a6_row12_col2" class="data row12 col2">1923-02-09</td>
-<td id="T_201a6_row12_col3" class="data row12 col3">Non-Labor</td>
-<td id="T_201a6_row12_col4" class="data row12 col4">1929-10-22</td>
-<td id="T_201a6_row12_col5" class="data row12 col5">2447</td>
+<td id="T_adad1_row12_col0" class="data row12 col0">F4B</td>
+<td id="T_adad1_row12_col1" class="data row12 col1">BRUCE, the Rt. Hon. Stanley Melbourne, CH, MC</td>
+<td id="T_adad1_row12_col2" class="data row12 col2">Non-Labor</td>
+<td id="T_adad1_row12_col3" class="data row12 col3">1923-02-09</td>
+<td id="T_adad1_row12_col4" class="data row12 col4">1929-10-22</td>
+<td id="T_adad1_row12_col5" class="data row12 col5">2,447</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row13_col0" class="data row13 col0">F4Q</td>
-<td id="T_201a6_row13_col1" class="data row13 col1">SCULLIN, the Rt. Hon. James Henry</td>
-<td id="T_201a6_row13_col2" class="data row13 col2">1929-10-22</td>
-<td id="T_201a6_row13_col3" class="data row13 col3">Labor</td>
-<td id="T_201a6_row13_col4" class="data row13 col4">1932-01-06</td>
-<td id="T_201a6_row13_col5" class="data row13 col5">806</td>
+<td id="T_adad1_row13_col0" class="data row13 col0">F4Q</td>
+<td id="T_adad1_row13_col1" class="data row13 col1">SCULLIN, the Rt. Hon. James Henry</td>
+<td id="T_adad1_row13_col2" class="data row13 col2">Labor</td>
+<td id="T_adad1_row13_col3" class="data row13 col3">1929-10-22</td>
+<td id="T_adad1_row13_col4" class="data row13 col4">1932-01-06</td>
+<td id="T_adad1_row13_col5" class="data row13 col5">806</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row14_col0" class="data row14 col0">F4O</td>
-<td id="T_201a6_row14_col1" class="data row14 col1">LYONS, the Rt. Hon. Joseph Aloysius, CH</td>
-<td id="T_201a6_row14_col2" class="data row14 col2">1932-01-06</td>
-<td id="T_201a6_row14_col3" class="data row14 col3">Non-Labor</td>
-<td id="T_201a6_row14_col4" class="data row14 col4">1939-04-07</td>
-<td id="T_201a6_row14_col5" class="data row14 col5">2648</td>
+<td id="T_adad1_row14_col0" class="data row14 col0">F4O</td>
+<td id="T_adad1_row14_col1" class="data row14 col1">LYONS, the Rt. Hon. Joseph Aloysius, CH</td>
+<td id="T_adad1_row14_col2" class="data row14 col2">Non-Labor</td>
+<td id="T_adad1_row14_col3" class="data row14 col3">1932-01-06</td>
+<td id="T_adad1_row14_col4" class="data row14 col4">1939-04-07</td>
+<td id="T_adad1_row14_col5" class="data row14 col5">2,648</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row15_col0" class="data row15 col0">C7E</td>
-<td id="T_201a6_row15_col1" class="data row15 col1">PAGE, the Rt. Hon. Sir Earle Christmas Grafton, GCMG, CH</td>
-<td id="T_201a6_row15_col2" class="data row15 col2">1939-04-07</td>
-<td id="T_201a6_row15_col3" class="data row15 col3">Non-Labor</td>
-<td id="T_201a6_row15_col4" class="data row15 col4">1939-04-26</td>
-<td id="T_201a6_row15_col5" class="data row15 col5">19</td>
+<td id="T_adad1_row15_col0" class="data row15 col0">C7E</td>
+<td id="T_adad1_row15_col1" class="data row15 col1">PAGE, the Rt. Hon. Sir Earle Christmas Grafton, GCMG, CH</td>
+<td id="T_adad1_row15_col2" class="data row15 col2">Non-Labor</td>
+<td id="T_adad1_row15_col3" class="data row15 col3">1939-04-07</td>
+<td id="T_adad1_row15_col4" class="data row15 col4">1939-04-26</td>
+<td id="T_adad1_row15_col5" class="data row15 col5">19</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row16_col0" class="data row16 col0">N76</td>
-<td id="T_201a6_row16_col1" class="data row16 col1">MENZIES, the Rt. Hon. Sir Robert Gordon, KT, CH, QC</td>
-<td id="T_201a6_row16_col2" class="data row16 col2">1939-04-26</td>
-<td id="T_201a6_row16_col3" class="data row16 col3">Non-Labor</td>
-<td id="T_201a6_row16_col4" class="data row16 col4">1941-08-29</td>
-<td id="T_201a6_row16_col5" class="data row16 col5">856</td>
+<td id="T_adad1_row16_col0" class="data row16 col0">N76</td>
+<td id="T_adad1_row16_col1" class="data row16 col1">MENZIES, the Rt. Hon. Sir Robert Gordon, KT, CH, QC</td>
+<td id="T_adad1_row16_col2" class="data row16 col2">Non-Labor</td>
+<td id="T_adad1_row16_col3" class="data row16 col3">1939-04-26</td>
+<td id="T_adad1_row16_col4" class="data row16 col4">1941-08-29</td>
+<td id="T_adad1_row16_col5" class="data row16 col5">856</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row17_col0" class="data row17 col0">F4T</td>
-<td id="T_201a6_row17_col1" class="data row17 col1">FADDEN, the Rt. Hon. Sir Arthur William, KCMG</td>
-<td id="T_201a6_row17_col2" class="data row17 col2">1941-08-29</td>
-<td id="T_201a6_row17_col3" class="data row17 col3">Non-Labor</td>
-<td id="T_201a6_row17_col4" class="data row17 col4">1941-10-07</td>
-<td id="T_201a6_row17_col5" class="data row17 col5">39</td>
+<td id="T_adad1_row17_col0" class="data row17 col0">F4T</td>
+<td id="T_adad1_row17_col1" class="data row17 col1">FADDEN, the Rt. Hon. Sir Arthur William, KCMG</td>
+<td id="T_adad1_row17_col2" class="data row17 col2">Non-Labor</td>
+<td id="T_adad1_row17_col3" class="data row17 col3">1941-08-29</td>
+<td id="T_adad1_row17_col4" class="data row17 col4">1941-10-07</td>
+<td id="T_adad1_row17_col5" class="data row17 col5">39</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row18_col0" class="data row18 col0">009FQ</td>
-<td id="T_201a6_row18_col1" class="data row18 col1">CURTIN, the Rt. Hon. John</td>
-<td id="T_201a6_row18_col2" class="data row18 col2">1941-10-07</td>
-<td id="T_201a6_row18_col3" class="data row18 col3">Labor</td>
-<td id="T_201a6_row18_col4" class="data row18 col4">1945-07-06</td>
-<td id="T_201a6_row18_col5" class="data row18 col5">1368</td>
+<td id="T_adad1_row18_col0" class="data row18 col0">009FQ</td>
+<td id="T_adad1_row18_col1" class="data row18 col1">CURTIN, the Rt. Hon. John</td>
+<td id="T_adad1_row18_col2" class="data row18 col2">Labor</td>
+<td id="T_adad1_row18_col3" class="data row18 col3">1941-10-07</td>
+<td id="T_adad1_row18_col4" class="data row18 col4">1945-07-06</td>
+<td id="T_adad1_row18_col5" class="data row18 col5">1,368</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row19_col0" class="data row19 col0">F4U</td>
-<td id="T_201a6_row19_col1" class="data row19 col1">FORDE, the Rt. Hon. Francis Michael</td>
-<td id="T_201a6_row19_col2" class="data row19 col2">1945-07-06</td>
-<td id="T_201a6_row19_col3" class="data row19 col3">Labor</td>
-<td id="T_201a6_row19_col4" class="data row19 col4">1945-07-13</td>
-<td id="T_201a6_row19_col5" class="data row19 col5">7</td>
+<td id="T_adad1_row19_col0" class="data row19 col0">F4U</td>
+<td id="T_adad1_row19_col1" class="data row19 col1">FORDE, the Rt. Hon. Francis Michael</td>
+<td id="T_adad1_row19_col2" class="data row19 col2">Labor</td>
+<td id="T_adad1_row19_col3" class="data row19 col3">1945-07-06</td>
+<td id="T_adad1_row19_col4" class="data row19 col4">1945-07-13</td>
+<td id="T_adad1_row19_col5" class="data row19 col5">7</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row20_col0" class="data row20 col0">A48</td>
-<td id="T_201a6_row20_col1" class="data row20 col1">CHIFLEY, the Hon. Joseph (Ben) Benedict</td>
-<td id="T_201a6_row20_col2" class="data row20 col2">1945-07-13</td>
-<td id="T_201a6_row20_col3" class="data row20 col3">Labor</td>
-<td id="T_201a6_row20_col4" class="data row20 col4">1949-12-19</td>
-<td id="T_201a6_row20_col5" class="data row20 col5">1620</td>
+<td id="T_adad1_row20_col0" class="data row20 col0">A48</td>
+<td id="T_adad1_row20_col1" class="data row20 col1">CHIFLEY, the Hon. Joseph (Ben) Benedict</td>
+<td id="T_adad1_row20_col2" class="data row20 col2">Labor</td>
+<td id="T_adad1_row20_col3" class="data row20 col3">1945-07-13</td>
+<td id="T_adad1_row20_col4" class="data row20 col4">1949-12-19</td>
+<td id="T_adad1_row20_col5" class="data row20 col5">1,620</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row21_col0" class="data row21 col0">N76</td>
-<td id="T_201a6_row21_col1" class="data row21 col1">MENZIES, the Rt. Hon. Sir Robert Gordon, KT, CH, QC</td>
-<td id="T_201a6_row21_col2" class="data row21 col2">1949-12-19</td>
-<td id="T_201a6_row21_col3" class="data row21 col3">Non-Labor</td>
-<td id="T_201a6_row21_col4" class="data row21 col4">1966-01-26</td>
-<td id="T_201a6_row21_col5" class="data row21 col5">5882</td>
+<td id="T_adad1_row21_col0" class="data row21 col0">N76</td>
+<td id="T_adad1_row21_col1" class="data row21 col1">MENZIES, the Rt. Hon. Sir Robert Gordon, KT, CH, QC</td>
+<td id="T_adad1_row21_col2" class="data row21 col2">Non-Labor</td>
+<td id="T_adad1_row21_col3" class="data row21 col3">1949-12-19</td>
+<td id="T_adad1_row21_col4" class="data row21 col4">1966-01-26</td>
+<td id="T_adad1_row21_col5" class="data row21 col5">5,882</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row22_col0" class="data row22 col0">009MC</td>
-<td id="T_201a6_row22_col1" class="data row22 col1">HOLT, the Rt. Hon. Harold Edward, CH</td>
-<td id="T_201a6_row22_col2" class="data row22 col2">1966-01-26</td>
-<td id="T_201a6_row22_col3" class="data row22 col3">Non-Labor</td>
-<td id="T_201a6_row22_col4" class="data row22 col4">1967-12-19</td>
-<td id="T_201a6_row22_col5" class="data row22 col5">692</td>
+<td id="T_adad1_row22_col0" class="data row22 col0">009MC</td>
+<td id="T_adad1_row22_col1" class="data row22 col1">HOLT, the Rt. Hon. Harold Edward, CH</td>
+<td id="T_adad1_row22_col2" class="data row22 col2">Non-Labor</td>
+<td id="T_adad1_row22_col3" class="data row22 col3">1966-01-26</td>
+<td id="T_adad1_row22_col4" class="data row22 col4">1967-12-19</td>
+<td id="T_adad1_row22_col5" class="data row22 col5">692</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row23_col0" class="data row23 col0">009MB</td>
-<td id="T_201a6_row23_col1" class="data row23 col1">McEWEN, the Rt. Hon. John, GCMG, CH</td>
-<td id="T_201a6_row23_col2" class="data row23 col2">1967-12-19</td>
-<td id="T_201a6_row23_col3" class="data row23 col3">Non-Labor</td>
-<td id="T_201a6_row23_col4" class="data row23 col4">1968-01-10</td>
-<td id="T_201a6_row23_col5" class="data row23 col5">22</td>
+<td id="T_adad1_row23_col0" class="data row23 col0">009MB</td>
+<td id="T_adad1_row23_col1" class="data row23 col1">McEWEN, the Rt. Hon. John, GCMG, CH</td>
+<td id="T_adad1_row23_col2" class="data row23 col2">Non-Labor</td>
+<td id="T_adad1_row23_col3" class="data row23 col3">1967-12-19</td>
+<td id="T_adad1_row23_col4" class="data row23 col4">1968-01-10</td>
+<td id="T_adad1_row23_col5" class="data row23 col5">22</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row24_col0" class="data row24 col0">KH5</td>
-<td id="T_201a6_row24_col1" class="data row24 col1">GORTON, the Rt. Hon. John Grey, GCMG, AC, CH</td>
-<td id="T_201a6_row24_col2" class="data row24 col2">1968-01-10</td>
-<td id="T_201a6_row24_col3" class="data row24 col3">Non-Labor</td>
-<td id="T_201a6_row24_col4" class="data row24 col4">1971-03-10</td>
-<td id="T_201a6_row24_col5" class="data row24 col5">1155</td>
+<td id="T_adad1_row24_col0" class="data row24 col0">KH5</td>
+<td id="T_adad1_row24_col1" class="data row24 col1">GORTON, the Rt. Hon. John Grey, GCMG, AC, CH</td>
+<td id="T_adad1_row24_col2" class="data row24 col2">Non-Labor</td>
+<td id="T_adad1_row24_col3" class="data row24 col3">1968-01-10</td>
+<td id="T_adad1_row24_col4" class="data row24 col4">1971-03-10</td>
+<td id="T_adad1_row24_col5" class="data row24 col5">1,155</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row25_col0" class="data row25 col0">009MA</td>
-<td id="T_201a6_row25_col1" class="data row25 col1">McMAHON, the Rt. Hon. Sir William (Billy), GCMG, CH</td>
-<td id="T_201a6_row25_col2" class="data row25 col2">1971-03-10</td>
-<td id="T_201a6_row25_col3" class="data row25 col3">Non-Labor</td>
-<td id="T_201a6_row25_col4" class="data row25 col4">1972-12-05</td>
-<td id="T_201a6_row25_col5" class="data row25 col5">636</td>
+<td id="T_adad1_row25_col0" class="data row25 col0">009MA</td>
+<td id="T_adad1_row25_col1" class="data row25 col1">McMAHON, the Rt. Hon. Sir William (Billy), GCMG, CH</td>
+<td id="T_adad1_row25_col2" class="data row25 col2">Non-Labor</td>
+<td id="T_adad1_row25_col3" class="data row25 col3">1971-03-10</td>
+<td id="T_adad1_row25_col4" class="data row25 col4">1972-12-05</td>
+<td id="T_adad1_row25_col5" class="data row25 col5">636</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row26_col0" class="data row26 col0">6U4</td>
-<td id="T_201a6_row26_col1" class="data row26 col1">WHITLAM, the Hon. Edward (Gough) Gough, AC, QC</td>
-<td id="T_201a6_row26_col2" class="data row26 col2">1972-12-05</td>
-<td id="T_201a6_row26_col3" class="data row26 col3">Labor</td>
-<td id="T_201a6_row26_col4" class="data row26 col4">1975-11-11</td>
-<td id="T_201a6_row26_col5" class="data row26 col5">1071</td>
+<td id="T_adad1_row26_col0" class="data row26 col0">6U4</td>
+<td id="T_adad1_row26_col1" class="data row26 col1">WHITLAM, the Hon. Edward (Gough) Gough, AC, QC</td>
+<td id="T_adad1_row26_col2" class="data row26 col2">Labor</td>
+<td id="T_adad1_row26_col3" class="data row26 col3">1972-12-05</td>
+<td id="T_adad1_row26_col4" class="data row26 col4">1975-11-11</td>
+<td id="T_adad1_row26_col5" class="data row26 col5">1,071</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row27_col0" class="data row27 col0">QS4</td>
-<td id="T_201a6_row27_col1" class="data row27 col1">FRASER, the Rt Hon. John Malcolm, CH, AC</td>
-<td id="T_201a6_row27_col2" class="data row27 col2">1975-11-11</td>
-<td id="T_201a6_row27_col3" class="data row27 col3">Non-Labor</td>
-<td id="T_201a6_row27_col4" class="data row27 col4">1983-03-11</td>
-<td id="T_201a6_row27_col5" class="data row27 col5">2677</td>
+<td id="T_adad1_row27_col0" class="data row27 col0">QS4</td>
+<td id="T_adad1_row27_col1" class="data row27 col1">FRASER, the Rt Hon. John Malcolm, CH, AC</td>
+<td id="T_adad1_row27_col2" class="data row27 col2">Non-Labor</td>
+<td id="T_adad1_row27_col3" class="data row27 col3">1975-11-11</td>
+<td id="T_adad1_row27_col4" class="data row27 col4">1983-03-11</td>
+<td id="T_adad1_row27_col5" class="data row27 col5">2,677</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row28_col0" class="data row28 col0">YD4</td>
-<td id="T_201a6_row28_col1" class="data row28 col1">HAWKE, the Hon. Robert James Lee, AC</td>
-<td id="T_201a6_row28_col2" class="data row28 col2">1983-03-11</td>
-<td id="T_201a6_row28_col3" class="data row28 col3">Labor</td>
-<td id="T_201a6_row28_col4" class="data row28 col4">1991-12-20</td>
-<td id="T_201a6_row28_col5" class="data row28 col5">3206</td>
+<td id="T_adad1_row28_col0" class="data row28 col0">YD4</td>
+<td id="T_adad1_row28_col1" class="data row28 col1">HAWKE, the Hon. Robert James Lee, AC</td>
+<td id="T_adad1_row28_col2" class="data row28 col2">Labor</td>
+<td id="T_adad1_row28_col3" class="data row28 col3">1983-03-11</td>
+<td id="T_adad1_row28_col4" class="data row28 col4">1991-12-20</td>
+<td id="T_adad1_row28_col5" class="data row28 col5">3,206</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row29_col0" class="data row29 col0">NH4</td>
-<td id="T_201a6_row29_col1" class="data row29 col1">KEATING, the Hon. Paul John</td>
-<td id="T_201a6_row29_col2" class="data row29 col2">1991-12-20</td>
-<td id="T_201a6_row29_col3" class="data row29 col3">Labor</td>
-<td id="T_201a6_row29_col4" class="data row29 col4">1996-03-11</td>
-<td id="T_201a6_row29_col5" class="data row29 col5">1543</td>
+<td id="T_adad1_row29_col0" class="data row29 col0">NH4</td>
+<td id="T_adad1_row29_col1" class="data row29 col1">KEATING, the Hon. Paul John</td>
+<td id="T_adad1_row29_col2" class="data row29 col2">Labor</td>
+<td id="T_adad1_row29_col3" class="data row29 col3">1991-12-20</td>
+<td id="T_adad1_row29_col4" class="data row29 col4">1996-03-11</td>
+<td id="T_adad1_row29_col5" class="data row29 col5">1,543</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row30_col0" class="data row30 col0">ZD4</td>
-<td id="T_201a6_row30_col1" class="data row30 col1">HOWARD, the Hon. John Winston, AC</td>
-<td id="T_201a6_row30_col2" class="data row30 col2">1996-03-11</td>
-<td id="T_201a6_row30_col3" class="data row30 col3">Non-Labor</td>
-<td id="T_201a6_row30_col4" class="data row30 col4">2007-12-03</td>
-<td id="T_201a6_row30_col5" class="data row30 col5">4284</td>
+<td id="T_adad1_row30_col0" class="data row30 col0">ZD4</td>
+<td id="T_adad1_row30_col1" class="data row30 col1">HOWARD, the Hon. John Winston, AC</td>
+<td id="T_adad1_row30_col2" class="data row30 col2">Non-Labor</td>
+<td id="T_adad1_row30_col3" class="data row30 col3">1996-03-11</td>
+<td id="T_adad1_row30_col4" class="data row30 col4">2007-12-03</td>
+<td id="T_adad1_row30_col5" class="data row30 col5">4,284</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row31_col0" class="data row31 col0">83T</td>
-<td id="T_201a6_row31_col1" class="data row31 col1">RUDD, the Hon. Dr Kevin Michael, AC</td>
-<td id="T_201a6_row31_col2" class="data row31 col2">2007-12-03</td>
-<td id="T_201a6_row31_col3" class="data row31 col3">Labor</td>
-<td id="T_201a6_row31_col4" class="data row31 col4">2010-06-24</td>
-<td id="T_201a6_row31_col5" class="data row31 col5">934</td>
+<td id="T_adad1_row31_col0" class="data row31 col0">83T</td>
+<td id="T_adad1_row31_col1" class="data row31 col1">RUDD, the Hon. Dr Kevin Michael, AC</td>
+<td id="T_adad1_row31_col2" class="data row31 col2">Labor</td>
+<td id="T_adad1_row31_col3" class="data row31 col3">2007-12-03</td>
+<td id="T_adad1_row31_col4" class="data row31 col4">2010-06-24</td>
+<td id="T_adad1_row31_col5" class="data row31 col5">934</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row32_col0" class="data row32 col0">83L</td>
-<td id="T_201a6_row32_col1" class="data row32 col1">GILLARD, the Hon. Julia Eileen AC</td>
-<td id="T_201a6_row32_col2" class="data row32 col2">2010-06-24</td>
-<td id="T_201a6_row32_col3" class="data row32 col3">Labor</td>
-<td id="T_201a6_row32_col4" class="data row32 col4">2013-06-27</td>
-<td id="T_201a6_row32_col5" class="data row32 col5">1099</td>
+<td id="T_adad1_row32_col0" class="data row32 col0">83L</td>
+<td id="T_adad1_row32_col1" class="data row32 col1">GILLARD, the Hon. Julia Eileen AC</td>
+<td id="T_adad1_row32_col2" class="data row32 col2">Labor</td>
+<td id="T_adad1_row32_col3" class="data row32 col3">2010-06-24</td>
+<td id="T_adad1_row32_col4" class="data row32 col4">2013-06-27</td>
+<td id="T_adad1_row32_col5" class="data row32 col5">1,099</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row33_col0" class="data row33 col0">83T</td>
-<td id="T_201a6_row33_col1" class="data row33 col1">RUDD, the Hon. Dr Kevin Michael, AC</td>
-<td id="T_201a6_row33_col2" class="data row33 col2">2013-06-27</td>
-<td id="T_201a6_row33_col3" class="data row33 col3">Labor</td>
-<td id="T_201a6_row33_col4" class="data row33 col4">2013-09-18</td>
-<td id="T_201a6_row33_col5" class="data row33 col5">83</td>
+<td id="T_adad1_row33_col0" class="data row33 col0">83T</td>
+<td id="T_adad1_row33_col1" class="data row33 col1">RUDD, the Hon. Dr Kevin Michael, AC</td>
+<td id="T_adad1_row33_col2" class="data row33 col2">Labor</td>
+<td id="T_adad1_row33_col3" class="data row33 col3">2013-06-27</td>
+<td id="T_adad1_row33_col4" class="data row33 col4">2013-09-18</td>
+<td id="T_adad1_row33_col5" class="data row33 col5">83</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row34_col0" class="data row34 col0">EZ5</td>
-<td id="T_201a6_row34_col1" class="data row34 col1">ABBOTT, the Hon. Anthony (Tony) John AC</td>
-<td id="T_201a6_row34_col2" class="data row34 col2">2013-09-18</td>
-<td id="T_201a6_row34_col3" class="data row34 col3">Non-Labor</td>
-<td id="T_201a6_row34_col4" class="data row34 col4">2015-09-15</td>
-<td id="T_201a6_row34_col5" class="data row34 col5">727</td>
+<td id="T_adad1_row34_col0" class="data row34 col0">EZ5</td>
+<td id="T_adad1_row34_col1" class="data row34 col1">ABBOTT, the Hon. Anthony (Tony) John AC</td>
+<td id="T_adad1_row34_col2" class="data row34 col2">Non-Labor</td>
+<td id="T_adad1_row34_col3" class="data row34 col3">2013-09-18</td>
+<td id="T_adad1_row34_col4" class="data row34 col4">2015-09-15</td>
+<td id="T_adad1_row34_col5" class="data row34 col5">727</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row35_col0" class="data row35 col0">885</td>
-<td id="T_201a6_row35_col1" class="data row35 col1">TURNBULL, the Hon. Malcolm Bligh, AC</td>
-<td id="T_201a6_row35_col2" class="data row35 col2">2015-09-15</td>
-<td id="T_201a6_row35_col3" class="data row35 col3">Non-Labor</td>
-<td id="T_201a6_row35_col4" class="data row35 col4">2018-08-24</td>
-<td id="T_201a6_row35_col5" class="data row35 col5">1074</td>
+<td id="T_adad1_row35_col0" class="data row35 col0">885</td>
+<td id="T_adad1_row35_col1" class="data row35 col1">TURNBULL, the Hon. Malcolm Bligh, AC</td>
+<td id="T_adad1_row35_col2" class="data row35 col2">Non-Labor</td>
+<td id="T_adad1_row35_col3" class="data row35 col3">2015-09-15</td>
+<td id="T_adad1_row35_col4" class="data row35 col4">2018-08-24</td>
+<td id="T_adad1_row35_col5" class="data row35 col5">1,074</td>
 </tr>
 <tr class="odd">
-<td id="T_201a6_row36_col0" class="data row36 col0">E3L</td>
-<td id="T_201a6_row36_col1" class="data row36 col1">MORRISON, the Hon. Scott John AC</td>
-<td id="T_201a6_row36_col2" class="data row36 col2">2018-08-24</td>
-<td id="T_201a6_row36_col3" class="data row36 col3">Non-Labor</td>
-<td id="T_201a6_row36_col4" class="data row36 col4">2022-05-23</td>
-<td id="T_201a6_row36_col5" class="data row36 col5">1368</td>
+<td id="T_adad1_row36_col0" class="data row36 col0">E3L</td>
+<td id="T_adad1_row36_col1" class="data row36 col1">MORRISON, the Hon. Scott John AC</td>
+<td id="T_adad1_row36_col2" class="data row36 col2">Non-Labor</td>
+<td id="T_adad1_row36_col3" class="data row36 col3">2018-08-24</td>
+<td id="T_adad1_row36_col4" class="data row36 col4">2022-05-23</td>
+<td id="T_adad1_row36_col5" class="data row36 col5">1,368</td>
 </tr>
 <tr class="even">
-<td id="T_201a6_row37_col0" class="data row37 col0">R36</td>
-<td id="T_201a6_row37_col1" class="data row37 col1">ALBANESE, the Hon. Anthony Norman</td>
-<td id="T_201a6_row37_col2" class="data row37 col2">2022-05-23</td>
-<td id="T_201a6_row37_col3" class="data row37 col3">Labor</td>
-<td id="T_201a6_row37_col4" class="data row37 col4">2026-10-22</td>
-<td id="T_201a6_row37_col5" class="data row37 col5">1613</td>
+<td id="T_adad1_row37_col0" class="data row37 col0">R36</td>
+<td id="T_adad1_row37_col1" class="data row37 col1">ALBANESE, the Hon. Anthony Norman</td>
+<td id="T_adad1_row37_col2" class="data row37 col2">Labor</td>
+<td id="T_adad1_row37_col3" class="data row37 col3">2022-05-23</td>
+<td id="T_adad1_row37_col4" class="data row37 col4">2026-10-29</td>
+<td id="T_adad1_row37_col5" class="data row37 col5">1,620</td>
 </tr>
 </tbody>
 </table>
