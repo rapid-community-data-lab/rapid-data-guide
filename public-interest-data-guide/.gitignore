@@ -5,3 +5,9 @@
 hansard/kml/
 Untitled*
 draft*
+*.csv
+*.sqlite
+*.json
+*.zip
+hansard/geojson
+hansard/exp_geojson
